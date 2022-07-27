@@ -9,8 +9,8 @@
 /* Begin PBXBuildFile section */
 		F696340028902C0900548666 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69633FF28902C0900548666 /* AppDelegate.swift */; };
 		F696340228902C0900548666 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F696340128902C0900548666 /* SceneDelegate.swift */; };
-		F696340428902C0900548666 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F696340328902C0900548666 /* ViewController.swift */; };
-		F696340728902C0900548666 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F696340528902C0900548666 /* Main.storyboard */; };
+		F696340428902C0900548666 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F696340328902C0900548666 /* LoginViewController.swift */; };
+		F696340728902C0900548666 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F696340528902C0900548666 /* Login.storyboard */; };
 		F696340928902C0D00548666 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F696340828902C0D00548666 /* Assets.xcassets */; };
 		F696340C28902C0D00548666 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F696340A28902C0D00548666 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -19,8 +19,8 @@
 		F69633FC28902C0900548666 /* InstagramChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstagramChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F69633FF28902C0900548666 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F696340128902C0900548666 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		F696340328902C0900548666 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		F696340628902C0900548666 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F696340328902C0900548666 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		F696340628902C0900548666 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Login.storyboard; sourceTree = "<group>"; };
 		F696340828902C0D00548666 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F696340B28902C0D00548666 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F696340D28902C0D00548666 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -56,13 +56,13 @@
 		F69633FE28902C0900548666 /* InstagramChallenge */ = {
 			isa = PBXGroup;
 			children = (
+				F696340A28902C0D00548666 /* LaunchScreen.storyboard */,
 				F69633FF28902C0900548666 /* AppDelegate.swift */,
 				F696340128902C0900548666 /* SceneDelegate.swift */,
-				F696340328902C0900548666 /* ViewController.swift */,
-				F696340528902C0900548666 /* Main.storyboard */,
 				F696340828902C0D00548666 /* Assets.xcassets */,
-				F696340A28902C0D00548666 /* LaunchScreen.storyboard */,
 				F696340D28902C0D00548666 /* Info.plist */,
+				F696340528902C0900548666 /* Login.storyboard */,
+				F696340328902C0900548666 /* LoginViewController.swift */,
 			);
 			path = InstagramChallenge;
 			sourceTree = "<group>";
@@ -127,7 +127,7 @@
 			files = (
 				F696340C28902C0D00548666 /* LaunchScreen.storyboard in Resources */,
 				F696340928902C0D00548666 /* Assets.xcassets in Resources */,
-				F696340728902C0900548666 /* Main.storyboard in Resources */,
+				F696340728902C0900548666 /* Login.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,7 +138,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F696340428902C0900548666 /* ViewController.swift in Sources */,
+				F696340428902C0900548666 /* LoginViewController.swift in Sources */,
 				F696340028902C0900548666 /* AppDelegate.swift in Sources */,
 				F696340228902C0900548666 /* SceneDelegate.swift in Sources */,
 			);
@@ -147,12 +147,12 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		F696340528902C0900548666 /* Main.storyboard */ = {
+		F696340528902C0900548666 /* Login.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				F696340628902C0900548666 /* Base */,
 			);
-			name = Main.storyboard;
+			name = Login.storyboard;
 			sourceTree = "<group>";
 		};
 		F696340A28902C0D00548666 /* LaunchScreen.storyboard */ = {
@@ -292,19 +292,21 @@
 				INFOPLIST_FILE = InstagramChallenge/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = Login;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.softsquared.gridgeTest.ios.InstagramChallenge.InstagramChallenge;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hanle.InstagramChallenge;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -320,19 +322,21 @@
 				INFOPLIST_FILE = InstagramChallenge/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIMainStoryboardFile = Login;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.softsquared.gridgeTest.ios.InstagramChallenge.InstagramChallenge;
+				PRODUCT_BUNDLE_IDENTIFIER = com.hanle.InstagramChallenge;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
