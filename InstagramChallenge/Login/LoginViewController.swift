@@ -2,19 +2,25 @@
 //  ViewController.swift
 //  InstagramChallenge
 //
-//  Created by 하늘이 on 2022/07/26.
+//  Created by 최하늘 on 2022/07/26.
 //
 
 import UIKit
+import KakaoSDKUser
 
 class LoginViewController: UIViewController {
+    @IBOutlet weak var constraint: NSLayoutConstraint!
 
     @IBOutlet weak var textFieldID: UITextField!
     @IBOutlet weak var textFieldPW: UITextField!
     
     @IBOutlet weak var btnEye: UIButton!
-    @IBOutlet weak var constraint: NSLayoutConstraint!
+    @IBOutlet weak var btnKakao: UIButton!
+    @IBOutlet weak var btnJoin: UIButton!
     
+    let alert = makeAlert("알림", "로그인에 실패하였습니다.", true, "확인")
+    
+    //MARK: 생명주기
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -45,11 +51,16 @@ class LoginViewController: UIViewController {
 
 //MARK: 버튼클릭액션
 extension LoginViewController {
- 
     @IBAction func btnAction(_ btn: UIButton) {
         switch btn {
         case btnEye:
             btnEyeTouchUp(btn)
+            
+        case btnKakao:
+            btnKakaoLogin()
+            
+        case btnJoin:
+            btnJoinAction()
             
         default:
             return
@@ -68,6 +79,19 @@ extension LoginViewController {
             textFieldPW.isSecureTextEntry = false
             
         }
+    }
+    
+    func btnKakaoLogin() {
+        print("??")
+        if UserApi.isKakaoTalkLoginAvailable() {
+            kakaoLoginApp()
+        } else {
+            kakaoLoginWeb()
+        }
+    }
+    
+    func btnJoinAction() {
+        
     }
 }
 
@@ -93,4 +117,49 @@ extension LoginViewController {
     @objc func keyboardHide(notification: NSNotification) {
         self.constraint.constant += 100
     }
+}
+
+//MARK: 카카오톡로그인
+extension LoginViewController {
+    func kakaoLoginApp() {
+        UserApi.shared.loginWithKakaoTalk {(_, error) in
+            if let error = error {
+                print(error)
+                self.present(self.alert, animated: true)
+            } else {
+                print("성공")
+                
+                UserApi.shared.me {(user, error) in
+                    if let error = error {
+                        print(error)
+                        self.present(self.alert, animated: true)
+                    } else {
+                        //아이디체크해서 있으면 이동 없으면 가입으로 이동
+                        print("화면이동")
+                    }
+                }
+            }
+        }
+    }
+    
+    func kakaoLoginWeb() {
+        UserApi.shared.loginWithKakaoAccount {(_, error) in
+            if let error = error {
+                print(error)
+                self.present(self.alert, animated: true)
+            } else {
+                print("성공")
+                UserApi.shared.me {(user, error) in
+                    if let error = error {
+                        print(error)
+                        self.present(self.alert, animated: true)
+                    } else {
+                        //아이디체크해서 있으면 이동 없으면 가입으로 이동
+                        print("화면이동")
+                    }
+                }
+            }
+        }
+    }
+    
 }

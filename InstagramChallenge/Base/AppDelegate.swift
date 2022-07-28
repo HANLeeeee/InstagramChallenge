@@ -2,18 +2,19 @@
 //  AppDelegate.swift
 //  InstagramChallenge
 //
-//  Created by 하늘이 on 2022/07/26.
+//  Created by 최하늘 on 2022/07/26.
 //
 
 import UIKit
+import KakaoSDKCommon
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        KakaoSDK.initSDK(appKey: "89e048a95426b76d48931fe4d287d046")
+        
         return true
     }
 

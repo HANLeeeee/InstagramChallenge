@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		934746EF284D8FDAE7E8D03E /* Pods_InstagramChallenge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 232C4B3E7C73C48E09956F98 /* Pods_InstagramChallenge.framework */; };
+		B19722EC28927EA2002B0B3B /* makeAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19722EB28927EA2002B0B3B /* makeAlert.swift */; };
+		B19722EE28928DD9002B0B3B /* JoinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19722ED28928DD9002B0B3B /* JoinViewController.swift */; };
 		F696340028902C0900548666 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69633FF28902C0900548666 /* AppDelegate.swift */; };
 		F696340228902C0900548666 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F696340128902C0900548666 /* SceneDelegate.swift */; };
 		F696340428902C0900548666 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F696340328902C0900548666 /* LoginViewController.swift */; };
@@ -16,6 +19,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		232C4B3E7C73C48E09956F98 /* Pods_InstagramChallenge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InstagramChallenge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AAE7366E71726112FA11D6AD /* Pods-InstagramChallenge.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramChallenge.debug.xcconfig"; path = "Target Support Files/Pods-InstagramChallenge/Pods-InstagramChallenge.debug.xcconfig"; sourceTree = "<group>"; };
+		B19722DE28927573002B0B3B /* KakaoSDKAuth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = KakaoSDKAuth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B19722E128927577002B0B3B /* KakaoSDKAuth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = KakaoSDKAuth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B19722E42892757A002B0B3B /* KakaoSDKCommon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = KakaoSDKCommon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B19722E72892757D002B0B3B /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B19722EB28927EA2002B0B3B /* makeAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = makeAlert.swift; sourceTree = "<group>"; };
+		B19722ED28928DD9002B0B3B /* JoinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinViewController.swift; sourceTree = "<group>"; };
 		F69633FC28902C0900548666 /* InstagramChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstagramChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F69633FF28902C0900548666 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F696340128902C0900548666 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +35,7 @@
 		F696340828902C0D00548666 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F696340B28902C0D00548666 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F696340D28902C0D00548666 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FF9E68987F05A4CDC4872731 /* Pods-InstagramChallenge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramChallenge.release.xcconfig"; path = "Target Support Files/Pods-InstagramChallenge/Pods-InstagramChallenge.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +43,71 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				934746EF284D8FDAE7E8D03E /* Pods_InstagramChallenge.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		20118D236E852BF649A76B49 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AAE7366E71726112FA11D6AD /* Pods-InstagramChallenge.debug.xcconfig */,
+				FF9E68987F05A4CDC4872731 /* Pods-InstagramChallenge.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		80FEF2CBE9028394D017550E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B19722E72892757D002B0B3B /* Alamofire.framework */,
+				B19722E42892757A002B0B3B /* KakaoSDKCommon.framework */,
+				B19722E128927577002B0B3B /* KakaoSDKAuth.framework */,
+				B19722DE28927573002B0B3B /* KakaoSDKAuth.framework */,
+				232C4B3E7C73C48E09956F98 /* Pods_InstagramChallenge.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B16B30B02891CEB300B978BD /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				F696340D28902C0D00548666 /* Info.plist */,
+				F696340A28902C0D00548666 /* LaunchScreen.storyboard */,
+				F69633FF28902C0900548666 /* AppDelegate.swift */,
+				F696340128902C0900548666 /* SceneDelegate.swift */,
+				F696340828902C0D00548666 /* Assets.xcassets */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		B16B30B22891CEEA00B978BD /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				F696340528902C0900548666 /* Login.storyboard */,
+				F696340328902C0900548666 /* LoginViewController.swift */,
+				B19722ED28928DD9002B0B3B /* JoinViewController.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		B19722EA28927E47002B0B3B /* PopUpAlert */ = {
+			isa = PBXGroup;
+			children = (
+				B19722EB28927EA2002B0B3B /* makeAlert.swift */,
+			);
+			path = PopUpAlert;
+			sourceTree = "<group>";
+		};
 		F69633F328902C0900548666 = {
 			isa = PBXGroup;
 			children = (
 				F69633FE28902C0900548666 /* InstagramChallenge */,
 				F69633FD28902C0900548666 /* Products */,
+				20118D236E852BF649A76B49 /* Pods */,
+				80FEF2CBE9028394D017550E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,13 +122,9 @@
 		F69633FE28902C0900548666 /* InstagramChallenge */ = {
 			isa = PBXGroup;
 			children = (
-				F696340A28902C0D00548666 /* LaunchScreen.storyboard */,
-				F69633FF28902C0900548666 /* AppDelegate.swift */,
-				F696340128902C0900548666 /* SceneDelegate.swift */,
-				F696340828902C0D00548666 /* Assets.xcassets */,
-				F696340D28902C0D00548666 /* Info.plist */,
-				F696340528902C0900548666 /* Login.storyboard */,
-				F696340328902C0900548666 /* LoginViewController.swift */,
+				B16B30B02891CEB300B978BD /* Base */,
+				B19722EA28927E47002B0B3B /* PopUpAlert */,
+				B16B30B22891CEEA00B978BD /* Login */,
 			);
 			path = InstagramChallenge;
 			sourceTree = "<group>";
@@ -74,9 +136,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F696341028902C0D00548666 /* Build configuration list for PBXNativeTarget "InstagramChallenge" */;
 			buildPhases = (
+				B44E460B5F1C2BF326AAD44A /* [CP] Check Pods Manifest.lock */,
 				F69633F828902C0900548666 /* Sources */,
 				F69633F928902C0900548666 /* Frameworks */,
 				F69633FA28902C0900548666 /* Resources */,
+				306640B054BF07F37A91ECA7 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -133,6 +197,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		306640B054BF07F37A91ECA7 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-InstagramChallenge/Pods-InstagramChallenge-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-InstagramChallenge/Pods-InstagramChallenge-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-InstagramChallenge/Pods-InstagramChallenge-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B44E460B5F1C2BF326AAD44A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-InstagramChallenge-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F69633F828902C0900548666 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -140,6 +246,8 @@
 			files = (
 				F696340428902C0900548666 /* LoginViewController.swift in Sources */,
 				F696340028902C0900548666 /* AppDelegate.swift in Sources */,
+				B19722EC28927EA2002B0B3B /* makeAlert.swift in Sources */,
+				B19722EE28928DD9002B0B3B /* JoinViewController.swift in Sources */,
 				F696340228902C0900548666 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -282,14 +390,15 @@
 		};
 		F696341128902C0D00548666 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AAE7366E71726112FA11D6AD /* Pods-InstagramChallenge.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = C39BYRTABZ;
+				DEVELOPMENT_TEAM = A3887NB9SN;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = InstagramChallenge/Info.plist;
+				INFOPLIST_FILE = InstagramChallenge/Base/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Login;
@@ -302,7 +411,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.hanle.InstagramChallenge;
+				PRODUCT_BUNDLE_IDENTIFIER = com.softsquared.gridgeTest.ios.InstagraChallenge;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -312,14 +421,15 @@
 		};
 		F696341228902C0D00548666 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FF9E68987F05A4CDC4872731 /* Pods-InstagramChallenge.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = C39BYRTABZ;
+				DEVELOPMENT_TEAM = A3887NB9SN;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = InstagramChallenge/Info.plist;
+				INFOPLIST_FILE = InstagramChallenge/Base/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Login;
@@ -332,7 +442,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.hanle.InstagramChallenge;
+				PRODUCT_BUNDLE_IDENTIFIER = com.softsquared.gridgeTest.ios.InstagraChallenge;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
