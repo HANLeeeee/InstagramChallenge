@@ -15,6 +15,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var textFieldPW: UITextField!
     
     @IBOutlet weak var btnEye: UIButton!
+    @IBOutlet weak var btnLogin: UIButton!
     @IBOutlet weak var btnKakao: UIButton!
     @IBOutlet weak var btnJoin: UIButton!
     
@@ -28,16 +29,20 @@ class LoginViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        keyboardObserver()
+//        keyboardObserver()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
-        keyboardObserverRemove()
+//        keyboardObserverRemove()
+        navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
+}
+
+//MARK: 액션이벤트
+extension LoginViewController {
     @IBAction func bgViewTab(_ sender: Any) {
         view.endEditing(true)
     }
@@ -47,17 +52,17 @@ class LoginViewController: UIViewController {
             textField.deleteBackward()
         }
     }
-}
-
-//MARK: 버튼클릭액션
-extension LoginViewController {
+    
     @IBAction func btnAction(_ btn: UIButton) {
         switch btn {
         case btnEye:
             btnEyeTouchUp(btn)
             
+        case btnLogin:
+            btnLoginAction()
+            
         case btnKakao:
-            btnKakaoLogin()
+            btnKakaoLoginAction()
             
         case btnJoin:
             btnJoinAction()
@@ -81,7 +86,16 @@ extension LoginViewController {
         }
     }
     
-    func btnKakaoLogin() {
+    func btnLoginAction() {
+        let feedStoryboard = UIStoryboard(name: "Feed", bundle: nil)
+        let FeedTabBarViewController = feedStoryboard.instantiateViewController(withIdentifier: "FeedTabBarViewController") as! FeedTabBarViewController
+        
+        FeedTabBarViewController.modalPresentationStyle = .fullScreen
+        self.present(FeedTabBarViewController, animated: true, completion: nil)
+
+    }
+    
+    func btnKakaoLoginAction() {
         print("??")
         if UserApi.isKakaoTalkLoginAvailable() {
             kakaoLoginApp()
@@ -91,33 +105,34 @@ extension LoginViewController {
     }
     
     func btnJoinAction() {
+//        performSegue(withIdentifier: "GoJoinViewController", sender: nil)
         
     }
 }
 
 //MARK: 키보드옵저버
-extension LoginViewController {
-    func keyboardObserver() {
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardShow), name: UIResponder.keyboardWillShowNotification, object: nil)
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardHide), name: UIResponder.keyboardWillHideNotification, object: nil)
-    }
-    
-    func keyboardObserverRemove() {
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
-        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
-    }
-    
-    @objc func keyboardShow(notification: NSNotification) {
-        if self.constraint.constant != 0 {
-            self.constraint.constant -= 100
-        }
-    }
-    
-    @objc func keyboardHide(notification: NSNotification) {
-        self.constraint.constant += 100
-    }
-}
+//extension LoginViewController {
+//    func keyboardObserver() {
+//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+//
+//        NotificationCenter.default.addObserver(self, selector: #selector(keyboardHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+//    }
+//
+//    func keyboardObserverRemove() {
+//        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillShowNotification, object: nil)
+//        NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
+//    }
+//
+//    @objc func keyboardShow(notification: NSNotification) {
+//        if self.constraint.constant != 0 {
+//            self.constraint.constant -= 50
+//        }
+//    }
+//
+//    @objc func keyboardHide(notification: NSNotification) {
+//        self.constraint.constant += 50
+//    }
+//}
 
 //MARK: 카카오톡로그인
 extension LoginViewController {

@@ -8,8 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		934746EF284D8FDAE7E8D03E /* Pods_InstagramChallenge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 232C4B3E7C73C48E09956F98 /* Pods_InstagramChallenge.framework */; };
+		B15DAB4A2895ACE000BB313D /* Feed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B15DAB492895ACE000BB313D /* Feed.storyboard */; };
+		B15DAB4C2895B73700BB313D /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15DAB4B2895B73700BB313D /* FeedViewController.swift */; };
+		B15DAB502895BAAA00BB313D /* FeedTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15DAB4F2895BAAA00BB313D /* FeedTabBarViewController.swift */; };
+		B192CC722894582B008C424C /* JoinUserNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B192CC712894582B008C424C /* JoinUserNameViewController.swift */; };
+		B192CC7428945EF6008C424C /* JoinFinalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B192CC7328945EF6008C424C /* JoinFinalViewController.swift */; };
 		B19722EC28927EA2002B0B3B /* makeAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19722EB28927EA2002B0B3B /* makeAlert.swift */; };
 		B19722EE28928DD9002B0B3B /* JoinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19722ED28928DD9002B0B3B /* JoinViewController.swift */; };
+		B19722F0289295FE002B0B3B /* JoinPhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19722EF289295FE002B0B3B /* JoinPhoneViewController.swift */; };
+		B19722F32892A1E8002B0B3B /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19722F22892A1E8002B0B3B /* PageViewController.swift */; };
+		B19722F52892A216002B0B3B /* PagePhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19722F42892A216002B0B3B /* PagePhoneViewController.swift */; };
+		B19722F72892A223002B0B3B /* PageEmailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19722F62892A223002B0B3B /* PageEmailViewController.swift */; };
+		B19722F92892BD87002B0B3B /* JoinSMSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19722F82892BD87002B0B3B /* JoinSMSViewController.swift */; };
+		B19722FB2892CDB8002B0B3B /* JoinNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19722FA2892CDB8002B0B3B /* JoinNameViewController.swift */; };
+		B19722FE2892D900002B0B3B /* JoinPWViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19722FD2892D900002B0B3B /* JoinPWViewController.swift */; };
+		B19723002892E115002B0B3B /* JoinBirthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19722FF2892E115002B0B3B /* JoinBirthViewController.swift */; };
+		B1BD42CE2893907300B28575 /* JoinAgreeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1BD42CD2893907300B28575 /* JoinAgreeViewController.swift */; };
 		F696340028902C0900548666 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69633FF28902C0900548666 /* AppDelegate.swift */; };
 		F696340228902C0900548666 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F696340128902C0900548666 /* SceneDelegate.swift */; };
 		F696340428902C0900548666 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F696340328902C0900548666 /* LoginViewController.swift */; };
@@ -21,12 +35,26 @@
 /* Begin PBXFileReference section */
 		232C4B3E7C73C48E09956F98 /* Pods_InstagramChallenge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InstagramChallenge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAE7366E71726112FA11D6AD /* Pods-InstagramChallenge.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramChallenge.debug.xcconfig"; path = "Target Support Files/Pods-InstagramChallenge/Pods-InstagramChallenge.debug.xcconfig"; sourceTree = "<group>"; };
+		B15DAB492895ACE000BB313D /* Feed.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Feed.storyboard; sourceTree = "<group>"; };
+		B15DAB4B2895B73700BB313D /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		B15DAB4F2895BAAA00BB313D /* FeedTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTabBarViewController.swift; sourceTree = "<group>"; };
+		B192CC712894582B008C424C /* JoinUserNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinUserNameViewController.swift; sourceTree = "<group>"; };
+		B192CC7328945EF6008C424C /* JoinFinalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinFinalViewController.swift; sourceTree = "<group>"; };
 		B19722DE28927573002B0B3B /* KakaoSDKAuth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = KakaoSDKAuth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B19722E128927577002B0B3B /* KakaoSDKAuth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = KakaoSDKAuth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B19722E42892757A002B0B3B /* KakaoSDKCommon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = KakaoSDKCommon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B19722E72892757D002B0B3B /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B19722EB28927EA2002B0B3B /* makeAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = makeAlert.swift; sourceTree = "<group>"; };
 		B19722ED28928DD9002B0B3B /* JoinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinViewController.swift; sourceTree = "<group>"; };
+		B19722EF289295FE002B0B3B /* JoinPhoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinPhoneViewController.swift; sourceTree = "<group>"; };
+		B19722F22892A1E8002B0B3B /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
+		B19722F42892A216002B0B3B /* PagePhoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PagePhoneViewController.swift; sourceTree = "<group>"; };
+		B19722F62892A223002B0B3B /* PageEmailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageEmailViewController.swift; sourceTree = "<group>"; };
+		B19722F82892BD87002B0B3B /* JoinSMSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinSMSViewController.swift; sourceTree = "<group>"; };
+		B19722FA2892CDB8002B0B3B /* JoinNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinNameViewController.swift; sourceTree = "<group>"; };
+		B19722FD2892D900002B0B3B /* JoinPWViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinPWViewController.swift; sourceTree = "<group>"; };
+		B19722FF2892E115002B0B3B /* JoinBirthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinBirthViewController.swift; sourceTree = "<group>"; };
+		B1BD42CD2893907300B28575 /* JoinAgreeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinAgreeViewController.swift; sourceTree = "<group>"; };
 		F69633FC28902C0900548666 /* InstagramChallenge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstagramChallenge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F69633FF28902C0900548666 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F696340128902C0900548666 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,7 +106,6 @@
 				F696340A28902C0D00548666 /* LaunchScreen.storyboard */,
 				F69633FF28902C0900548666 /* AppDelegate.swift */,
 				F696340128902C0900548666 /* SceneDelegate.swift */,
-				F696340828902C0D00548666 /* Assets.xcassets */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -88,9 +115,19 @@
 			children = (
 				F696340528902C0900548666 /* Login.storyboard */,
 				F696340328902C0900548666 /* LoginViewController.swift */,
-				B19722ED28928DD9002B0B3B /* JoinViewController.swift */,
+				B19722FC2892D549002B0B3B /* Join */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		B192CC7528945F7B008C424C /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				B15DAB492895ACE000BB313D /* Feed.storyboard */,
+				B15DAB4F2895BAAA00BB313D /* FeedTabBarViewController.swift */,
+				B15DAB4B2895B73700BB313D /* FeedViewController.swift */,
+			);
+			path = Feed;
 			sourceTree = "<group>";
 		};
 		B19722EA28927E47002B0B3B /* PopUpAlert */ = {
@@ -99,6 +136,33 @@
 				B19722EB28927EA2002B0B3B /* makeAlert.swift */,
 			);
 			path = PopUpAlert;
+			sourceTree = "<group>";
+		};
+		B19722F12892A1D1002B0B3B /* PageVC */ = {
+			isa = PBXGroup;
+			children = (
+				B19722F22892A1E8002B0B3B /* PageViewController.swift */,
+				B19722F42892A216002B0B3B /* PagePhoneViewController.swift */,
+				B19722F62892A223002B0B3B /* PageEmailViewController.swift */,
+			);
+			path = PageVC;
+			sourceTree = "<group>";
+		};
+		B19722FC2892D549002B0B3B /* Join */ = {
+			isa = PBXGroup;
+			children = (
+				B19722ED28928DD9002B0B3B /* JoinViewController.swift */,
+				B19722EF289295FE002B0B3B /* JoinPhoneViewController.swift */,
+				B19722F82892BD87002B0B3B /* JoinSMSViewController.swift */,
+				B19722FA2892CDB8002B0B3B /* JoinNameViewController.swift */,
+				B19722FD2892D900002B0B3B /* JoinPWViewController.swift */,
+				B19722FF2892E115002B0B3B /* JoinBirthViewController.swift */,
+				B1BD42CD2893907300B28575 /* JoinAgreeViewController.swift */,
+				B192CC712894582B008C424C /* JoinUserNameViewController.swift */,
+				B192CC7328945EF6008C424C /* JoinFinalViewController.swift */,
+				B19722F12892A1D1002B0B3B /* PageVC */,
+			);
+			path = Join;
 			sourceTree = "<group>";
 		};
 		F69633F328902C0900548666 = {
@@ -122,9 +186,11 @@
 		F69633FE28902C0900548666 /* InstagramChallenge */ = {
 			isa = PBXGroup;
 			children = (
+				F696340828902C0D00548666 /* Assets.xcassets */,
 				B16B30B02891CEB300B978BD /* Base */,
 				B19722EA28927E47002B0B3B /* PopUpAlert */,
 				B16B30B22891CEEA00B978BD /* Login */,
+				B192CC7528945F7B008C424C /* Feed */,
 			);
 			path = InstagramChallenge;
 			sourceTree = "<group>";
@@ -191,6 +257,7 @@
 			files = (
 				F696340C28902C0D00548666 /* LaunchScreen.storyboard in Resources */,
 				F696340928902C0D00548666 /* Assets.xcassets in Resources */,
+				B15DAB4A2895ACE000BB313D /* Feed.storyboard in Resources */,
 				F696340728902C0900548666 /* Login.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -244,11 +311,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B19722F72892A223002B0B3B /* PageEmailViewController.swift in Sources */,
+				B192CC7428945EF6008C424C /* JoinFinalViewController.swift in Sources */,
 				F696340428902C0900548666 /* LoginViewController.swift in Sources */,
+				B19722F32892A1E8002B0B3B /* PageViewController.swift in Sources */,
+				B15DAB502895BAAA00BB313D /* FeedTabBarViewController.swift in Sources */,
 				F696340028902C0900548666 /* AppDelegate.swift in Sources */,
 				B19722EC28927EA2002B0B3B /* makeAlert.swift in Sources */,
+				B1BD42CE2893907300B28575 /* JoinAgreeViewController.swift in Sources */,
+				B19723002892E115002B0B3B /* JoinBirthViewController.swift in Sources */,
+				B19722F0289295FE002B0B3B /* JoinPhoneViewController.swift in Sources */,
+				B15DAB4C2895B73700BB313D /* FeedViewController.swift in Sources */,
+				B19722F92892BD87002B0B3B /* JoinSMSViewController.swift in Sources */,
 				B19722EE28928DD9002B0B3B /* JoinViewController.swift in Sources */,
+				B19722FB2892CDB8002B0B3B /* JoinNameViewController.swift in Sources */,
+				B192CC722894582B008C424C /* JoinUserNameViewController.swift in Sources */,
+				B19722F52892A216002B0B3B /* PagePhoneViewController.swift in Sources */,
 				F696340228902C0900548666 /* SceneDelegate.swift in Sources */,
+				B19722FE2892D900002B0B3B /* JoinPWViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
