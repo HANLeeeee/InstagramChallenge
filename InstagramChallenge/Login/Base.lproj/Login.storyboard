@@ -1950,7 +1950,7 @@
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="btnAction:" destination="XNf-of-oHh" eventType="touchUpInside" id="hBC-KR-6R2"/>
-                                    <segue destination="BWM-rX-gXU" kind="show" id="0cK-kg-Nym"/>
+                                    <segue destination="BWM-rX-gXU" kind="show" identifier="GoJoinFinalViewController" id="0cK-kg-Nym"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dxc-Ns-AhF" userLabel="ViewLine">
@@ -2118,6 +2118,9 @@
                                             <fontDescription key="titleFontDescription" type="boldSystem" pointSize="12"/>
                                             <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="btnAction:" destination="BWM-rX-gXU" eventType="touchUpInside" id="zKc-Wk-mqv"/>
+                                        </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ZXj-Pb-clm">
                                         <rect key="frame" x="135" y="68" width="144.5" height="27"/>
@@ -2170,6 +2173,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="JAM-W4-a8i"/>
                     <connections>
+                        <outlet property="btnJoin" destination="8WO-0f-yOn" id="w1I-Jw-vAc"/>
                         <outlet property="btnLogin" destination="Bh7-7T-Dev" id="K80-Oc-ASQ"/>
                     </connections>
                 </viewController>

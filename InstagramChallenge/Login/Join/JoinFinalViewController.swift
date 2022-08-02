@@ -9,7 +9,9 @@ import UIKit
 
 class JoinFinalViewController: UIViewController {
     
+    @IBOutlet weak var btnJoin: UIButton!
     @IBOutlet weak var btnLogin: UIButton!
+    var tfUserName: String = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +23,9 @@ extension JoinFinalViewController {
         switch btn {
         case btnLogin:
             self.navigationController?.popToRootViewController(animated: true)
+            
+        case btnJoin:
+            print("가입완료!")
 
         default:
             return

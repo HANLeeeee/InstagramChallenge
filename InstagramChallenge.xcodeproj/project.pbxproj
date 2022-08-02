@@ -11,6 +11,12 @@
 		B15DAB4A2895ACE000BB313D /* Feed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B15DAB492895ACE000BB313D /* Feed.storyboard */; };
 		B15DAB4C2895B73700BB313D /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15DAB4B2895B73700BB313D /* FeedViewController.swift */; };
 		B15DAB502895BAAA00BB313D /* FeedTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15DAB4F2895BAAA00BB313D /* FeedTabBarViewController.swift */; };
+		B192283C28992F620059960C /* StoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B192283A28992F620059960C /* StoryTableViewCell.swift */; };
+		B192283D28992F620059960C /* StoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B192283B28992F620059960C /* StoryTableViewCell.xib */; };
+		B192284628993AFA0059960C /* StoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B192284428993AFA0059960C /* StoryCollectionViewCell.swift */; };
+		B192284728993AFA0059960C /* StoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B192284528993AFA0059960C /* StoryCollectionViewCell.xib */; };
+		B192284B28993D7D0059960C /* FeedTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B192284928993D7D0059960C /* FeedTableViewCell.swift */; };
+		B192284C28993D7D0059960C /* FeedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B192284A28993D7D0059960C /* FeedTableViewCell.xib */; };
 		B192CC722894582B008C424C /* JoinUserNameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B192CC712894582B008C424C /* JoinUserNameViewController.swift */; };
 		B192CC7428945EF6008C424C /* JoinFinalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B192CC7328945EF6008C424C /* JoinFinalViewController.swift */; };
 		B19722EC28927EA2002B0B3B /* makeAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19722EB28927EA2002B0B3B /* makeAlert.swift */; };
@@ -38,6 +44,12 @@
 		B15DAB492895ACE000BB313D /* Feed.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Feed.storyboard; sourceTree = "<group>"; };
 		B15DAB4B2895B73700BB313D /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		B15DAB4F2895BAAA00BB313D /* FeedTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTabBarViewController.swift; sourceTree = "<group>"; };
+		B192283A28992F620059960C /* StoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryTableViewCell.swift; sourceTree = "<group>"; };
+		B192283B28992F620059960C /* StoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StoryTableViewCell.xib; sourceTree = "<group>"; };
+		B192284428993AFA0059960C /* StoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		B192284528993AFA0059960C /* StoryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StoryCollectionViewCell.xib; sourceTree = "<group>"; };
+		B192284928993D7D0059960C /* FeedTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableViewCell.swift; sourceTree = "<group>"; };
+		B192284A28993D7D0059960C /* FeedTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedTableViewCell.xib; sourceTree = "<group>"; };
 		B192CC712894582B008C424C /* JoinUserNameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinUserNameViewController.swift; sourceTree = "<group>"; };
 		B192CC7328945EF6008C424C /* JoinFinalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinFinalViewController.swift; sourceTree = "<group>"; };
 		B19722DE28927573002B0B3B /* KakaoSDKAuth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = KakaoSDKAuth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -120,12 +132,42 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
+		B192283928992EBD0059960C /* Story */ = {
+			isa = PBXGroup;
+			children = (
+				B192283B28992F620059960C /* StoryTableViewCell.xib */,
+				B192283A28992F620059960C /* StoryTableViewCell.swift */,
+				B192284328993AD00059960C /* StoryCollection */,
+			);
+			path = Story;
+			sourceTree = "<group>";
+		};
+		B192284328993AD00059960C /* StoryCollection */ = {
+			isa = PBXGroup;
+			children = (
+				B192284528993AFA0059960C /* StoryCollectionViewCell.xib */,
+				B192284428993AFA0059960C /* StoryCollectionViewCell.swift */,
+			);
+			path = StoryCollection;
+			sourceTree = "<group>";
+		};
+		B192284828993D290059960C /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				B192284A28993D7D0059960C /* FeedTableViewCell.xib */,
+				B192284928993D7D0059960C /* FeedTableViewCell.swift */,
+			);
+			path = Feed;
+			sourceTree = "<group>";
+		};
 		B192CC7528945F7B008C424C /* Feed */ = {
 			isa = PBXGroup;
 			children = (
 				B15DAB492895ACE000BB313D /* Feed.storyboard */,
 				B15DAB4F2895BAAA00BB313D /* FeedTabBarViewController.swift */,
 				B15DAB4B2895B73700BB313D /* FeedViewController.swift */,
+				B192283928992EBD0059960C /* Story */,
+				B192284828993D290059960C /* Feed */,
 			);
 			path = Feed;
 			sourceTree = "<group>";
@@ -256,9 +298,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				F696340C28902C0D00548666 /* LaunchScreen.storyboard in Resources */,
+				B192283D28992F620059960C /* StoryTableViewCell.xib in Resources */,
 				F696340928902C0D00548666 /* Assets.xcassets in Resources */,
 				B15DAB4A2895ACE000BB313D /* Feed.storyboard in Resources */,
+				B192284728993AFA0059960C /* StoryCollectionViewCell.xib in Resources */,
 				F696340728902C0900548666 /* Login.storyboard in Resources */,
+				B192284C28993D7D0059960C /* FeedTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -311,6 +356,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B192284628993AFA0059960C /* StoryCollectionViewCell.swift in Sources */,
 				B19722F72892A223002B0B3B /* PageEmailViewController.swift in Sources */,
 				B192CC7428945EF6008C424C /* JoinFinalViewController.swift in Sources */,
 				F696340428902C0900548666 /* LoginViewController.swift in Sources */,
@@ -322,9 +368,11 @@
 				B19723002892E115002B0B3B /* JoinBirthViewController.swift in Sources */,
 				B19722F0289295FE002B0B3B /* JoinPhoneViewController.swift in Sources */,
 				B15DAB4C2895B73700BB313D /* FeedViewController.swift in Sources */,
+				B192283C28992F620059960C /* StoryTableViewCell.swift in Sources */,
 				B19722F92892BD87002B0B3B /* JoinSMSViewController.swift in Sources */,
 				B19722EE28928DD9002B0B3B /* JoinViewController.swift in Sources */,
 				B19722FB2892CDB8002B0B3B /* JoinNameViewController.swift in Sources */,
+				B192284B28993D7D0059960C /* FeedTableViewCell.swift in Sources */,
 				B192CC722894582B008C424C /* JoinUserNameViewController.swift in Sources */,
 				B19722F52892A216002B0B3B /* PagePhoneViewController.swift in Sources */,
 				F696340228902C0900548666 /* SceneDelegate.swift in Sources */,

@@ -22,11 +22,10 @@ class JoinUserNameViewController: UIViewController {
         
         constraint = btnTopConstraint.constant
     }
-    
-    @IBAction func tfEditingChangedAction(_ sender: Any) {
-        labelHidden.isHidden = false
-        if btnTopConstraint.constant == constraint {
-            btnTopConstraint.constant += labelHidden.frame.height+10
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "GoJoinFinalViewController" {
+            let joinFinalVC = segue.destination as! JoinFinalViewController
+            joinFinalVC.tfUserName = tfUserName.text!
         }
     }
 }
@@ -36,6 +35,13 @@ class JoinUserNameViewController: UIViewController {
 extension JoinUserNameViewController {
     @IBAction func bgViewTab(_ sender: Any) {
         view.endEditing(true)
+    }
+    
+    @IBAction func tfEditingChangedAction(_ sender: Any) {
+        labelHidden.isHidden = false
+        if btnTopConstraint.constant == constraint {
+            btnTopConstraint.constant += labelHidden.frame.height+10
+        }
     }
     
     @IBAction func btnAction(_ btn: UIButton) {
