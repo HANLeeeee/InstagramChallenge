@@ -28,7 +28,7 @@ class StoryTableViewCell: UITableViewCell {
         storyCollectionView.delegate = self
         storyCollectionView.dataSource = self
                 
-        storyCollectionView.contentInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
+        storyCollectionView.contentInset = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
     }
     
 }

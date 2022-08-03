@@ -17,13 +17,13 @@ class JoinSMSViewController: UIViewController {
     @IBOutlet weak var btnNext: UIButton!
     
     var resultPhoneNum: String = ""
-    
+    var joinData = UserPostRequest()
     
     //MARK: 생명주기
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        initUIJoinSMSView()
+        setUIJoinSMSView()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -38,8 +38,11 @@ class JoinSMSViewController: UIViewController {
     }
     
     //MARK: 화면UI변경
-    func initUIJoinSMSView() {
+    func setUIJoinSMSView() {
         labelTitle.text = "+82\(resultPhoneNum)번으로 \n 전송된 인증 코드를 입력하세요"
+        
+        btnNext.backgroundColor = UIColor(named: "ColorBtnBefore")
+        btnNext.layer.cornerRadius = 10
     }
 }
 
@@ -53,6 +56,13 @@ extension JoinSMSViewController {
         if textField.text!.count > 6 {
             textField.deleteBackward()
         }
+        if textField.text!.count == 6 {
+            btnNext.backgroundColor = UIColor.link
+            btnNext.isEnabled = true
+        } else {
+            btnNext.backgroundColor = UIColor(named: "ColorBtnBefore")
+            btnNext.isEnabled = false
+        }
     }
     
     @IBAction func btnAction(_ btn: UIButton) {
@@ -62,17 +72,28 @@ extension JoinSMSViewController {
             
         case btnNext:
             if tfSMSNum.text == "123456" {
-                
+                joinData.userPN = resultPhoneNum
+                performSegue(withIdentifier: "GoJoinNameViewController", sender: nil)
             } else {
                 let alert = makeAlert("알림", "인증번호가 틀렸습니다", true, "확인")
                 present(alert, animated: false)
                 tfSMSNum.text = ""
-                
             }
                 
             
         default:
             return
         }
+    }
+}
+
+extension JoinSMSViewController {
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "GoJoinNameViewController" {
+            let jNVC = segue.destination as! JoinNameViewController
+            jNVC.joinData = self.joinData
+        }
+
     }
 }

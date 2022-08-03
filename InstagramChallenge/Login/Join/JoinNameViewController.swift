@@ -8,14 +8,16 @@
 import UIKit
 
 class JoinNameViewController: UIViewController {
-
+    @IBOutlet weak var tfUserName: UITextField!
     @IBOutlet weak var btnLogin: UIButton!
-    
+    @IBOutlet weak var btnNext: UIButton!
+    var joinData = UserPostRequest()
     
     //MARK: 생명주기
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setUIJoinNameViewController()
     }
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -25,6 +27,11 @@ class JoinNameViewController: UIViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    
+    func setUIJoinNameViewController() {
+        btnNext.backgroundColor = UIColor(named: "ColorBtnBefore")
+        btnNext.layer.cornerRadius = 10
     }
 }
 
@@ -39,6 +46,13 @@ extension JoinNameViewController {
         if textField.text!.count > 20 {
             textField.deleteBackward()
         }
+        if textField.text!.count < 1 {
+            btnNext.backgroundColor = UIColor(named: "ColorBtnBefore")
+            btnNext.isEnabled = false
+        } else {
+            btnNext.backgroundColor = UIColor.link
+            btnNext.isEnabled = true
+        }
     }
     
     @IBAction func btnAction(_ btn: UIButton) {
@@ -46,10 +60,24 @@ extension JoinNameViewController {
         case btnLogin:
             self.navigationController?.popToRootViewController(animated: true)
             
-        //다음버튼을 눌렀을 때 카카오가입하기와 일반가입하기 나누기
+        case btnNext:
+            //다음버튼을 눌렀을 때 카카오가입하기와 일반가입하기 나누기
+            
+            joinData.userName = tfUserName.text!
+            performSegue(withIdentifier: "GoJoinPWViewController", sender: nil)
+        
 
         default:
             return
+        }
+    }
+}
+
+extension JoinNameViewController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "GoJoinPWViewController" {
+            let jPWVC = segue.destination as! JoinPWViewController
+            jPWVC.joinData = self.joinData
         }
     }
 }

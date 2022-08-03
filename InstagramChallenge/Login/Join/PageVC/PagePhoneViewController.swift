@@ -12,7 +12,7 @@ class PagePhoneViewController: UIViewController {
     @IBOutlet weak var viewPhoneEdit: UIView!
     @IBOutlet weak var tfPhoneNum: UITextField!
     
-    
+    @IBOutlet weak var btnKakaoLogin: UIButton!
     @IBOutlet weak var btnNext: UIButton!
     
     //MARK: 생명주기
@@ -22,7 +22,7 @@ class PagePhoneViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        initUIPagePhoneView()
+        setUIPagePhoneView()
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -31,19 +31,15 @@ class PagePhoneViewController: UIViewController {
     
     
     //MARK: 화면UI변경
-    func initUIPagePhoneView() {
+    func setUIPagePhoneView() {
         viewPhoneEdit.layer.borderColor = UIColor.systemGray5.cgColor
         viewPhoneEdit.layer.borderWidth = 0.5
         viewPhoneEdit.layer.cornerRadius = 10
         
         tfPhoneNum.text = ""
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "GoJoinSMSViewController" {
-            let JoinSMSViewController = segue.destination as! JoinSMSViewController
-            JoinSMSViewController.resultPhoneNum = tfPhoneNum.text ?? ""
-        }
+        
+        btnNext.backgroundColor = UIColor(named: "ColorBtnBefore")
+        btnNext.layer.cornerRadius = 10
     }
 }
 
@@ -53,16 +49,35 @@ extension PagePhoneViewController {
         if textField.text!.count > 11 {
             textField.deleteBackward()
         }
+        if textField.text!.count < 1 {
+            btnNext.backgroundColor = UIColor(named: "ColorBtnBefore")
+            btnNext.isEnabled = false
+        } else {
+            btnNext.backgroundColor = UIColor.link
+            btnNext.isEnabled = true
+        }
     }
     
     @IBAction func btnAction(_ btn: UIButton) {
         switch btn {
         case btnNext:
-            print("다음")
+            performSegue(withIdentifier: "GoJoinSMSViewController", sender: nil)
             
+        case btnKakaoLogin:
+            print("카카오")
         default:
             return
         }
         
+    }
+}
+
+
+extension PagePhoneViewController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "GoJoinSMSViewController" {
+            let JoinSMSViewController = segue.destination as! JoinSMSViewController
+            JoinSMSViewController.resultPhoneNum = tfPhoneNum.text ?? ""
+        }
     }
 }

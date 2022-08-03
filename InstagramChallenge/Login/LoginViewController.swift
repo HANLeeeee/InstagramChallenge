@@ -87,11 +87,15 @@ extension LoginViewController {
     }
     
     func btnLoginAction() {
-        let feedStoryboard = UIStoryboard(name: "Feed", bundle: nil)
-        let FeedTabBarViewController = feedStoryboard.instantiateViewController(withIdentifier: "FeedTabBarViewController") as! FeedTabBarViewController
+        //1. 유효성검사하기
+            //2 성공시 존재하는 지 서버에서 확인
+            checkUser()
+            
+            //2 존재하지않거나 아이디비번이 틀리면 팝업노출
+        //1. 유효성실패시 팝업노출
         
-        FeedTabBarViewController.modalPresentationStyle = .fullScreen
-        self.present(FeedTabBarViewController, animated: true, completion: nil)
+        
+
 
     }
     
@@ -107,6 +111,36 @@ extension LoginViewController {
     func btnJoinAction() {
 //        performSegue(withIdentifier: "GoJoinViewController", sender: nil)
         
+    }
+}
+
+//MARK: 일반로그인
+extension LoginViewController {
+    
+    func checkUser() {
+        if let userID = textFieldID.text,
+           let userPW = textFieldPW.text {
+            APIUserPost().signIn(loginId: userID, password: userPW)
+
+            return
+        }
+    }
+    
+    func loginsuccessAPI(_ result: UserResponseResult) {
+        UserDefaultsData.shared.setUserID(userID: result.loginId!)
+        UserDefaultsData.shared.setJWT(jwt: result.jwt!)
+    }
+    
+    func loginfailureAPI(_ code: Int) {
+
+    }
+    
+    func presentFeed() {
+        let feedStoryboard = UIStoryboard(name: "Feed", bundle: nil)
+        let FeedTabBarViewController = feedStoryboard.instantiateViewController(withIdentifier: "FeedTabBarViewController") as! FeedTabBarViewController
+
+        FeedTabBarViewController.modalPresentationStyle = .fullScreen
+        self.present(FeedTabBarViewController, animated: true, completion: nil)
     }
 }
 

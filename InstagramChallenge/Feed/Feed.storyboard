@@ -29,31 +29,25 @@
                                                 </constraints>
                                             </imageView>
                                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="Xnp-yB-K9A">
-                                                <rect key="frame" x="294" y="5" width="110" height="30"/>
+                                                <rect key="frame" x="276" y="2" width="128" height="36"/>
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FBR-h3-qFo">
-                                                        <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="30" id="hUF-SH-EZn"/>
-                                                            <constraint firstAttribute="width" constant="30" id="jPH-1f-mW3"/>
-                                                        </constraints>
+                                                        <rect key="frame" x="0.0" y="0.0" width="36" height="36"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <state key="normal" backgroundImage="naviicon_plus"/>
+                                                        <connections>
+                                                            <segue destination="Y1f-9m-3g8" kind="show" id="jRG-2c-ImS"/>
+                                                        </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bl3-oU-hac">
-                                                        <rect key="frame" x="40" y="0.0" width="30" height="30"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="30" id="pxa-av-bHZ"/>
-                                                            <constraint firstAttribute="width" constant="30" id="wau-GP-kJv"/>
-                                                        </constraints>
+                                                        <rect key="frame" x="46" y="0.0" width="36" height="36"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <state key="normal" backgroundImage="naviicon_alert"/>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kAu-GU-MbW">
-                                                        <rect key="frame" x="80" y="0.0" width="30" height="30"/>
+                                                        <rect key="frame" x="92" y="0.0" width="36" height="36"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="30" id="ImD-rl-6q3"/>
-                                                            <constraint firstAttribute="width" constant="30" id="vaJ-Oj-vel"/>
+                                                            <constraint firstAttribute="width" secondItem="kAu-GU-MbW" secondAttribute="height" multiplier="1:1" id="AqO-6y-4M3"/>
                                                         </constraints>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <state key="normal" backgroundImage="naviicon_DM"/>
@@ -64,8 +58,8 @@
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
                                             <constraint firstItem="5fU-3o-Pdt" firstAttribute="top" secondItem="GVF-4S-rbE" secondAttribute="top" id="LVj-tT-Wod"/>
-                                            <constraint firstAttribute="bottom" secondItem="Xnp-yB-K9A" secondAttribute="bottom" constant="5" id="SCI-sO-KuC"/>
-                                            <constraint firstItem="Xnp-yB-K9A" firstAttribute="top" secondItem="GVF-4S-rbE" secondAttribute="top" constant="5" id="brN-Vq-H5S"/>
+                                            <constraint firstAttribute="bottom" secondItem="Xnp-yB-K9A" secondAttribute="bottom" constant="2" id="SCI-sO-KuC"/>
+                                            <constraint firstItem="Xnp-yB-K9A" firstAttribute="top" secondItem="GVF-4S-rbE" secondAttribute="top" constant="2" id="brN-Vq-H5S"/>
                                             <constraint firstAttribute="bottom" secondItem="5fU-3o-Pdt" secondAttribute="bottom" id="dNc-7o-oms"/>
                                             <constraint firstItem="5fU-3o-Pdt" firstAttribute="leading" secondItem="GVF-4S-rbE" secondAttribute="leading" constant="10" id="kSi-wx-312"/>
                                             <constraint firstAttribute="height" constant="40" id="sMB-M6-6hz"/>
@@ -107,16 +101,33 @@
             </objects>
             <point key="canvasLocation" x="953.62318840579712" y="794.86607142857144"/>
         </scene>
-        <!--View Controller-->
+        <!--새 게시물-->
         <scene sceneID="utx-Q7-ZgF">
             <objects>
-                <viewController id="Y1f-9m-3g8" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FeedNewViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y1f-9m-3g8" customClass="FeedNewViewController" customModule="InstagramChallenge" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="czz-aR-bGQ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="R1S-Tt-ctl"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" title="새 게시물" id="gEn-LP-5IS">
+                        <barButtonItem key="leftBarButtonItem" title="취소" id="ZvI-nd-3dl">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="barbtnAction:" destination="Y1f-9m-3g8" id="K9g-od-p11"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="다음" id="VgO-oO-gSL">
+                            <connections>
+                                <action selector="barbtnAction:" destination="Y1f-9m-3g8" id="5Du-X7-jXs"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="barbtnBack" destination="ZvI-nd-3dl" id="RPd-6T-Jgh"/>
+                        <outlet property="barbtnNext" destination="VgO-oO-gSL" id="a8E-os-apy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mf1-c2-BAy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -176,10 +187,10 @@
             </objects>
             <point key="canvasLocation" x="3726" y="59"/>
         </scene>
-        <!--View Controller-->
+        <!--My Page View Controller-->
         <scene sceneID="Q88-q7-y7b">
             <objects>
-                <viewController id="D0S-nx-qSN" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MyPageViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="D0S-nx-qSN" customClass="MyPageViewController" customModule="InstagramChallenge" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7fH-1B-K2G">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

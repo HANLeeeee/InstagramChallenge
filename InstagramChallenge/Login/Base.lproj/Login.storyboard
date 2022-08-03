@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hWD-49-dW3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="slU-6H-C4R">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
@@ -24,7 +24,7 @@
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     </view>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_instagram" translatesAutoresizingMaskIntoConstraints="NO" id="56I-j6-J4e">
-                                        <rect key="frame" x="8.5" y="93" width="397" height="90"/>
+                                        <rect key="frame" x="30" y="93" width="354" height="90"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="90" id="pup-o9-GvI"/>
                                         </constraints>
@@ -302,7 +302,7 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="724"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_instagram" translatesAutoresizingMaskIntoConstraints="NO" id="UjM-QY-dpZ">
-                                        <rect key="frame" x="8.5" y="150" width="397" height="90"/>
+                                        <rect key="frame" x="30" y="150" width="354" height="90"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="90" id="qhY-r4-kpp"/>
                                         </constraints>
@@ -569,22 +569,19 @@
                                     <constraint firstItem="mbB-tf-1Yp" firstAttribute="leading" secondItem="JZP-Hc-KTI" secondAttribute="leading" id="tKR-yI-GhL"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2fG-Bq-q9O">
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2fG-Bq-q9O">
                                 <rect key="frame" x="0.0" y="127" width="414" height="40"/>
+                                <color key="backgroundColor" systemColor="linkColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="eHt-UM-s2c"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="다음">
-                                    <backgroundConfiguration key="background">
-                                        <color key="backgroundColor" systemColor="linkColor"/>
-                                    </backgroundConfiguration>
-                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="12"/>
-                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </buttonConfiguration>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="다음">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="btnAction:" destination="fkk-qU-eab" eventType="touchUpInside" id="V7l-ze-Szf"/>
-                                    <segue destination="XNf-of-oHh" kind="show" identifier="GoJoinSMSViewController" id="FsL-sv-ptV"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="보안 및 로그인 목적으로 instagram에서 보내는  SMS 알림을 수신할 수 있습니다." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tix-br-NkN">
@@ -667,6 +664,9 @@
                                 <buttonConfiguration key="configuration" style="plain">
                                     <backgroundConfiguration key="background" image="bg_kakaoLogin"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="btnAction:" destination="fkk-qU-eab" eventType="touchUpInside" id="Zsz-Lp-Gm4"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="aFS-Xy-LLk"/>
@@ -693,9 +693,11 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="btnKakaoLogin" destination="ujN-ln-mQE" id="cVG-jb-kf5"/>
                         <outlet property="btnNext" destination="2fG-Bq-q9O" id="hSe-fc-cJS"/>
                         <outlet property="tfPhoneNum" destination="9tw-gf-YhA" id="0lh-jL-oXk"/>
                         <outlet property="viewPhoneEdit" destination="JZP-Hc-KTI" id="ZW4-i7-LrL"/>
+                        <segue destination="XNf-of-oHh" kind="show" identifier="GoJoinSMSViewController" id="Qxy-t2-yo0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5CW-OA-upV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -927,22 +929,19 @@
                                     <action selector="tfEditingChangeAction:" destination="XNf-of-oHh" eventType="editingChanged" id="QrQ-7r-XzD"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LRT-RK-eJk">
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LRT-RK-eJk">
                                 <rect key="frame" x="41.5" y="284" width="331" height="40"/>
+                                <color key="backgroundColor" systemColor="linkColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="VC9-2X-IWd"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="다음">
-                                    <backgroundConfiguration key="background">
-                                        <color key="backgroundColor" systemColor="linkColor"/>
-                                    </backgroundConfiguration>
-                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="12"/>
-                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </buttonConfiguration>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="다음">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="btnAction:" destination="XNf-of-oHh" eventType="touchUpInside" id="a40-vf-Nef"/>
-                                    <segue destination="bcC-Eb-Q89" kind="show" identifier="GoJoinNameViewController" id="DQ1-r9-O5g"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZG6-DW-6Dk" userLabel="ViewLine">
@@ -1019,6 +1018,7 @@
                         <outlet property="btnSMSRetry" destination="JrF-MX-8eM" id="gpH-YB-aGS"/>
                         <outlet property="labelTitle" destination="7mT-Fs-1pf" id="NCO-5f-vyR"/>
                         <outlet property="tfSMSNum" destination="CXO-lT-Hat" id="Vfl-3I-dcN"/>
+                        <segue destination="bcC-Eb-Q89" kind="show" identifier="GoJoinNameViewController" id="Wb9-gZ-KfP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cjy-cg-lEI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1064,20 +1064,18 @@
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6TG-Jw-cZz">
                                 <rect key="frame" x="41.5" y="239.5" width="331" height="40"/>
+                                <color key="backgroundColor" systemColor="linkColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="dMq-jE-6tp"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="다음">
-                                    <backgroundConfiguration key="background">
-                                        <color key="backgroundColor" systemColor="linkColor"/>
-                                    </backgroundConfiguration>
-                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="12"/>
-                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </buttonConfiguration>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="다음">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="btnAction:" destination="XNf-of-oHh" eventType="touchUpInside" id="78f-aX-Mnw"/>
-                                    <segue destination="rz1-eW-DCZ" kind="show" id="9rz-mt-sOZ"/>
+                                    <action selector="btnAction:" destination="bcC-Eb-Q89" eventType="touchUpInside" id="mex-v8-KnZ"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PEZ-0P-7a6" userLabel="ViewLine">
@@ -1159,6 +1157,9 @@
                     <navigationItem key="navigationItem" id="XyG-5h-HGW"/>
                     <connections>
                         <outlet property="btnLogin" destination="iBp-8Y-rwP" id="EoL-b7-o5c"/>
+                        <outlet property="btnNext" destination="6TG-Jw-cZz" id="sY1-mS-Fcp"/>
+                        <outlet property="tfUserName" destination="1UG-bb-3P8" id="3Qp-Pa-QxU"/>
+                        <segue destination="rz1-eW-DCZ" kind="show" identifier="GoJoinPWViewController" id="OYw-RC-Fov"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RKw-4t-T5q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1184,7 +1185,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="비밀번호" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="5tF-v0-wZx" userLabel="TextFieldSMS">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="비밀번호" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="5tF-v0-wZx" userLabel="tfPW">
                                 <rect key="frame" x="41.5" y="171.5" width="331" height="40"/>
                                 <color key="backgroundColor" systemColor="systemGray6Color"/>
                                 <constraints>
@@ -1196,22 +1197,20 @@
                                     <action selector="tfEditingChangeAction:" destination="rz1-eW-DCZ" eventType="editingChanged" id="uFo-hg-V4Y"/>
                                 </connections>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cbO-Si-tNi">
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cbO-Si-tNi">
                                 <rect key="frame" x="41.5" y="261.5" width="331" height="40"/>
+                                <color key="backgroundColor" systemColor="linkColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="rRM-41-DTf"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="다음">
-                                    <backgroundConfiguration key="background">
-                                        <color key="backgroundColor" systemColor="linkColor"/>
-                                    </backgroundConfiguration>
-                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="12"/>
-                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </buttonConfiguration>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="다음">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="btnAction:" destination="XNf-of-oHh" eventType="touchUpInside" id="8qY-i4-gYD"/>
-                                    <segue destination="YwC-sF-Eik" kind="show" id="Tbu-v8-u3C"/>
+                                    <action selector="btnAction:" destination="rz1-eW-DCZ" eventType="touchUpInside" id="o8O-6b-FGx"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N1p-Rr-Pv9" userLabel="ViewLine">
@@ -1292,6 +1291,9 @@
                     <navigationItem key="navigationItem" id="Pgy-LB-FDU"/>
                     <connections>
                         <outlet property="btnLogin" destination="4ad-if-kLN" id="Kc8-BZ-6D5"/>
+                        <outlet property="btnNext" destination="cbO-Si-tNi" id="6bM-xa-akC"/>
+                        <outlet property="tfPW" destination="5tF-v0-wZx" id="Nrt-kf-ciD"/>
+                        <segue destination="YwC-sF-Eik" kind="show" identifier="GoJoinBirthViewController" id="MnP-UH-GNA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ver-4H-e3f" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1419,7 +1421,7 @@
                                             <constraint firstAttribute="trailing" secondItem="jA2-ZP-VQV" secondAttribute="trailing" id="c6z-Wl-hgo"/>
                                         </constraints>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xMi-57-k2o">
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xMi-57-k2o">
                                         <rect key="frame" x="20.5" y="55" width="373" height="40"/>
                                         <color key="backgroundColor" systemColor="linkColor"/>
                                         <constraints>
@@ -1432,7 +1434,6 @@
                                         </state>
                                         <connections>
                                             <action selector="btnAction:" destination="YwC-sF-Eik" eventType="touchUpInside" id="Shr-kT-mIW"/>
-                                            <segue destination="NpZ-si-zZg" kind="show" id="n03-il-Azx"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -1473,6 +1474,7 @@
                         <outlet property="labelBirth" destination="aFn-md-oWo" id="HuH-hA-Y6v"/>
                         <outlet property="viewBirth" destination="WiF-07-Z4Z" id="qLr-5p-csg"/>
                         <outlet property="viewBottomConstraint" destination="gGj-Yl-Xs1" id="3xK-dK-BhB"/>
+                        <segue destination="NpZ-si-zZg" kind="show" identifier="GoJoinAgreeViewController" id="5Ng-af-kRo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TXw-Wq-PEF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1514,7 +1516,7 @@
                                             <constraint firstItem="EI3-Gy-itc" firstAttribute="leading" secondItem="upk-Mp-gEE" secondAttribute="leading" id="t52-Is-UJP"/>
                                         </constraints>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="woK-hk-DgR">
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="woK-hk-DgR">
                                         <rect key="frame" x="20.5" y="55" width="373" height="40"/>
                                         <color key="backgroundColor" systemColor="linkColor"/>
                                         <constraints>
@@ -1526,7 +1528,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <segue destination="slU-6H-C4R" kind="show" id="Q7q-hL-gKe"/>
+                                            <action selector="btnAction:" destination="NpZ-si-zZg" eventType="touchUpInside" id="2Sk-mH-gP5"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -1789,6 +1791,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="6cZ-lc-PvH"/>
                     <connections>
+                        <outlet property="btnNext" destination="woK-hk-DgR" id="aww-Bv-sYm"/>
                         <outlet property="btnRadioAll" destination="tZ6-4m-MHd" id="Jip-Vr-AOz"/>
                         <outletCollection property="btnRadioS" destination="xAa-XQ-FSh" collectionClass="NSMutableArray" id="7qD-Cp-tSK"/>
                         <outletCollection property="btnRadioS" destination="CTh-0e-We5" collectionClass="NSMutableArray" id="Qfm-uZ-apW"/>
@@ -1796,6 +1799,7 @@
                         <outletCollection property="btnLinkS" destination="Ofz-9v-VA0" collectionClass="NSMutableArray" id="J2K-eh-XDf"/>
                         <outletCollection property="btnLinkS" destination="9ow-Nq-6AE" collectionClass="NSMutableArray" id="PTs-d0-rBO"/>
                         <outletCollection property="btnLinkS" destination="sjx-dN-HCA" collectionClass="NSMutableArray" id="5nk-OM-oaD"/>
+                        <segue destination="slU-6H-C4R" kind="show" identifier="GoJoinUserIDViewController" id="h38-C7-aMg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OsW-3y-zyz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1897,10 +1901,10 @@
             </objects>
             <point key="canvasLocation" x="1738" y="1509"/>
         </scene>
-        <!--Join User Name View Controller-->
+        <!--Join UserID View Controller-->
         <scene sceneID="mM8-Oi-sn8">
             <objects>
-                <viewController storyboardIdentifier="JoinUserNameViewController" modalPresentationStyle="overFullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="slU-6H-C4R" customClass="JoinUserNameViewController" customModule="InstagramChallenge" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="JoinUserIDViewController" modalPresentationStyle="overFullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="slU-6H-C4R" customClass="JoinUserIDViewController" customModule="InstagramChallenge" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Nsw-UE-oda">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1937,20 +1941,17 @@
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GzT-k8-kcK">
                                 <rect key="frame" x="41.5" y="257.5" width="331" height="40"/>
+                                <color key="backgroundColor" systemColor="linkColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="cD0-k0-lBl"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="다음">
-                                    <backgroundConfiguration key="background">
-                                        <color key="backgroundColor" systemColor="linkColor"/>
-                                    </backgroundConfiguration>
-                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="12"/>
-                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                </buttonConfiguration>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="다음">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
-                                    <action selector="btnAction:" destination="XNf-of-oHh" eventType="touchUpInside" id="hBC-KR-6R2"/>
-                                    <segue destination="BWM-rX-gXU" kind="show" identifier="GoJoinFinalViewController" id="0cK-kg-Nym"/>
+                                    <action selector="btnAction:" destination="slU-6H-C4R" eventType="touchUpInside" id="VEy-p1-soM"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dxc-Ns-AhF" userLabel="ViewLine">
@@ -2039,7 +2040,8 @@
                         <outlet property="btnNext" destination="GzT-k8-kcK" id="HaF-oI-A2E"/>
                         <outlet property="btnTopConstraint" destination="IpI-qt-LNt" id="lyL-Pa-hrC"/>
                         <outlet property="labelHidden" destination="DNE-HH-Mgi" id="SYD-ID-kRU"/>
-                        <outlet property="tfUserName" destination="PWe-fI-abX" id="95x-r8-CYu"/>
+                        <outlet property="tfUserID" destination="PWe-fI-abX" id="lAy-78-jn0"/>
+                        <segue destination="BWM-rX-gXU" kind="show" identifier="GoJoinFinalViewController" id="AjR-KY-QK2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ov1-7f-wYZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -2175,6 +2177,7 @@
                     <connections>
                         <outlet property="btnJoin" destination="8WO-0f-yOn" id="w1I-Jw-vAc"/>
                         <outlet property="btnLogin" destination="Bh7-7T-Dev" id="K80-Oc-ASQ"/>
+                        <outlet property="labelTitle" destination="Zq7-tU-UGL" id="TyI-jY-kVN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yx5-Zg-2jw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -2189,7 +2192,7 @@
         <image name="circle" catalog="system" width="128" height="121"/>
         <image name="icon_cake" width="547" height="456"/>
         <image name="icon_eyeSlash" width="185.5" height="194.5"/>
-        <image name="logo_instagram" width="397" height="157"/>
+        <image name="logo_instagram" width="354" height="105.5"/>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

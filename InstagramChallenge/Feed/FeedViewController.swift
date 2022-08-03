@@ -16,17 +16,15 @@ class FeedViewController: UIViewController {
         registerTableView()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        self.navigationController?.setNavigationBarHidden(true, animated: animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(true, animated: false)
     }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        self.navigationController?.setNavigationBarHidden(false, animated: animated)
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
+    }
 
-    }
-    
     func registerTableView() {
         let storytableViewCellNib = UINib(nibName: "StoryTableViewCell", bundle: nil)
         self.feedTableView.register(storytableViewCellNib, forCellReuseIdentifier: "StoryTableViewCell")
@@ -38,6 +36,12 @@ class FeedViewController: UIViewController {
         feedTableView.delegate = self
         
         feedTableView.separatorStyle = .none
+    }
+    
+    func setNavigationBackBtn() {
+        let backBarButtonItem = UIBarButtonItem(title: "취소", style: .done, target: self, action: nil)
+            backBarButtonItem.tintColor = .black  // 색상 변경
+            self.navigationItem.backBarButtonItem = backBarButtonItem
     }
 }
 

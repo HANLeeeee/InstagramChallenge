@@ -12,20 +12,26 @@ class JoinAgreeViewController: UIViewController {
     @IBOutlet weak var btnRadioAll: UIButton!
     @IBOutlet var btnRadioS: [UIButton]!
     @IBOutlet var btnLinkS: [UIButton]!
+    @IBOutlet weak var btnNext: UIButton!
     
-    
+    var joinData = UserPostRequest()
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        initUIJoinAgreeView()
+            
+        setUIJoinAgreeView()
     }
     
     //MARK: 화면UI변경
-    func initUIJoinAgreeView() {
+    func setUIJoinAgreeView() {
         btnHandler(btnRadioAll)
         btnRadioS.forEach {
             btnHandler($0)
         }
+        
+        btnNext.backgroundColor = UIColor(named: "ColorBtnBefore")
+        btnNext.layer.cornerRadius = 10
+        btnNext.isEnabled = false
     }
     
     //라디오버튼 핸들러
@@ -47,19 +53,25 @@ extension JoinAgreeViewController {
                 btn.isSelected = true
                 btnRadioS.forEach {
                     $0.isSelected = true
+                    btnStatus(true)
                 }
             } else {
                 btn.isSelected = false
                 btnRadioS.forEach {
                     $0.isSelected = false
+                    btnStatus(false)
                 }
             }
             
         case btnRadioS[0], btnRadioS[1], btnRadioS[2]:
             if !btn.isSelected {
                 btn.isSelected = true
+                if btnRadioS[0].isSelected && btnRadioS[1].isSelected && btnRadioS[2].isSelected {
+                    btnStatus(true)
+                }
             } else {
                 btn.isSelected = false
+                btnStatus(false)
             }
             
         case btnLinkS[0], btnLinkS[1], btnLinkS[2]:
@@ -67,8 +79,32 @@ extension JoinAgreeViewController {
             let urlView: SFSafariViewController = SFSafariViewController(url: url! as URL)
             self.present(urlView, animated: true, completion: nil)
             
+        case btnNext:
+            performSegue(withIdentifier: "GoJoinUserIDViewController", sender: nil)
+            
+            
         default:
             return
+        }
+    }
+    
+    func btnStatus(_ selected: Bool) {
+        switch selected {
+        case true:
+            btnNext.backgroundColor = UIColor.link
+            btnNext.isEnabled = true
+        case false:
+            btnNext.backgroundColor = UIColor(named: "ColorBtnBefore")
+            btnNext.isEnabled = false
+        }
+    }
+}
+
+extension JoinAgreeViewController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "GoJoinUserIDViewController" {
+            let jIDVC = segue.destination as! JoinUserIDViewController
+            jIDVC.joinData = self.joinData
         }
     }
 }

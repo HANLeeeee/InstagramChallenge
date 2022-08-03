@@ -15,16 +15,17 @@ class JoinBirthViewController: UIViewController {
     @IBOutlet weak var btnNext: UIButton!
     @IBOutlet weak var viewBottomConstraint: NSLayoutConstraint!
     
+    var joinData = UserPostRequest()
     let formatter = DateFormatter()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        initUIJoinBirthView()
+        setUIJoinBirthView()
     }
 
     //MARK: 화면UI변경
-    func initUIJoinBirthView() {
+    func setUIJoinBirthView() {
         viewBirth.layer.borderWidth = 1
         viewBirth.layer.borderColor = UIColor.tintColor.cgColor
         viewBirth.layer.cornerRadius = 5
@@ -71,7 +72,12 @@ extension JoinBirthViewController {
     @IBAction func btnAction(_ btn: UIButton) {
         switch btn {
         case btnNext:
-            print("??")
+            let dateformatter = DateFormatter()
+            dateformatter.dateFormat = "yyyy.MM.dd"
+            let userBirth = dateformatter.string(from: datepicker.date)
+
+            joinData.userBirth = userBirth
+            performSegue(withIdentifier: "GoJoinAgreeViewController", sender: nil)
             
         default:
             return
@@ -79,4 +85,13 @@ extension JoinBirthViewController {
         
     }
     
+}
+
+extension JoinBirthViewController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "GoJoinAgreeViewController" {
+            let jAVC = segue.destination as! JoinAgreeViewController
+            jAVC.joinData = self.joinData
+        }
+    }
 }
