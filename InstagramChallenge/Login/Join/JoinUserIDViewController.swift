@@ -18,12 +18,13 @@ class JoinUserIDViewController: UIViewController {
     var constraint: CGFloat = 0
     
     var joinData = UserPostRequest()
-    var statusMessage = ""
+    var statusMessage: String = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setUIJoinUserIDViewController()
     }
+    
 }
 
 
@@ -37,13 +38,17 @@ extension JoinUserIDViewController {
     func visibleLoginStatusMessgae(_ status: Bool) {
         switch status {
         case true:
-            labelHidden.text = self.statusMessage
+            labelHidden.text = statusMessage
             labelHidden.isHidden = false
+            tfUserID.layer.cornerRadius = 10
+            tfUserID.layer.borderWidth = 1
+            tfUserID.layer.borderColor = UIColor.red.cgColor
             if btnTopConstraint.constant == constraint {
                 btnTopConstraint.constant += labelHidden.frame.height+10
             }
         case false:
             labelHidden.isHidden = true
+            tfUserID.layer.borderWidth = 0
             if btnTopConstraint.constant == constraint+labelHidden.frame.height+10 {
                 btnTopConstraint.constant -= labelHidden.frame.height+10
             }
@@ -58,8 +63,7 @@ extension JoinUserIDViewController {
         view.endEditing(true)
     }
     
-    @IBAction func tfEditingChangedAction(_ sender: Any) {
-        tfUserID.clearButtonMode = .whileEditing
+    @IBAction func tfEditingChagedAction(_ sender: Any) {
         visibleLoginStatusMessgae(false)
     }
     
@@ -69,11 +73,8 @@ extension JoinUserIDViewController {
             self.navigationController?.popToRootViewController(animated: true)
             
         case btnNext:
-            tfUserID.clearButtonMode = .never
             if idIsValidCheck(tfUserID.text!) {
                 searchUserID()
-                
-//                performSegue(withIdentifier: "GoJoinFinalViewController", sender: nil)
                 
             } else {
                 self.statusMessage = "아이디는 영어, 숫자, '_', '.'만 사용 가능합니다."
@@ -94,36 +95,35 @@ extension JoinUserIDViewController {
     
     func searchUserID() {
         if let userID = tfUserID.text  {
-            APIUserGet().searchUserID(loginId: userID)
-
+            APIUserGet().searchUserID(loginId: userID, joinUserIDVC: self)
             return
         }
     }
-
 }
 
 
 extension JoinUserIDViewController {
     
-    func searchUserIDsuccessAPI(_ result: UserResponseResult) {
-        joinData.userID = tfUserID.text!
+    func searchUserIDsuccessAPI(_ loginId: String) {
+        joinData.userID = loginId
+        performSegue(withIdentifier: "GoJoinFinalViewController", sender: nil)
     }
     
-    func searchUserIDfailureAPI(_ code: Int) {
+    func searchUserIDfailureAPI(_ code: Int,_ userID: String) {
+        print("4")
         switch code {
         case 2103:
             print("파라미터 이상")
         case 2230:
-            print("??")
-//            self.statusMessage = "사용자 이름 \(tfUserID.text!)을를 사용할 수 없습니다."
-//            visibleLoginStatusMessgae(true)
+            statusMessage = "사용자 이름 \(userID)을(를) 사용할 수 없습니다."
+            visibleLoginStatusMessgae(true)
         default:
-            print("!!")
-//            self.statusMessage = "다른 아이디를 사용해주세요."
-//            visibleLoginStatusMessgae(true)
+            statusMessage = "다른 아이디를 사용해주세요."
+            visibleLoginStatusMessgae(true)
         }
     }
 }
+
 
 
 extension JoinUserIDViewController {

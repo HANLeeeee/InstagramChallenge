@@ -72,30 +72,17 @@ enum APIUserGetURL: URLRequestConvertible {
     
     var parameters: Parameters {
         switch self {
-        case .searchUserID(let loginId):
-            var params = Parameters()
-            params["loginId"] = loginId
-
-            return params
-        
         default:
             return Parameters()
         }
     }
     
     func asURLRequest() throws -> URLRequest {
-        
         var request = URLRequest(url: url)
 
         request.headers = headers
         request.method = method
         
-//        request.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: []).h
-//        request.httpBody = try JSONEncoding.default.encode(request, with: parameters).httpBody
-//        request.httpBody = try URLEncoding.queryString.encode(request, with: parameters).httpBody
-//        request.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted)
-        
-        debugPrint(request)
         return request
     }
 }

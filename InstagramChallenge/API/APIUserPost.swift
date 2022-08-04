@@ -9,21 +9,23 @@ import Foundation
 import Alamofire
 
 class APIUserPost {
-    func signUp(realName: String, password: String, loginId: String, birthDate: String, phoneNumber: String) {
+    
+    //MARK: 회원가입
+    func signUp(realName: String, password: String, loginId: String, birthDate: String, phoneNumber: String, joinFinalVC: JoinFinalViewController) {
         AF.request(APIUserPostURL.signUp(realName: realName, password: password, loginId: loginId, birthDate: birthDate, phoneNumber: phoneNumber))
             .validate()
             .responseDecodable(of: UserResponse.self) { response in
-                print(response)
+            debugPrint(response)
             switch response.result {
             case .success(let result):
                 print(result)
                 if result.isSuccess {
                     if let result = result.result {
-                        print(result)
-                        JoinFinalViewController().joinsuccessAPI(result)
+                        UserDefaultsData.shared.setToken(userID: loginId, jwt: result.jwt!)
+                        joinFinalVC.joinsuccessAPI(result)
                     }
                 } else {
-                    JoinFinalViewController().joinfailureAPI(result.code)
+                    joinFinalVC.joinfailureAPI(result.code)
                 }
                 
                 
@@ -33,21 +35,22 @@ class APIUserPost {
         }
     }
 
-    func signIn(loginId: String, password: String) {
+    //MARK: 로그인
+    func signIn(loginId: String, password: String, loginVC: LoginViewController) {
         AF.request(APIUserPostURL.signIn(loginId: loginId, password: password))
             .validate()
             .responseDecodable(of: UserResponse.self) { response in
-                print(response)
+            debugPrint(response)
             switch response.result {
             case .success(let result):
                 print(result)
                 if result.isSuccess {
                     if let result = result.result {
-                        print(result)
-                        LoginViewController().loginsuccessAPI(result)
+                        UserDefaultsData.shared.setToken(userID: result.loginId!, jwt: result.jwt!)
+                        loginVC.loginsuccessAPI(result)
                     }
                 } else {
-                    LoginViewController().loginfailureAPI(result.code)
+                    loginVC.loginfailureAPI(result.code)
                 }
                 
             case .failure(let error):

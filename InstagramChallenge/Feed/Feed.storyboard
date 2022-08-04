@@ -208,7 +208,7 @@
         <!--Feed Tab Bar View Controller-->
         <scene sceneID="xF2-t5-Lwk">
             <objects>
-                <tabBarController storyboardIdentifier="FeedTabBarViewController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="DrQ-B5-A69" customClass="FeedTabBarViewController" customModule="InstagramChallenge" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="FeedTabBarViewController" automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="DrQ-B5-A69" customClass="FeedTabBarViewController" customModule="InstagramChallenge" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="z4J-8q-qjK">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>

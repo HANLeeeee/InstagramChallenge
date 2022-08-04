@@ -9,7 +9,7 @@ import Foundation
 
 class UserDefaultsData {
     enum Key: String, CaseIterable {
-        case jwt
+        case userID, jwt
     }
     
     static let shared: UserDefaultsData = {
@@ -22,23 +22,17 @@ class UserDefaultsData {
         }
     }
     
-    func setJWT(jwt: String) {
+    func setToken(userID: String, jwt: String) {
+        UserDefaults.standard.setValue(userID, forKey: "userID")
         UserDefaults.standard.setValue(jwt, forKey: "jwt")
         UserDefaults.standard.synchronize()
     }
     
-    func getJWT() -> String {
-        let jwt = UserDefaults.standard.string(forKey: "jwt") ?? ""
-        return jwt
-    }
-    
-    func setUserID(userID: String) {
-        UserDefaults.standard.setValue(userID, forKey: "userID")
-        UserDefaults.standard.synchronize()
-    }
-    
-    func getUserID() -> String {
+    func getToken() -> UserToken {
         let userID = UserDefaults.standard.string(forKey: "userID") ?? ""
-        return userID
+        let jwt = UserDefaults.standard.string(forKey: "jwt") ?? ""
+        return UserToken(loginId: userID, jwt: jwt)
     }
+    
+
 }

@@ -120,22 +120,21 @@ extension LoginViewController {
     func checkUser() {
         if let userID = textFieldID.text,
            let userPW = textFieldPW.text {
-            APIUserPost().signIn(loginId: userID, password: userPW)
+            APIUserPost().signIn(loginId: userID, password: userPW, loginVC: self)
 
             return
         }
     }
     
     func loginsuccessAPI(_ result: UserResponseResult) {
-        UserDefaultsData.shared.setUserID(userID: result.loginId!)
-        UserDefaultsData.shared.setJWT(jwt: result.jwt!)
+        presentFeedVC()
     }
     
     func loginfailureAPI(_ code: Int) {
 
     }
     
-    func presentFeed() {
+    func presentFeedVC() {
         let feedStoryboard = UIStoryboard(name: "Feed", bundle: nil)
         let FeedTabBarViewController = feedStoryboard.instantiateViewController(withIdentifier: "FeedTabBarViewController") as! FeedTabBarViewController
 

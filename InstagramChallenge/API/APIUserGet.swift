@@ -32,7 +32,7 @@ class APIUserGet {
         }
     }
 
-    func searchUserID(loginId: String) {
+    func searchUserID(loginId: String, joinUserIDVC: JoinUserIDViewController) {
         AF.request(APIUserGetURL.searchUserID(loginId: loginId))
             .validate()
             .responseDecodable(of: UserResponse.self) { response in
@@ -41,11 +41,9 @@ class APIUserGet {
             switch response.result {
             case .success(let result):
                 if result.isSuccess {
-                    if let result = result.result {
-                        JoinUserIDViewController().searchUserIDsuccessAPI(result)
-                    }
+                    joinUserIDVC.searchUserIDsuccessAPI(loginId)
                 } else {
-                    JoinUserIDViewController().searchUserIDfailureAPI(result.code)
+                    joinUserIDVC.searchUserIDfailureAPI(result.code, loginId)
                 }
             case .failure(let error):
                 print("에러에러리스폰스에러 \(error.localizedDescription)")

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="slU-6H-C4R">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hWD-49-dW3">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
@@ -1930,7 +1930,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" textContentType="name"/>
                                 <connections>
-                                    <action selector="tfEditingChangedAction:" destination="slU-6H-C4R" eventType="editingChanged" id="W5e-xa-PtF"/>
+                                    <action selector="tfEditingChagedAction:" destination="slU-6H-C4R" eventType="editingChanged" id="XF8-OK-Zku"/>
                                 </connections>
                             </textField>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="사용자 이름 test을(를) 사용할 수 없습니다." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DNE-HH-Mgi">
@@ -2038,7 +2038,7 @@
                     <connections>
                         <outlet property="btnLogin" destination="bIC-Po-Nkg" id="GyB-eQ-faS"/>
                         <outlet property="btnNext" destination="GzT-k8-kcK" id="HaF-oI-A2E"/>
-                        <outlet property="btnTopConstraint" destination="IpI-qt-LNt" id="lyL-Pa-hrC"/>
+                        <outlet property="btnTopConstraint" destination="IpI-qt-LNt" id="g1x-f5-8jP"/>
                         <outlet property="labelHidden" destination="DNE-HH-Mgi" id="SYD-ID-kRU"/>
                         <outlet property="tfUserID" destination="PWe-fI-abX" id="lAy-78-jn0"/>
                         <segue destination="BWM-rX-gXU" kind="show" identifier="GoJoinFinalViewController" id="AjR-KY-QK2"/>
@@ -2139,7 +2139,6 @@
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" title="로그인"/>
                                                 <connections>
-                                                    <action selector="btnAction:" destination="slU-6H-C4R" eventType="touchUpInside" id="NqT-QW-dmW"/>
                                                     <action selector="btnAction:" destination="BWM-rX-gXU" eventType="touchUpInside" id="vsH-Ll-m1f"/>
                                                 </connections>
                                             </button>

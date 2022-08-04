@@ -21,7 +21,7 @@ class JoinFinalViewController: UIViewController {
     }
     
     func setUIJoinFinalViewController() {
-        labelTitle.text = "\(joinData.loginId!)\n님으로 가입하시겠어요?"
+//        labelTitle.text = "\(joinData.loginId!)\n님으로 가입하시겠어요?"
     }
     
 }
@@ -42,13 +42,12 @@ extension JoinFinalViewController {
     }
     
     func createUser() {
-        print(joinData)
         if let userName = joinData.realName,
            let userPW = joinData.password,
            let userID = joinData.loginId,
            let userBirth = joinData.birthDate,
            let userPN = joinData.phoneNumber {
-            APIUserPost().signUp(realName: userName, password: userPW, loginId: userID, birthDate: userBirth, phoneNumber: userPN)
+            APIUserPost().signUp(realName: userName, password: userPW, loginId: userID, birthDate: userBirth, phoneNumber: userPN, joinFinalVC: self)
 
             return
         }
@@ -58,18 +57,26 @@ extension JoinFinalViewController {
 
 extension JoinFinalViewController {
     func joinsuccessAPI(_ result: UserResponseResult) {
-        UserDefaultsData.shared.setUserID(userID: joinData.loginId!)
-        UserDefaultsData.shared.setJWT(jwt: result.jwt!)
+        changeRootView()
     }
     
     func joinfailureAPI(_ code: Int) {
-//        switch code {
-//        case 2230:
-//            self.statusMessage = "사용자 이름 \(tfUserID.text!)을(를) 사용할 수 없습니다."
-//            visibleLoginStatusMessgae(true)
-//        default:
-//            self.statusMessage = "다른 아이디를 사용해주세요."
-//            visibleLoginStatusMessgae(true)
-//        }
+        
+        let alert = makeAlert("알림", "회원가입에 실패하였습니다.", true, "확인")
+        present(alert, animated: false)
+        
+        self.navigationController?.popToRootViewController(animated: true)
+    }
+    
+    func changeRootView() {
+        presentFeedVC()
+    }
+    
+    func presentFeedVC() {
+        let feedStoryboard = UIStoryboard(name: "Feed", bundle: nil)
+        let FeedTabBarViewController = feedStoryboard.instantiateViewController(withIdentifier: "FeedTabBarViewController") as! FeedTabBarViewController
+
+        FeedTabBarViewController.modalPresentationStyle = .fullScreen
+        self.present(FeedTabBarViewController, animated: true, completion: nil)
     }
 }

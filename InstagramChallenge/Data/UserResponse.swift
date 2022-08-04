@@ -20,3 +20,8 @@ struct UserResponseResult: Codable {
     let realName: String?
     let followerCount, followingCount, feedCount: Int?
 }
+
+struct UserToken {
+    let loginId: String?
+    let jwt: String?
+}
