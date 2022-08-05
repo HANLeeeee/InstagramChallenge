@@ -36,7 +36,7 @@
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <state key="normal" backgroundImage="naviicon_plus"/>
                                                         <connections>
-                                                            <segue destination="Y1f-9m-3g8" kind="show" id="jRG-2c-ImS"/>
+                                                            <action selector="btnAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="dKP-a6-0b5"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bl3-oU-hac">
@@ -94,7 +94,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="drb-Qb-8Vd"/>
                     <connections>
+                        <outlet property="btnNewPost" destination="FBR-h3-qFo" id="X4k-5x-lnO"/>
                         <outlet property="feedTableView" destination="7aN-02-UNb" id="0mo-S8-Zjl"/>
+                        <segue destination="Y1f-9m-3g8" kind="show" identifier="GoFeedNewViewController" id="k8E-Kf-efP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -104,32 +106,90 @@
         <!--새 게시물-->
         <scene sceneID="utx-Q7-ZgF">
             <objects>
-                <viewController storyboardIdentifier="FeedNewViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y1f-9m-3g8" customClass="FeedNewViewController" customModule="InstagramChallenge" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FeedNewViewController" hidesBottomBarWhenPushed="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Y1f-9m-3g8" customClass="FeedNewViewController" customModule="InstagramChallenge" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="czz-aR-bGQ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="70o-QO-NRC">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="rra-kC-szk">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZHs-w9-Oni">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pN8-hy-Uic">
+                                                        <rect key="frame" x="10" y="10" width="80" height="80"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="pN8-hy-Uic" secondAttribute="height" id="kQ6-sM-GLz"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="FZr-Lg-03H">
+                                                        <rect key="frame" x="100" y="10" width="304" height="80"/>
+                                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                        <color key="textColor" systemColor="labelColor"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    </textView>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="100" id="2Fs-Pp-sqP"/>
+                                                    <constraint firstItem="pN8-hy-Uic" firstAttribute="top" secondItem="ZHs-w9-Oni" secondAttribute="top" constant="10" id="NDL-SD-Z3Y"/>
+                                                    <constraint firstAttribute="bottom" secondItem="pN8-hy-Uic" secondAttribute="bottom" constant="10" id="OaM-xc-XzH"/>
+                                                    <constraint firstAttribute="bottom" secondItem="FZr-Lg-03H" secondAttribute="bottom" constant="10" id="cyK-tF-FPp"/>
+                                                    <constraint firstItem="FZr-Lg-03H" firstAttribute="top" secondItem="ZHs-w9-Oni" secondAttribute="top" constant="10" id="j7L-1M-smB"/>
+                                                    <constraint firstItem="pN8-hy-Uic" firstAttribute="leading" secondItem="ZHs-w9-Oni" secondAttribute="leading" constant="10" id="tOv-fv-M0G"/>
+                                                    <constraint firstItem="FZr-Lg-03H" firstAttribute="leading" secondItem="pN8-hy-Uic" secondAttribute="trailing" constant="10" id="uEG-MP-HRw"/>
+                                                    <constraint firstAttribute="trailing" secondItem="FZr-Lg-03H" secondAttribute="trailing" constant="10" id="xjH-UW-vEF"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="rra-kC-szk" secondAttribute="trailing" id="3td-5t-zqP"/>
+                                    <constraint firstItem="rra-kC-szk" firstAttribute="leading" secondItem="70o-QO-NRC" secondAttribute="leading" id="BwO-1U-fZF"/>
+                                    <constraint firstItem="rra-kC-szk" firstAttribute="width" secondItem="70o-QO-NRC" secondAttribute="width" id="XhT-BD-cXg"/>
+                                    <constraint firstItem="rra-kC-szk" firstAttribute="top" secondItem="70o-QO-NRC" secondAttribute="top" id="mPc-0t-658"/>
+                                    <constraint firstAttribute="bottom" secondItem="rra-kC-szk" secondAttribute="bottom" id="yim-kz-tCO"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="R1S-Tt-ctl"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="70o-QO-NRC" firstAttribute="top" secondItem="R1S-Tt-ctl" secondAttribute="top" id="6ic-P6-ExH"/>
+                            <constraint firstItem="70o-QO-NRC" firstAttribute="leading" secondItem="R1S-Tt-ctl" secondAttribute="leading" id="9aO-28-teS"/>
+                            <constraint firstItem="R1S-Tt-ctl" firstAttribute="trailing" secondItem="70o-QO-NRC" secondAttribute="trailing" id="MGF-Bl-6BZ"/>
+                            <constraint firstItem="R1S-Tt-ctl" firstAttribute="bottom" secondItem="70o-QO-NRC" secondAttribute="bottom" id="eeu-gD-Gxh"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="tJy-on-nEA" appends="YES" id="vY8-Sj-F7K"/>
+                        </connections>
                     </view>
                     <navigationItem key="navigationItem" title="새 게시물" id="gEn-LP-5IS">
-                        <barButtonItem key="leftBarButtonItem" title="취소" id="ZvI-nd-3dl">
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <connections>
-                                <action selector="barbtnAction:" destination="Y1f-9m-3g8" id="K9g-od-p11"/>
-                            </connections>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="다음" id="VgO-oO-gSL">
+                        <barButtonItem key="rightBarButtonItem" title="공유" id="VgO-oO-gSL">
                             <connections>
                                 <action selector="barbtnAction:" destination="Y1f-9m-3g8" id="5Du-X7-jXs"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="barbtnBack" destination="ZvI-nd-3dl" id="RPd-6T-Jgh"/>
                         <outlet property="barbtnNext" destination="VgO-oO-gSL" id="a8E-os-apy"/>
+                        <outlet property="imageViewPickImage" destination="pN8-hy-Uic" id="dGg-rO-4Av"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mf1-c2-BAy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="tJy-on-nEA">
+                    <connections>
+                        <action selector="tabBackView:" destination="Y1f-9m-3g8" id="tfI-j6-VGJ"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="944" y="1527"/>
         </scene>
@@ -187,23 +247,15 @@
             </objects>
             <point key="canvasLocation" x="3726" y="59"/>
         </scene>
-        <!--My Page View Controller-->
-        <scene sceneID="Q88-q7-y7b">
+        <!--Mypage-->
+        <scene sceneID="NrG-GX-oJT">
             <objects>
-                <viewController storyboardIdentifier="MyPageViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="D0S-nx-qSN" customClass="MyPageViewController" customModule="InstagramChallenge" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="7fH-1B-K2G">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="ejd-XK-fv6"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="" image="icon_tabbar_profile" selectedImage="icon_tabbar_profile_fill" id="LMP-hK-Xbg">
-                        <color key="badgeColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </tabBarItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="QNb-ON-XvJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="Mypage" id="Xih-YA-IwZ" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="VJP-An-QtC"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZxN-oZ-nmr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4710" y="57"/>
+            <point key="canvasLocation" x="4671" y="57"/>
         </scene>
         <!--Feed Tab Bar View Controller-->
         <scene sceneID="xF2-t5-Lwk">
@@ -220,7 +272,7 @@
                         <segue destination="2mh-gL-ZSq" kind="relationship" relationship="viewControllers" id="75g-vU-BUg"/>
                         <segue destination="M0e-a2-pEX" kind="relationship" relationship="viewControllers" id="OoY-bU-xFJ"/>
                         <segue destination="8XG-LH-Uob" kind="relationship" relationship="viewControllers" id="VYX-aI-aak"/>
-                        <segue destination="D0S-nx-qSN" kind="relationship" relationship="viewControllers" id="XYS-6F-PIp"/>
+                        <segue destination="Xih-YA-IwZ" kind="relationship" relationship="viewControllers" id="RgX-4T-mge"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WmJ-7q-R26" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -255,8 +307,6 @@
     <resources>
         <image name="icon_tabbar_home" width="35" height="35"/>
         <image name="icon_tabbar_home_fill" width="35" height="35"/>
-        <image name="icon_tabbar_profile" width="35" height="35"/>
-        <image name="icon_tabbar_profile_fill" width="35" height="35"/>
         <image name="icon_tabbar_reels" width="35" height="35"/>
         <image name="icon_tabbar_search" width="35" height="35"/>
         <image name="icon_tabbar_shop" width="35" height="35"/>
@@ -264,6 +314,9 @@
         <image name="naviicon_DM" width="202.5" height="202.5"/>
         <image name="naviicon_alert" width="436" height="432"/>
         <image name="naviicon_plus" width="219" height="218"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -11,15 +11,51 @@ import KakaoSDKAuth
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-
+    var isLogged: Bool = false
+    var usertoken = UserDefaultsData.shared.getToken().jwt
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
-        // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
-        // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
+
+        APIUserGet().autoSignIn(accessToken: usertoken!, completion: { result in
+            switch result {
+            case .success(let result):
+                if result.code == 1001 {
+                    let feedStoryboard = UIStoryboard(name: "Feed", bundle: nil)
+                    guard let FeedTabBarViewController = feedStoryboard.instantiateViewController(withIdentifier: "FeedTabBarViewController") as? FeedTabBarViewController else {
+                        return
+                    }
+                    self.window?.rootViewController = FeedTabBarViewController
+                } else {
+                    let loginStoryboard = UIStoryboard(name: "Login", bundle: nil)
+                    guard let LoginNavigationViewController = loginStoryboard.instantiateViewController(withIdentifier: "LoginNavigationViewController") as? LoginNavigationViewController else {
+                        return
+                    }
+                    self.window?.rootViewController = LoginNavigationViewController
+                }
+                
+            case .failure(let error):
+                print(error)
+            }
+        })
         guard let _ = (scene as? UIWindowScene) else { return }
     }
+    
+    func changeRootVC (_ vc: UIViewController, animated: Bool) {
+        guard let window = self.window else {
+            return
+        }
+        window.rootViewController = vc
+        UIView.transition(with: window, duration: 0.4, options: [.transitionCrossDissolve], animations: nil, completion: nil)
+    }
 
+    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
+        if let url = URLContexts.first?.url {
+            if AuthApi.isKakaoTalkLoginUrl(url) {
+                _ = AuthController.handleOpenUrl(url: url)
+            }
+        }
+    }
+    
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.
         // This occurs shortly after the scene enters the background, or when its session is discarded.
@@ -46,14 +82,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Called as the scene transitions from the foreground to the background.
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
-    }
-    
-    func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
-        if let url = URLContexts.first?.url {
-            if AuthApi.isKakaoTalkLoginUrl(url) {
-                _ = AuthController.handleOpenUrl(url: url)
-            }
-        }
     }
 }
 

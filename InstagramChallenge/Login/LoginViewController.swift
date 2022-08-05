@@ -18,13 +18,13 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var btnLogin: UIButton!
     @IBOutlet weak var btnKakao: UIButton!
     @IBOutlet weak var btnJoin: UIButton!
-    
     let alert = makeAlert("알림", "로그인에 실패하였습니다.", true, "확인")
+
     
     //MARK: 생명주기
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setUILoginViewController()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -39,6 +39,15 @@ class LoginViewController: UIViewController {
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
+    func setUILoginViewController() {
+        btnLogin.backgroundColor = UIColor(named: "ColorBtnBefore")
+        btnLogin.layer.cornerRadius = 10
+        btnLogin.isEnabled = false
+    }
+    
+    @IBAction func tfEditingChanged(_ textfield: UITextField) {
+        
+    }
 }
 
 //MARK: 액션이벤트
@@ -50,6 +59,13 @@ extension LoginViewController {
     @IBAction func tfEditingChangeAction(_ textField: UITextField) {
         if textField.text!.count > 20 {
             textField.deleteBackward()
+        }
+        if textFieldID.text!.count > 0 && textFieldPW.text!.count > 0 {
+            btnLogin.backgroundColor = UIColor.link
+            btnLogin.isEnabled = true
+        } else {
+            btnLogin.backgroundColor = UIColor(named: "ColorBtnBefore")
+            btnLogin.isEnabled = false
         }
     }
     
@@ -87,20 +103,14 @@ extension LoginViewController {
     }
     
     func btnLoginAction() {
-        //1. 유효성검사하기
-            //2 성공시 존재하는 지 서버에서 확인
+        if isValidCheck(id: textFieldID.text!, pw: textFieldPW.text!) {
             checkUser()
-            
-            //2 존재하지않거나 아이디비번이 틀리면 팝업노출
-        //1. 유효성실패시 팝업노출
-        
-        
-
-
+        } else {
+            presentFailurePopup()
+        }
     }
     
     func btnKakaoLoginAction() {
-        print("??")
         if UserApi.isKakaoTalkLoginAvailable() {
             kakaoLoginApp()
         } else {
@@ -109,8 +119,26 @@ extension LoginViewController {
     }
     
     func btnJoinAction() {
-//        performSegue(withIdentifier: "GoJoinViewController", sender: nil)
+        performSegue(withIdentifier: "GoJoinViewController", sender: nil)
         
+    }
+    
+    func isValidCheck(id: String, pw: String) -> Bool {
+        var idcheck = false
+        var pwcheck = false
+
+        if id.count > 3 && id.count < 21 {
+            idcheck = true
+        }
+        if idcheck {
+            if pw.count > 6 && pw.count < 21 {
+                let str = "^(?=.*[A-Za-z])(?=.*[0-9])(?=.*[!@#$%^&*()_+=-]).{6,20}"
+                let predic = NSPredicate(format: "SELF MATCHES %@", str)
+                
+                pwcheck = predic.evaluate(with: pw)
+            }
+        }
+        return idcheck && pwcheck
     }
 }
 
@@ -121,7 +149,6 @@ extension LoginViewController {
         if let userID = textFieldID.text,
            let userPW = textFieldPW.text {
             APIUserPost().signIn(loginId: userID, password: userPW, loginVC: self)
-
             return
         }
     }
@@ -131,6 +158,10 @@ extension LoginViewController {
     }
     
     func loginfailureAPI(_ code: Int) {
+        switch code {
+        default:
+            presentFailurePopup()
+        }
 
     }
     
@@ -138,10 +169,91 @@ extension LoginViewController {
         let feedStoryboard = UIStoryboard(name: "Feed", bundle: nil)
         let FeedTabBarViewController = feedStoryboard.instantiateViewController(withIdentifier: "FeedTabBarViewController") as! FeedTabBarViewController
 
+        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootVC(FeedTabBarViewController, animated: true)
+
         FeedTabBarViewController.modalPresentationStyle = .fullScreen
         self.present(FeedTabBarViewController, animated: true, completion: nil)
     }
+    
+    
+    func presentFailurePopup() {
+        let alert = makeAlertSelcet(alertTitle: "계정을 찾을 수 없음", alertMessage: "\(textFieldID.text!)에 연결된 계정을 찾을 수 없습니다. 다른 전화번호나 이메일 주소를 사용해보세요. Instagram 계정이 없으면 가입할 수 있습니다.", btnAgreeTitle: "가입하기", btnCancleTitle: "다시시도")
+        present(alert, animated: false)
+    }
+    
+    func makeAlertSelcet(alertTitle: String, alertMessage: String, btnAgreeTitle: String, btnCancleTitle: String) -> UIAlertController {
+        
+        let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: UIAlertController.Style.alert)
+        let agree = UIAlertAction(title: btnAgreeTitle, style: .default, handler: { (action) in
+            self.performSegue(withIdentifier: "GoJoinViewController", sender: nil)
+        })
+        let cancle = UIAlertAction(title: btnCancleTitle, style: .default)
+        alert.addAction(agree)
+        alert.addAction(cancle)
+        
+        return alert
+    }
 }
+
+
+//MARK: 카카오 로그인
+extension LoginViewController {
+    func kakaoLoginApp() {
+        UserApi.shared.loginWithKakaoTalk {(authToken, error) in
+            if let error = error {
+                print(error)
+                self.present(self.alert, animated: true)
+            } else {
+                print("성공")
+                if (authToken?.accessToken) != nil {
+                    print("어세스토큰발생 \(authToken!.accessToken)")
+                    APIUserPost().kakaoSignIn(accessToken: authToken!.accessToken, loginVC: self)
+                }
+//                        self.presentFeedVC()
+                print("화면이동")
+                //서버에서 있는 지 확인
+            }
+        }
+    }
+
+    func kakaoLoginWeb() {
+        UserApi.shared.loginWithKakaoAccount {(authToken, error) in
+            if let error = error {
+                print(error)
+                self.present(self.alert, animated: true)
+            } else {
+                print("성공")
+                if (authToken?.accessToken) != nil {
+                    print("어세스토큰발생 \(authToken!.accessToken)")
+                    APIUserPost().kakaoSignIn(accessToken: authToken!.accessToken, loginVC: self)
+                }
+//                        self.presentFeedVC()
+                print("화면이동")
+                //서버에서 있는 지 확인
+                    
+                
+            }
+        }
+    }
+
+
+    //결과
+    func kakaologinsuccessAPI() {
+        presentFeedVC()
+    }
+    
+    func kakaologinfailureAPI(_ code: Int) {
+        switch code {
+        case 2100:
+            //회원가입이 안된상태
+            performSegue(withIdentifier: "GoJoinPhoneViewController", sender: nil)
+        default:
+            self.present(self.alert, animated: true)
+        }
+    }
+}
+
+
 
 //MARK: 키보드옵저버
 //extension LoginViewController {
@@ -166,48 +278,3 @@ extension LoginViewController {
 //        self.constraint.constant += 50
 //    }
 //}
-
-//MARK: 카카오톡로그인
-extension LoginViewController {
-    func kakaoLoginApp() {
-        UserApi.shared.loginWithKakaoTalk {(_, error) in
-            if let error = error {
-                print(error)
-                self.present(self.alert, animated: true)
-            } else {
-                print("성공")
-                
-                UserApi.shared.me {(user, error) in
-                    if let error = error {
-                        print(error)
-                        self.present(self.alert, animated: true)
-                    } else {
-                        //아이디체크해서 있으면 이동 없으면 가입으로 이동
-                        print("화면이동")
-                    }
-                }
-            }
-        }
-    }
-    
-    func kakaoLoginWeb() {
-        UserApi.shared.loginWithKakaoAccount {(_, error) in
-            if let error = error {
-                print(error)
-                self.present(self.alert, animated: true)
-            } else {
-                print("성공")
-                UserApi.shared.me {(user, error) in
-                    if let error = error {
-                        print(error)
-                        self.present(self.alert, animated: true)
-                    } else {
-                        //아이디체크해서 있으면 이동 없으면 가입으로 이동
-                        print("화면이동")
-                    }
-                }
-            }
-        }
-    }
-    
-}

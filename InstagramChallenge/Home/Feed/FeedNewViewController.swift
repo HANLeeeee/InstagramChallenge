@@ -9,20 +9,28 @@ import UIKit
 
 class FeedNewViewController: UIViewController {
 
-    @IBOutlet weak var barbtnBack: UIBarButtonItem!
     @IBOutlet weak var barbtnNext: UIBarButtonItem!
+    
+    var pickImage = UIImage()
+    @IBOutlet weak var imageViewPickImage: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
     }
+    
+    func setUIFeedNewViewController() {
+        imageViewPickImage.image = pickImage
+    }
+
 }
 
 extension FeedNewViewController {
+    @IBAction func tabBackView(_ sender: Any) {
+        view.endEditing(true)
+    }
+    
     @IBAction func barbtnAction(_ barbtn: UIBarButtonItem) {
         switch barbtn {
-        case barbtnBack:
-            self.navigationController?.popViewController(animated: true)
-
         case barbtnNext:
             print("다음")
             self.navigationController?.popToRootViewController(animated: true)

@@ -36,9 +36,9 @@
                                             <constraint firstAttribute="height" constant="40" id="C1i-5a-i9k"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" textContentType="name"/>
+                                        <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" textContentType="name"/>
                                         <connections>
-                                            <action selector="tfEditingChangeAction:" destination="BYZ-38-t0r" eventType="editingChanged" id="1GT-HX-P4s"/>
+                                            <action selector="tfEditingChangeAction:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="V2R-g0-ghQ"/>
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="비밀번호" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fmN-JP-tZd" userLabel="TextFieldPW">
@@ -74,17 +74,15 @@
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zh9-HC-5Yr">
                                         <rect key="frame" x="20.5" y="337.5" width="373" height="40"/>
+                                        <color key="backgroundColor" systemColor="linkColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="gkt-2p-RzI"/>
                                         </constraints>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="로그인">
-                                            <backgroundConfiguration key="background">
-                                                <color key="backgroundColor" systemColor="linkColor"/>
-                                            </backgroundConfiguration>
-                                            <fontDescription key="titleFontDescription" type="boldSystem" pointSize="12"/>
-                                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </buttonConfiguration>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="로그인">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
                                         <connections>
                                             <action selector="btnAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="d6f-Yi-TMV"/>
                                         </connections>
@@ -205,7 +203,6 @@
                                                         <state key="normal" title="가입하기"/>
                                                         <connections>
                                                             <action selector="btnAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oWf-p9-Apl"/>
-                                                            <segue destination="IWW-9S-uIM" kind="show" identifier="GoJoinViewController" id="e2C-zi-Ye1"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -279,6 +276,8 @@
                         <outlet property="constraint" destination="sSO-Iz-huv" id="KFf-5B-DqC"/>
                         <outlet property="textFieldID" destination="1M9-Ax-cL5" id="vJy-0d-URm"/>
                         <outlet property="textFieldPW" destination="fmN-JP-tZd" id="iOb-Ix-tdg"/>
+                        <segue destination="IWW-9S-uIM" kind="show" identifier="GoJoinViewController" id="L5b-TH-Q0W"/>
+                        <segue destination="J9D-JS-TLR" kind="show" identifier="GoJoinPhoneViewController" id="nWy-rF-gEV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -302,29 +301,32 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="724"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_instagram" translatesAutoresizingMaskIntoConstraints="NO" id="UjM-QY-dpZ">
-                                        <rect key="frame" x="30" y="150" width="354" height="90"/>
+                                        <rect key="frame" x="30" y="120" width="354" height="90"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="90" id="qhY-r4-kpp"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="친구들의 사진과 동영상을 보려면 가입하세요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mo3-GJ-ORs">
-                                        <rect key="frame" x="56.5" y="250" width="301.5" height="20.5"/>
+                                        <rect key="frame" x="56.5" y="220" width="301.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Haj-9I-DV4">
-                                        <rect key="frame" x="41.5" y="370.5" width="331" height="51"/>
+                                        <rect key="frame" x="41.5" y="340.5" width="331" height="51"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Haj-9I-DV4" secondAttribute="height" multiplier="261:40" id="SAJ-KF-830"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain">
-                                            <backgroundConfiguration key="background" image="bg_kakaoStart"/>
+                                            <backgroundConfiguration key="background" image="bg_kakaoLogin"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="btnAction:" destination="IWW-9S-uIM" eventType="touchUpInside" id="avH-s4-z61"/>
+                                        </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KXc-k1-K77">
-                                        <rect key="frame" x="41.5" y="451.5" width="331" height="40"/>
+                                        <rect key="frame" x="41.5" y="421.5" width="331" height="40"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5OM-BN-tOC">
                                                 <rect key="frame" x="0.0" y="0.0" width="132.5" height="40"/>
@@ -389,7 +391,7 @@
                                         </constraints>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NAn-12-T2m">
-                                        <rect key="frame" x="121" y="511.5" width="172" height="27"/>
+                                        <rect key="frame" x="121" y="481.5" width="172" height="27"/>
                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="12"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="휴대폰 번호 또는 이메일 주소로 가입"/>
@@ -407,7 +409,7 @@
                                     <constraint firstItem="KXc-k1-K77" firstAttribute="width" secondItem="yoW-DM-aMc" secondAttribute="width" multiplier="0.8" id="Hrv-Bm-lsb"/>
                                     <constraint firstItem="UjM-QY-dpZ" firstAttribute="centerX" secondItem="yoW-DM-aMc" secondAttribute="centerX" id="Mrx-4q-fm6"/>
                                     <constraint firstItem="Haj-9I-DV4" firstAttribute="width" secondItem="KXc-k1-K77" secondAttribute="width" id="ZsL-EE-ghr"/>
-                                    <constraint firstItem="UjM-QY-dpZ" firstAttribute="top" secondItem="yoW-DM-aMc" secondAttribute="top" constant="150" id="a1v-Qa-a5K"/>
+                                    <constraint firstItem="UjM-QY-dpZ" firstAttribute="top" secondItem="yoW-DM-aMc" secondAttribute="top" constant="120" id="a1v-Qa-a5K"/>
                                     <constraint firstItem="NAn-12-T2m" firstAttribute="top" secondItem="KXc-k1-K77" secondAttribute="bottom" constant="20" id="gcQ-7k-fmH"/>
                                     <constraint firstItem="Haj-9I-DV4" firstAttribute="top" secondItem="Mo3-GJ-ORs" secondAttribute="bottom" constant="100" id="rGk-IB-L5m"/>
                                     <constraint firstItem="Haj-9I-DV4" firstAttribute="centerX" secondItem="yoW-DM-aMc" secondAttribute="centerX" id="sE2-AM-Yar"/>
@@ -483,6 +485,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="7oV-IU-uYD"/>
                     <connections>
+                        <outlet property="btnKakaoLogin" destination="Haj-9I-DV4" id="PoN-ES-TFc"/>
                         <outlet property="btnLogin" destination="fCq-kJ-gFx" id="ReR-hz-Rvp"/>
                     </connections>
                 </viewController>
@@ -1806,10 +1809,10 @@
             </objects>
             <point key="canvasLocation" x="6706" y="23"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Login Navigation View Controller-->
         <scene sceneID="o18-9m-WYn">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hWD-49-dW3" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="LoginNavigationViewController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hWD-49-dW3" customClass="LoginNavigationViewController" customModule="InstagramChallenge" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="g22-Q5-BPl">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -1884,7 +1887,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cNS-Wr-zDs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2568" y="1610"/>
+            <point key="canvasLocation" x="2516" y="2220"/>
         </scene>
         <!--Page View Controller-->
         <scene sceneID="KYW-eM-iJA">
@@ -2064,7 +2067,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mdL-ky-n7f">
                                 <rect key="frame" x="0.0" y="44" width="414" height="717"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="asdfasdf 님으로 가입하시겠어요?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zq7-tU-UGL">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="?? 님으로 가입하시겠어요?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zq7-tU-UGL">
                                         <rect key="frame" x="99" y="80" width="216.5" height="55"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="23"/>
                                         <nil key="textColor"/>
@@ -2184,9 +2187,11 @@
             <point key="canvasLocation" x="8351" y="23"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="nWy-rF-gEV"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="bg_kakaoLogin" width="300" height="45"/>
-        <image name="bg_kakaoStart" width="600" height="90"/>
         <image name="checkmark.circle.fill" catalog="system" width="128" height="121"/>
         <image name="circle" catalog="system" width="128" height="121"/>
         <image name="icon_cake" width="547" height="456"/>

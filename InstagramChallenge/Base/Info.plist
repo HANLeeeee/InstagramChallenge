@@ -9,8 +9,7 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>kakao</string>
-				<string>89e048a95426b76d48931fe4d287d046</string>
+				<string>kakao6bf3b9bbc353619381411d68b9ac3a7d</string>
 			</array>
 		</dict>
 	</array>
@@ -38,5 +37,7 @@
 			</array>
 		</dict>
 	</dict>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>앨범 사용 권한을 허용해주세요.</string>
 </dict>
 </plist>

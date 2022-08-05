@@ -21,7 +21,7 @@ class JoinFinalViewController: UIViewController {
     }
     
     func setUIJoinFinalViewController() {
-//        labelTitle.text = "\(joinData.loginId!)\n님으로 가입하시겠어요?"
+        labelTitle.text = "\(joinData.loginId!)\n님으로 가입하시겠어요?"
     }
     
 }

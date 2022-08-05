@@ -10,6 +10,7 @@ import UIKit
 class JoinViewController: UIViewController {
     
     @IBOutlet weak var btnLogin: UIButton!
+    @IBOutlet weak var btnKakaoLogin: UIButton!
     
     //MARK: 생명주기
     override func viewDidLoad() {
@@ -40,6 +41,9 @@ extension JoinViewController {
         switch btn {
         case btnLogin:
             self.navigationController?.popViewController(animated: true)
+            
+        case btnKakaoLogin:
+            print("")
             
         default:
             return

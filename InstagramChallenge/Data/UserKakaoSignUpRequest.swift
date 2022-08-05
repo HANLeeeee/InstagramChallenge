@@ -1,18 +1,26 @@
 //
-//  SignUp.swift
+//  UserKakaoSignUpRequest.swift
 //  InstagramChallenge
 //
-//  Created by 최하늘 on 2022/08/03.
+//  Created by 최하늘 on 2022/08/04.
 //
 
 import Foundation
-
-class UserPostRequest {
+class UserKakaoSignUpRequest {
+    var accessToken: String?
     var realName: String?
-    var password: String?
-    var loginId: String?
     var birthDate: String?
+    var loginId: String?
     var phoneNumber: String?
+    
+    var kakaoToken: String {
+        get {
+            return accessToken!
+        }
+        set(new) {
+            accessToken = new
+        }
+    }
     
     var userName: String {
         get {
@@ -23,12 +31,12 @@ class UserPostRequest {
         }
     }
     
-    var userPW: String {
+    var useBirth: String {
         get {
-            return password!
+            return birthDate!
         }
         set(new) {
-            password = new
+            birthDate = new
         }
     }
     
@@ -38,15 +46,6 @@ class UserPostRequest {
         }
         set(new) {
             loginId = new
-        }
-    }
-    
-    var userBirth: String {
-        get {
-            return birthDate!
-        }
-        set(new) {
-            birthDate = new
         }
     }
     
@@ -60,4 +59,3 @@ class UserPostRequest {
     }
     
 }
-

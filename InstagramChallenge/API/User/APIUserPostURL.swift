@@ -36,8 +36,8 @@ enum APIUserPostURL: URLRequestConvertible {
         switch self {
         default:
             let headers: HTTPHeaders = [
-            "x-access-token": "",
-            "Content-Type": "application/json"
+                "accept": "*/*",
+                "Content-Type": "application/json"
             ]
             return headers
         }
