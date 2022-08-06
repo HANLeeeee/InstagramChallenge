@@ -48,15 +48,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window.rootViewController = vc
         UIView.transition(with: window, duration: 0.4, options: [.transitionCrossDissolve], animations: nil, completion: nil)
     }
-
+    
     func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>) {
         if let url = URLContexts.first?.url {
-            if AuthApi.isKakaoTalkLoginUrl(url) {
+            if (AuthApi.isKakaoTalkLoginUrl(url)) {
                 _ = AuthController.handleOpenUrl(url: url)
             }
         }
     }
-    
+
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.
         // This occurs shortly after the scene enters the background, or when its session is discarded.

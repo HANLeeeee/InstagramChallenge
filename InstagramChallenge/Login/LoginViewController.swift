@@ -7,6 +7,9 @@
 
 import UIKit
 import KakaoSDKUser
+import KakaoSDKAuth
+import KakaoSDKCommon
+
 
 class LoginViewController: UIViewController {
     @IBOutlet weak var constraint: NSLayoutConstraint!
@@ -25,6 +28,7 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUILoginViewController()
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -110,7 +114,7 @@ extension LoginViewController {
         }
     }
     
-    func btnKakaoLoginAction() {
+    func btnKakaoLoginAction() {        
         if UserApi.isKakaoTalkLoginAvailable() {
             kakaoLoginApp()
         } else {
@@ -207,7 +211,7 @@ extension LoginViewController {
                 print("성공")
                 if (authToken?.accessToken) != nil {
                     print("어세스토큰발생 \(authToken!.accessToken)")
-                    APIUserPost().kakaoSignIn(accessToken: authToken!.accessToken, completion: { result in
+                    APIKakaoPost().kakaoSignIn(accessToken: authToken!.accessToken, completion: { result in
                         switch result {
                         case .success(let result):
                             if result.isSuccess {
@@ -235,7 +239,7 @@ extension LoginViewController {
                 print("성공")
                 if (authToken?.accessToken) != nil {
                     print("어세스토큰발생 \(authToken!.accessToken)")
-                    APIUserPost().kakaoSignIn(accessToken: authToken!.accessToken, completion: { result in
+                    APIKakaoPost().kakaoSignIn(accessToken: authToken!.accessToken, completion: { result in
                         switch result {
                         case .success(let result):
                             if result.isSuccess {
@@ -258,7 +262,10 @@ extension LoginViewController {
     }
 
     func kakaologinsuccessAPI() {
-        presentFeedVC()
+//        presentFeedVC()
+        
+        let alert = makeAlertSelcet(alertTitle: "카칸오", alertMessage: "로그인.", btnAgreeTitle: "?", btnCancleTitle: "!")
+        present(alert, animated: false)
     }
     
     func kakaologinfailureAPI(_ code: Int) {

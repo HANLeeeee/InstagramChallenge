@@ -13,7 +13,6 @@ class YouChatTableViewCell: UITableViewCell {
     @IBOutlet weak var imageViewProfile: UIImageView!
     @IBOutlet weak var labelYouChat: UILabel!
     
-    @IBOutlet weak var labelDate: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         setUIYouChatTableViewCell()
@@ -32,7 +31,7 @@ class YouChatTableViewCell: UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
         
-        imageViewProfile.image = UIImage(systemName: "person.crop.circle.fill")
+        imageViewProfile.image = UIImage()
         labelYouChat.text = ""
     }
     

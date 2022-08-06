@@ -37,7 +37,5 @@
 			</array>
 		</dict>
 	</dict>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>앨범 사용 권한을 허용해주세요.</string>
 </dict>
 </plist>

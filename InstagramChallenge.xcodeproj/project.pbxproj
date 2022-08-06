@@ -21,6 +21,8 @@
 		B16588F1289EA53600B80B4F /* ChatResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16588F0289EA53600B80B4F /* ChatResponse.swift */; };
 		B16588F3289EB72200B80B4F /* APIChatPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16588F2289EB72200B80B4F /* APIChatPost.swift */; };
 		B16588F5289EB72C00B80B4F /* APIChatPostURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16588F4289EB72C00B80B4F /* APIChatPostURL.swift */; };
+		B16588F7289EE36300B80B4F /* APIKakaoPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16588F6289EE36300B80B4F /* APIKakaoPost.swift */; };
+		B16588F9289EE3A600B80B4F /* APIKakaoPostURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16588F8289EE3A600B80B4F /* APIKakaoPostURL.swift */; };
 		B188C367289D5AE800363E0C /* APIFeedPostURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = B188C366289D5AE800363E0C /* APIFeedPostURL.swift */; };
 		B188C369289D5DFA00363E0C /* APIFeedPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = B188C368289D5DFA00363E0C /* APIFeedPost.swift */; };
 		B188C36D289D673B00363E0C /* MypageFeedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B188C36B289D673B00363E0C /* MypageFeedCollectionViewCell.swift */; };
@@ -97,6 +99,8 @@
 		B16588F0289EA53600B80B4F /* ChatResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatResponse.swift; sourceTree = "<group>"; };
 		B16588F2289EB72200B80B4F /* APIChatPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIChatPost.swift; sourceTree = "<group>"; };
 		B16588F4289EB72C00B80B4F /* APIChatPostURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIChatPostURL.swift; sourceTree = "<group>"; };
+		B16588F6289EE36300B80B4F /* APIKakaoPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKakaoPost.swift; sourceTree = "<group>"; };
+		B16588F8289EE3A600B80B4F /* APIKakaoPostURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKakaoPostURL.swift; sourceTree = "<group>"; };
 		B188C366289D5AE800363E0C /* APIFeedPostURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIFeedPostURL.swift; sourceTree = "<group>"; };
 		B188C368289D5DFA00363E0C /* APIFeedPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIFeedPost.swift; sourceTree = "<group>"; };
 		B188C36B289D673B00363E0C /* MypageFeedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageFeedCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -423,6 +427,8 @@
 		B1F5694C289C55C2004E2CAB /* User */ = {
 			isa = PBXGroup;
 			children = (
+				B16588F8289EE3A600B80B4F /* APIKakaoPostURL.swift */,
+				B16588F6289EE36300B80B4F /* APIKakaoPost.swift */,
 				B1B922E0289A777D001440E9 /* APIUserPostURL.swift */,
 				B1B922E2289A7DAC001440E9 /* APIUserPost.swift */,
 				B1B922F3289AF7F3001440E9 /* APIUserGetURL.swift */,
@@ -659,7 +665,9 @@
 				B16588EF289EA16B00B80B4F /* APIChatGetURL.swift in Sources */,
 				B1B922F7289AF873001440E9 /* UserDefaultsData.swift in Sources */,
 				B19722F52892A216002B0B3B /* PagePhoneViewController.swift in Sources */,
+				B16588F7289EE36300B80B4F /* APIKakaoPost.swift in Sources */,
 				F696340228902C0900548666 /* SceneDelegate.swift in Sources */,
+				B16588F9289EE3A600B80B4F /* APIKakaoPostURL.swift in Sources */,
 				B19722FE2892D900002B0B3B /* JoinPWViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -812,6 +820,7 @@
 				DEVELOPMENT_TEAM = A3887NB9SN;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = InstagramChallenge/Base/Info.plist;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "앨범 사용 권한을 허용해주세요.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Login;
@@ -844,6 +853,7 @@
 				DEVELOPMENT_TEAM = A3887NB9SN;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = InstagramChallenge/Base/Info.plist;
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "앨범 사용 권한을 허용해주세요.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Login;

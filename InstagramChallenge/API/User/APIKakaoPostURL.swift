@@ -1,17 +1,17 @@
 //
-//  AuthRouter.swift
+//  APIKakaoPostURL.swift
 //  InstagramChallenge
 //
-//  Created by 최하늘 on 2022/08/03.
+//  Created by 최하늘 on 2022/08/07.
 //
 
 import Foundation
 import Alamofire
 
-enum APIUserPostURL: URLRequestConvertible {
+enum APIKakaoPostURL: URLRequestConvertible {
     
-    case signUp(realName: String, password: String, loginId: String, birthDate: String, phoneNumber: String)
-    case signIn(loginId: String, password: String)
+    case kakaoSignUp(accessToken: String, realName: String, birthDate: String, loginId: String, phoneNumber: String)
+    case kakaoSignIn(accessToken: String)
     
     var baseURL: URL {
         return URL(string: "https://challenge-api.gridge.co.kr")!
@@ -19,10 +19,10 @@ enum APIUserPostURL: URLRequestConvertible {
     
     var endPoint: String {
         switch self {
-        case .signUp:
-            return "/app/sign-up"
-        case .signIn:
-            return "/app/sign-in"
+        case .kakaoSignUp:
+            return "/app/kakao-sign-up"
+        case .kakaoSignIn:
+            return "/app/kakao-sign-in"
         }
     }
     
@@ -46,19 +46,18 @@ enum APIUserPostURL: URLRequestConvertible {
     
     var parameters: Parameters {
         switch self {
-        case .signUp(let realName, let password, let loginId, let birthDate, let phoneNumber):
+        case .kakaoSignUp(let accessToken, let realName, let birthDate, let loginId, let phoneNumber):
             var params = Parameters()
+            params["accessToken"] = accessToken
             params["realName"] = realName
-            params["password"] = password
-            params["loginId"] = loginId
             params["birthDate"] = birthDate
+            params["loginId"] = loginId
             params["phoneNumber"] = phoneNumber
             return params
             
-        case .signIn(let loginId, let password):
+        case .kakaoSignIn(let accessToken):
             var params = Parameters()
-            params["loginId"] = loginId
-            params["password"] = password
+            params["accessToken"] = accessToken
             return params
         }
     }

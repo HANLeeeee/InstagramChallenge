@@ -44,29 +44,19 @@
                             <constraint firstAttribute="trailing" secondItem="e3l-tC-GCQ" secondAttribute="trailing" constant="10" id="f3x-23-TPI"/>
                         </constraints>
                     </view>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aDD-c5-kqL">
-                        <rect key="frame" x="10" y="424" width="40" height="18"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="aDD-c5-kqL" firstAttribute="centerX" secondItem="Tgx-Hy-eyb" secondAttribute="centerX" id="4ks-Xd-67Y"/>
                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="bf4-4v-HsP" secondAttribute="trailing" constant="50" id="9gR-sL-CrM"/>
-                    <constraint firstItem="aDD-c5-kqL" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="Jc4-xy-ltd"/>
                     <constraint firstItem="bf4-4v-HsP" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="cj2-Zc-RDG"/>
                     <constraint firstItem="bf4-4v-HsP" firstAttribute="leading" secondItem="Tgx-Hy-eyb" secondAttribute="trailing" constant="10" id="eYw-aW-4kh"/>
                     <constraint firstItem="Tgx-Hy-eyb" firstAttribute="bottom" secondItem="bf4-4v-HsP" secondAttribute="bottom" id="ex6-l5-9wa"/>
                     <constraint firstAttribute="bottom" secondItem="Tgx-Hy-eyb" secondAttribute="bottom" constant="10" id="mL9-t9-edQ"/>
                     <constraint firstItem="Tgx-Hy-eyb" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="n6I-ds-AR2"/>
-                    <constraint firstItem="Tgx-Hy-eyb" firstAttribute="top" secondItem="aDD-c5-kqL" secondAttribute="bottom" constant="10" id="ndY-w6-yfl"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="imageViewProfile" destination="Tgx-Hy-eyb" id="aQO-I9-QMN"/>
-                <outlet property="labelDate" destination="aDD-c5-kqL" id="IxL-a3-VQx"/>
                 <outlet property="labelYouChat" destination="e3l-tC-GCQ" id="cpJ-Su-Q9Q"/>
                 <outlet property="viewBg" destination="bf4-4v-HsP" id="wYU-G9-NLX"/>
             </connections>

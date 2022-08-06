@@ -77,10 +77,13 @@ class FeedChatViewController: UIViewController {
                     self.chatResult = chatresult.reversed()
                     self.scrollToBottom()
                 } else {
-                    self.chatResult.insert(contentsOf: chatresult.reversed(), at: 0)
-                    self.chatTableView.scrollNotTop()
-                    self.refreshControl.endRefreshing()
+                    if chatresult.count != 0 {
+                        self.chatResult.insert(contentsOf: chatresult.reversed(), at: 0)
+                        self.chatTableView.scrollNotTop()
+                    }
                 }
+                
+                self.refreshControl.endRefreshing()
 
             case .failure(let error):
                 print(error)
@@ -98,8 +101,6 @@ class FeedChatViewController: UIViewController {
                self.chatTableView.scrollToRow(at: ip, at: .bottom, animated: false)
             }
         }
-        self.refreshControl.endRefreshing()
-
     }
     
     @IBAction func viewbgTabAction(_ sender: Any) {
@@ -196,10 +197,12 @@ extension FeedChatViewController : UITableViewDelegate, UITableViewDataSource {
         let cellIndex = indexPath.row
         cell.labelYouChat.text = chatResult[cellIndex].content
         
-        if chatResult[indexPath.row].loginId == "gridgeAdmin" {
-            cell.imageViewProfile.image = UIImage(named: "icon_heart")
-        } else {
-            cell.imageViewProfile.image = UIImage(systemName: "person.crop.circle.fill")
+        DispatchQueue.main.async {
+            if self.chatResult[indexPath.row].loginId == "gridgeAdmin" {
+                cell.imageViewProfile.image = UIImage(named: "icon_heart")
+            } else {
+                cell.imageViewProfile.image = UIImage(systemName: "person.crop.circle.fill")
+            }
         }
         
         if cellIndex > 1 {
@@ -278,6 +281,6 @@ extension UITableView {
         )
         
         setContentOffset(offset, animated: false)
-        
+
     }
 }
