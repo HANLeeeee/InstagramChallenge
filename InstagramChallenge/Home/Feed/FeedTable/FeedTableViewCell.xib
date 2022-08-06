@@ -29,10 +29,13 @@
                                 </constraints>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" backgroundImage="icon_more"/>
+                                <connections>
+                                    <action selector="btnMoreAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="Eiq-ft-jAa"/>
+                                </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.crop.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="644-l0-njF">
                                 <rect key="frame" x="10" y="5.5" width="40" height="39"/>
-                                <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" systemColor="systemGray4Color"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="40" id="L71-Im-9B2"/>
                                     <constraint firstAttribute="height" constant="40" id="LuH-R0-fMH"/>
@@ -90,6 +93,9 @@
                                                 <rect key="frame" x="40" y="0.0" width="30" height="30"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                 <state key="normal" backgroundImage="icon_coment"/>
+                                                <connections>
+                                                    <action selector="btnAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="3DK-GQ-ulO"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CH0-Pu-dGS">
                                                 <rect key="frame" x="80" y="0.0" width="30" height="30"/>
@@ -124,37 +130,51 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i5H-A2-waS">
-                                <rect key="frame" x="15" y="66" width="677" height="124.5"/>
-                                <mutableString key="text">userName  .com/originals/b9/51/11/b9511193da22e2d64170ba319a65849b.jpg", createdAt: "2022-07-21T15:30:33.000Z", updatedAt: "2022-07-21T15:30:33.000Z")]), InstagramChallenge.FeedResponseResult(feedId: 1, feedLoginId: "gridgeAdmin", feedText: "🔥 그릿지 테스트에 참여하신 모든 너드분들 환영합니다 🎉", feedCreatedAt: "2022-07-21T14:57:07.000Z", feedUpdatedAt: "2022-07-22T20:21:14.000Z", feedCommentCount: 13, contentsList: [InstagramChallenge.FeedResponseResultList(contentsId: 1, contentsUrl: "https://oopy.lazyrockets.com/api/v2/notion/image?src=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F5656899d-bd8a-452b-812e-9ce49187960</mutableString>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" textAlignment="natural" lineBreakMode="characterWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i5H-A2-waS">
+                                <rect key="frame" x="15" y="66" width="675" height="109"/>
+                                <string key="text">userName  .com/originals/b9/51/11/b9511193da22e2d64170ba319a65849b.jpg", createdAt: "2022-07-21T15:30:33.000Z", updatedAt: "2022-07-21T15:30:33.000Z")]), InstagramChallenge.FeedResponseResult(feedId: 1, feedLoginId: "gridgeAdmin", feedText: "🔥 그릿지 테스트에 참여하신 모든 너드분들 환영합니다 🎉", feedCreatedAt: "2022-07-21T14:57:07.000Z", feedUpdatedAt: "2022-07-22T20:21:14.000Z", feedCommentCount: 13, contentsList: [InstagramChallenge.FeedResponseResultList(contentsId: 1, contentsUrl: "https://oopy.lazyrockets.com/api/v2/notion/image?src=https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F5656899d-bd8a-452b-812e-9ce49187960</string>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="댓글 24,234개 모두 보기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="twD-HY-b8x">
-                                <rect key="frame" x="15" y="195.5" width="133" height="16"/>
+                                <rect key="frame" x="15" y="185" width="133" height="16"/>
+                                <gestureRecognizers/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y9L-LF-Mta">
+                                <rect key="frame" x="15" y="185" width="133" height="16"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <backgroundConfiguration key="background"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="btnAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="7nw-Xn-iC4"/>
+                                </connections>
+                            </button>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AWx-LN-eP0">
-                                <rect key="frame" x="15" y="221.5" width="175" height="30"/>
+                                <rect key="frame" x="15" y="216" width="677" height="30"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Z8-bJ-pWY">
-                                        <rect key="frame" x="0.0" y="0.0" width="95" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="597" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="uVD-cF-t2y"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" systemColor="systemGray4Color"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title=" 댓글 달기...">
                                             <color key="titleColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <imageReference key="image" image="person.crop.circle.fill" catalog="system" symbolScale="large"/>
                                         </state>
+                                        <connections>
+                                            <action selector="btnAction:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="7pb-mR-qIN"/>
+                                        </connections>
                                     </button>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_comentEmoticon" translatesAutoresizingMaskIntoConstraints="NO" id="eKs-kD-egp">
-                                        <rect key="frame" x="95" y="0.0" width="80" height="30"/>
+                                        <rect key="frame" x="597" y="0.0" width="80" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="80" id="nNb-HZ-TxT"/>
                                         </constraints>
@@ -162,27 +182,32 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4일 전" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u9b-VV-UlE">
-                                <rect key="frame" x="15" y="256.5" width="34.5" height="93.5"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <rect key="frame" x="20" y="251" width="29.5" height="99"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="u9b-VV-UlE" firstAttribute="leading" secondItem="AWx-LN-eP0" secondAttribute="leading" id="0H7-zA-h86"/>
+                            <constraint firstItem="u9b-VV-UlE" firstAttribute="leading" secondItem="AWx-LN-eP0" secondAttribute="leading" constant="5" id="0H7-zA-h86"/>
                             <constraint firstItem="i5H-A2-waS" firstAttribute="leading" secondItem="qXr-Oa-mw4" secondAttribute="leading" id="2aI-nz-dE8"/>
                             <constraint firstItem="Zbb-eV-2En" firstAttribute="leading" secondItem="HXR-MS-RHT" secondAttribute="leading" id="4w6-el-sth"/>
+                            <constraint firstItem="Y9L-LF-Mta" firstAttribute="height" secondItem="twD-HY-b8x" secondAttribute="height" id="7K6-4X-rYX"/>
                             <constraint firstItem="qXr-Oa-mw4" firstAttribute="leading" secondItem="HXR-MS-RHT" secondAttribute="leading" constant="15" id="K2t-s4-wx3"/>
                             <constraint firstItem="u9b-VV-UlE" firstAttribute="top" secondItem="AWx-LN-eP0" secondAttribute="bottom" constant="5" id="Q3q-Wh-Zy4"/>
+                            <constraint firstItem="Y9L-LF-Mta" firstAttribute="width" secondItem="twD-HY-b8x" secondAttribute="width" id="QCY-zq-p2W"/>
                             <constraint firstAttribute="bottom" secondItem="u9b-VV-UlE" secondAttribute="bottom" constant="20" id="Uv8-Ze-29T"/>
-                            <constraint firstItem="twD-HY-b8x" firstAttribute="top" secondItem="i5H-A2-waS" secondAttribute="bottom" constant="5" id="Vya-Pc-t4H"/>
+                            <constraint firstItem="twD-HY-b8x" firstAttribute="top" secondItem="i5H-A2-waS" secondAttribute="bottom" constant="10" id="Vya-Pc-t4H"/>
                             <constraint firstItem="i5H-A2-waS" firstAttribute="top" secondItem="qXr-Oa-mw4" secondAttribute="bottom" constant="5" id="Zdm-yb-0gB"/>
+                            <constraint firstAttribute="trailing" secondItem="AWx-LN-eP0" secondAttribute="trailing" constant="10" id="bPv-lR-Fe7"/>
                             <constraint firstItem="Zbb-eV-2En" firstAttribute="top" secondItem="HXR-MS-RHT" secondAttribute="top" id="bbx-Rf-23P"/>
                             <constraint firstItem="qXr-Oa-mw4" firstAttribute="top" secondItem="Zbb-eV-2En" secondAttribute="bottom" constant="5" id="h4x-EJ-R4E"/>
-                            <constraint firstItem="AWx-LN-eP0" firstAttribute="top" secondItem="twD-HY-b8x" secondAttribute="bottom" constant="10" id="mMG-c9-0yg"/>
+                            <constraint firstItem="AWx-LN-eP0" firstAttribute="top" secondItem="twD-HY-b8x" secondAttribute="bottom" constant="15" id="mMG-c9-0yg"/>
                             <constraint firstItem="twD-HY-b8x" firstAttribute="leading" secondItem="i5H-A2-waS" secondAttribute="leading" id="oXa-kC-KiA"/>
+                            <constraint firstItem="Y9L-LF-Mta" firstAttribute="bottom" secondItem="twD-HY-b8x" secondAttribute="bottom" id="ovi-jh-caN"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="i5H-A2-waS" secondAttribute="trailing" constant="10" id="sqY-Wp-c3D"/>
+                            <constraint firstItem="Y9L-LF-Mta" firstAttribute="leading" secondItem="twD-HY-b8x" secondAttribute="leading" id="xc7-nr-Hld"/>
                             <constraint firstItem="AWx-LN-eP0" firstAttribute="leading" secondItem="twD-HY-b8x" secondAttribute="leading" id="zJD-QL-0HR"/>
                             <constraint firstAttribute="trailing" secondItem="Zbb-eV-2En" secondAttribute="trailing" id="zNE-nV-0ia"/>
                         </constraints>
@@ -206,12 +231,16 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="btnMore" destination="N61-8i-tPn" id="XaS-W2-afR"/>
                 <outlet property="imageViewFeed" destination="wcf-zp-ces" id="tYh-ye-Ymj"/>
                 <outlet property="labelLikeCount" destination="qXr-Oa-mw4" id="HZH-YZ-7Hh"/>
                 <outlet property="labelfeedCommentCount" destination="twD-HY-b8x" id="evo-Jg-qxF"/>
                 <outlet property="labelfeedCreatedAt" destination="u9b-VV-UlE" id="eO8-6e-dAR"/>
                 <outlet property="labelfeedIdplusText" destination="i5H-A2-waS" id="0St-Vz-809"/>
                 <outlet property="labelfeedLoginId" destination="MFt-hD-eKV" id="4yO-Ox-QXm"/>
+                <outletCollection property="btnCommentS" destination="HZk-IP-MWZ" collectionClass="NSMutableArray" id="T5y-LM-U5d"/>
+                <outletCollection property="btnCommentS" destination="0Z8-bJ-pWY" collectionClass="NSMutableArray" id="UBP-kV-qkb"/>
+                <outletCollection property="btnCommentS" destination="Y9L-LF-Mta" collectionClass="NSMutableArray" id="4hz-iR-fxE"/>
             </connections>
             <point key="canvasLocation" x="269.56521739130437" y="430.24553571428572"/>
         </tableViewCell>
@@ -227,6 +256,9 @@
         <image name="person.crop.circle.fill" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray4Color">
+            <color red="0.81960784313725488" green="0.81960784313725488" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

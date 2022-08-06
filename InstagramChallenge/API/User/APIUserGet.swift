@@ -20,17 +20,7 @@ class APIUserGet {
             case .success(let result):
                 completion(.success(result))
                 print(result)
-//                if result.isSuccess {
-//
-//                    if let result = result.result {
-//                        print("\(self.autoResult) 우어1 \(result)")
-//                        self.autoResult = true
-//                    }
-//                } else {
-//                    self.autoResult = false
-//                    print("\(self.autoResult) 우어2 \(result.message)")
-//                }
-
+                
             case .failure(let error):
                 self.autoResult = false
                 print("에러에러리스폰스에러 \(error.localizedDescription)")
@@ -61,8 +51,6 @@ class APIUserGet {
         AF.request(APIUserGetURL.searchMyPage(accessToken: accessToken, loginId: loginId))
             .validate()
             .responseDecodable(of: UserResponse.self) { response in
-            debugPrint(response)
-
             switch response.result {
             case .success(let result):
                 if result.isSuccess {

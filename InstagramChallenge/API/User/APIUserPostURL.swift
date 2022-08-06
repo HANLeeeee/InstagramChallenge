@@ -90,7 +90,7 @@ enum APIUserPostURL: URLRequestConvertible {
         request.headers = headers
         request.method = method
         
-        request.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: [])
+        request.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted)
         
         return request
     }

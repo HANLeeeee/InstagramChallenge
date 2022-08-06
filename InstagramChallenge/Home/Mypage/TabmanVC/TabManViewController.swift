@@ -57,12 +57,12 @@ extension TabManViewController: PageboyViewControllerDataSource, TMBarDataSource
         switch index {
         case 0:
             item.title = ""
-            item.image = UIImage(named: "icon_heart")
+            item.image = UIImage(named: "icon_mypageFeed")
             return item
             
         case 1:
             item.title = ""
-            item.image = UIImage(named: "icon_heart")
+            item.image = UIImage(named: "icon_mypageTag")
             return item
             
         default:

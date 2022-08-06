@@ -86,25 +86,18 @@ class APIUserPost {
         }
     }
     
-    //MARK: 자체 로그인
-    func kakaoSignIn(accessToken: String, loginVC: LoginViewController) {
+    //MARK: 카카오 로그인
+    func kakaoSignIn(accessToken: String, completion: @escaping (Result<UserResponse, AFError>) -> Void) {
         AF.request(APIUserPostURL.kakaoSignIn(accessToken: accessToken))
             .validate()
             .responseDecodable(of: UserResponse.self) { response in
             debugPrint(response)
             switch response.result {
             case .success(let result):
-                print(result)
                 if result.isSuccess {
-                    if let result = result.result {
-                        print("??")
-                        UserDefaultsData.shared.setToken(userID: result.loginId!, jwt: result.jwt!)
-                        loginVC.kakaologinsuccessAPI()
-                    }
-                } else {
-                    loginVC.kakaologinfailureAPI(result.code)
+                    completion(.success(result))
+//                        loginVC.kakaologinsuccessAPI()
                 }
-                
             case .failure(let error):
                 print("에러에러리스폰스에러 \(error.localizedDescription)")
             }

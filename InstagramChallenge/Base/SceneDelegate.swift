@@ -16,6 +16,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
 
+        print(usertoken ?? "")
         APIUserGet().autoSignIn(accessToken: usertoken!, completion: { result in
             switch result {
             case .success(let result):

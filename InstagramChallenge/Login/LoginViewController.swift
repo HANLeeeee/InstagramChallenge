@@ -207,9 +207,19 @@ extension LoginViewController {
                 print("성공")
                 if (authToken?.accessToken) != nil {
                     print("어세스토큰발생 \(authToken!.accessToken)")
-                    APIUserPost().kakaoSignIn(accessToken: authToken!.accessToken, loginVC: self)
+                    APIUserPost().kakaoSignIn(accessToken: authToken!.accessToken, completion: { result in
+                        switch result {
+                        case .success(let result):
+                            if result.isSuccess {
+                                self.kakaologinsuccessAPI()
+                            } else {
+                                self.kakaologinfailureAPI(result.code)
+                            }
+                        case .failure(let error):
+                            print(error)
+                        }
+                    })
                 }
-//                        self.presentFeedVC()
                 print("화면이동")
                 //서버에서 있는 지 확인
             }
@@ -225,7 +235,18 @@ extension LoginViewController {
                 print("성공")
                 if (authToken?.accessToken) != nil {
                     print("어세스토큰발생 \(authToken!.accessToken)")
-                    APIUserPost().kakaoSignIn(accessToken: authToken!.accessToken, loginVC: self)
+                    APIUserPost().kakaoSignIn(accessToken: authToken!.accessToken, completion: { result in
+                        switch result {
+                        case .success(let result):
+                            if result.isSuccess {
+                                self.kakaologinsuccessAPI()
+                            } else {
+                                self.kakaologinfailureAPI(result.code)
+                            }
+                        case .failure(let error):
+                            print(error)
+                        }
+                    })
                 }
 //                        self.presentFeedVC()
                 print("화면이동")
@@ -236,8 +257,6 @@ extension LoginViewController {
         }
     }
 
-
-    //결과
     func kakaologinsuccessAPI() {
         presentFeedVC()
     }

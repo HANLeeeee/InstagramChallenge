@@ -11,6 +11,11 @@
 		B15DAB4A2895ACE000BB313D /* Feed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B15DAB492895ACE000BB313D /* Feed.storyboard */; };
 		B15DAB4C2895B73700BB313D /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15DAB4B2895B73700BB313D /* FeedViewController.swift */; };
 		B15DAB502895BAAA00BB313D /* FeedTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15DAB4F2895BAAA00BB313D /* FeedTabBarViewController.swift */; };
+		B188C367289D5AE800363E0C /* APIFeedPostURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = B188C366289D5AE800363E0C /* APIFeedPostURL.swift */; };
+		B188C369289D5DFA00363E0C /* APIFeedPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = B188C368289D5DFA00363E0C /* APIFeedPost.swift */; };
+		B188C36D289D673B00363E0C /* MypageFeedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B188C36B289D673B00363E0C /* MypageFeedCollectionViewCell.swift */; };
+		B188C36E289D673B00363E0C /* MypageFeedCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B188C36C289D673B00363E0C /* MypageFeedCollectionViewCell.xib */; };
+		B188C372289D95AA00363E0C /* BottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B188C371289D95AA00363E0C /* BottomSheetViewController.swift */; };
 		B192283C28992F620059960C /* StoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B192283A28992F620059960C /* StoryTableViewCell.swift */; };
 		B192283D28992F620059960C /* StoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B192283B28992F620059960C /* StoryTableViewCell.xib */; };
 		B192284628993AFA0059960C /* StoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B192284428993AFA0059960C /* StoryCollectionViewCell.swift */; };
@@ -38,6 +43,14 @@
 		B1A89048289A3D8900AD6C35 /* FeedNewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A89047289A3D8900AD6C35 /* FeedNewViewController.swift */; };
 		B1A8904C289A4AC600AD6C35 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B1A8904B289A4AC600AD6C35 /* GoogleService-Info.plist */; };
 		B1A8904E289A4E1A00AD6C35 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A8904D289A4E1A00AD6C35 /* MyPageViewController.swift */; };
+		B1B1FBE6289DB7E200E55EEC /* FeedModifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B1FBE5289DB7E200E55EEC /* FeedModifyViewController.swift */; };
+		B1B1FBE8289DC85B00E55EEC /* APIFeedPatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B1FBE7289DC85B00E55EEC /* APIFeedPatch.swift */; };
+		B1B1FBEA289DC86A00E55EEC /* APIFeedPatchURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B1FBE9289DC86A00E55EEC /* APIFeedPatchURL.swift */; };
+		B1B1FBEC289DE7C300E55EEC /* FeedCommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B1FBEB289DE7C300E55EEC /* FeedCommentsViewController.swift */; };
+		B1B1FBF0289DE8A300E55EEC /* FeedCommentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B1FBEE289DE8A300E55EEC /* FeedCommentsTableViewCell.swift */; };
+		B1B1FBF1289DE8A300E55EEC /* FeedCommentsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1B1FBEF289DE8A300E55EEC /* FeedCommentsTableViewCell.xib */; };
+		B1B1FBF3289DF8A500E55EEC /* dateSub.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B1FBF2289DF8A500E55EEC /* dateSub.swift */; };
+		B1B1FBF5289DFBB700E55EEC /* CommentResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B1FBF4289DFBB700E55EEC /* CommentResponse.swift */; };
 		B1B922E1289A777D001440E9 /* APIUserPostURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B922E0289A777D001440E9 /* APIUserPostURL.swift */; };
 		B1B922E3289A7DAC001440E9 /* APIUserPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B922E2289A7DAC001440E9 /* APIUserPost.swift */; };
 		B1B922E6289A8D0C001440E9 /* UserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B922E5289A8D0C001440E9 /* UserResponse.swift */; };
@@ -64,6 +77,11 @@
 		B15DAB492895ACE000BB313D /* Feed.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Feed.storyboard; sourceTree = "<group>"; };
 		B15DAB4B2895B73700BB313D /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		B15DAB4F2895BAAA00BB313D /* FeedTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTabBarViewController.swift; sourceTree = "<group>"; };
+		B188C366289D5AE800363E0C /* APIFeedPostURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIFeedPostURL.swift; sourceTree = "<group>"; };
+		B188C368289D5DFA00363E0C /* APIFeedPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIFeedPost.swift; sourceTree = "<group>"; };
+		B188C36B289D673B00363E0C /* MypageFeedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageFeedCollectionViewCell.swift; sourceTree = "<group>"; };
+		B188C36C289D673B00363E0C /* MypageFeedCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MypageFeedCollectionViewCell.xib; sourceTree = "<group>"; };
+		B188C371289D95AA00363E0C /* BottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetViewController.swift; sourceTree = "<group>"; };
 		B192283A28992F620059960C /* StoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryTableViewCell.swift; sourceTree = "<group>"; };
 		B192283B28992F620059960C /* StoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StoryTableViewCell.xib; sourceTree = "<group>"; };
 		B192284428993AFA0059960C /* StoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -95,6 +113,14 @@
 		B1A89047289A3D8900AD6C35 /* FeedNewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedNewViewController.swift; sourceTree = "<group>"; };
 		B1A8904B289A4AC600AD6C35 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B1A8904D289A4E1A00AD6C35 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
+		B1B1FBE5289DB7E200E55EEC /* FeedModifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedModifyViewController.swift; sourceTree = "<group>"; };
+		B1B1FBE7289DC85B00E55EEC /* APIFeedPatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIFeedPatch.swift; sourceTree = "<group>"; };
+		B1B1FBE9289DC86A00E55EEC /* APIFeedPatchURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIFeedPatchURL.swift; sourceTree = "<group>"; };
+		B1B1FBEB289DE7C300E55EEC /* FeedCommentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCommentsViewController.swift; sourceTree = "<group>"; };
+		B1B1FBEE289DE8A300E55EEC /* FeedCommentsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCommentsTableViewCell.swift; sourceTree = "<group>"; };
+		B1B1FBEF289DE8A300E55EEC /* FeedCommentsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedCommentsTableViewCell.xib; sourceTree = "<group>"; };
+		B1B1FBF2289DF8A500E55EEC /* dateSub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dateSub.swift; sourceTree = "<group>"; };
+		B1B1FBF4289DFBB700E55EEC /* CommentResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentResponse.swift; sourceTree = "<group>"; };
 		B1B922E0289A777D001440E9 /* APIUserPostURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIUserPostURL.swift; sourceTree = "<group>"; };
 		B1B922E2289A7DAC001440E9 /* APIUserPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIUserPost.swift; sourceTree = "<group>"; };
 		B1B922E5289A8D0C001440E9 /* UserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserResponse.swift; sourceTree = "<group>"; };
@@ -173,6 +199,15 @@
 			path = Login;
 			sourceTree = "<group>";
 		};
+		B188C36A289D670000363E0C /* MypageFeedCollection */ = {
+			isa = PBXGroup;
+			children = (
+				B188C36C289D673B00363E0C /* MypageFeedCollectionViewCell.xib */,
+				B188C36B289D673B00363E0C /* MypageFeedCollectionViewCell.swift */,
+			);
+			path = MypageFeedCollection;
+			sourceTree = "<group>";
+		};
 		B192283928992EBD0059960C /* StoryTable */ = {
 			isa = PBXGroup;
 			children = (
@@ -206,8 +241,12 @@
 			children = (
 				B15DAB4B2895B73700BB313D /* FeedViewController.swift */,
 				B1A89047289A3D8900AD6C35 /* FeedNewViewController.swift */,
-				B192283928992EBD0059960C /* StoryTable */,
+				B1B1FBE5289DB7E200E55EEC /* FeedModifyViewController.swift */,
+				B1B1FBEB289DE7C300E55EEC /* FeedCommentsViewController.swift */,
+				B188C371289D95AA00363E0C /* BottomSheetViewController.swift */,
 				B192284828993D290059960C /* FeedTable */,
+				B192283928992EBD0059960C /* StoryTable */,
+				B1B1FBED289DE86F00E55EEC /* CommentsTable */,
 			);
 			path = Feed;
 			sourceTree = "<group>";
@@ -216,6 +255,7 @@
 			isa = PBXGroup;
 			children = (
 				B19722EB28927EA2002B0B3B /* makeAlert.swift */,
+				B1B1FBF2289DF8A500E55EEC /* dateSub.swift */,
 			);
 			path = PopUpAlert;
 			sourceTree = "<group>";
@@ -264,6 +304,7 @@
 				B19B0AC2289C3EED00996F4E /* TabManViewController.swift */,
 				B19B0ABE289C3DC300996F4E /* MypageFeedViewController.swift */,
 				B19B0AC0289C3DD900996F4E /* MypageTagViewController.swift */,
+				B188C36A289D670000363E0C /* MypageFeedCollection */,
 			);
 			path = TabmanVC;
 			sourceTree = "<group>";
@@ -276,6 +317,15 @@
 				B19B0ABD289C3D9000996F4E /* TabmanVC */,
 			);
 			path = Mypage;
+			sourceTree = "<group>";
+		};
+		B1B1FBED289DE86F00E55EEC /* CommentsTable */ = {
+			isa = PBXGroup;
+			children = (
+				B1B1FBEF289DE8A300E55EEC /* FeedCommentsTableViewCell.xib */,
+				B1B1FBEE289DE8A300E55EEC /* FeedCommentsTableViewCell.swift */,
+			);
+			path = CommentsTable;
 			sourceTree = "<group>";
 		};
 		B1B922D9289A6D29001440E9 /* API */ = {
@@ -294,6 +344,7 @@
 				B19B0AB7289C071B00996F4E /* UserKakaoSignUpRequest.swift */,
 				B1B922E5289A8D0C001440E9 /* UserResponse.swift */,
 				B1F56952289C5BE2004E2CAB /* FeedResponse.swift */,
+				B1B1FBF4289DFBB700E55EEC /* CommentResponse.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -320,8 +371,12 @@
 		B1F5694D289C55CE004E2CAB /* Feed */ = {
 			isa = PBXGroup;
 			children = (
+				B188C366289D5AE800363E0C /* APIFeedPostURL.swift */,
+				B188C368289D5DFA00363E0C /* APIFeedPost.swift */,
 				B1F56950289C561D004E2CAB /* APIFeedGetURL.swift */,
 				B1F5694E289C55EB004E2CAB /* APIFeedGet.swift */,
+				B1B1FBE9289DC86A00E55EEC /* APIFeedPatchURL.swift */,
+				B1B1FBE7289DC85B00E55EEC /* APIFeedPatch.swift */,
 			);
 			path = Feed;
 			sourceTree = "<group>";
@@ -423,10 +478,12 @@
 			files = (
 				F696340C28902C0D00548666 /* LaunchScreen.storyboard in Resources */,
 				B1A8904C289A4AC600AD6C35 /* GoogleService-Info.plist in Resources */,
+				B188C36E289D673B00363E0C /* MypageFeedCollectionViewCell.xib in Resources */,
 				B192283D28992F620059960C /* StoryTableViewCell.xib in Resources */,
 				F696340928902C0D00548666 /* Assets.xcassets in Resources */,
 				B19B0ABA289C2B2900996F4E /* Mypage.storyboard in Resources */,
 				B15DAB4A2895ACE000BB313D /* Feed.storyboard in Resources */,
+				B1B1FBF1289DE8A300E55EEC /* FeedCommentsTableViewCell.xib in Resources */,
 				B192284728993AFA0059960C /* StoryCollectionViewCell.xib in Resources */,
 				F696340728902C0900548666 /* Login.storyboard in Resources */,
 				B192284C28993D7D0059960C /* FeedTableViewCell.xib in Resources */,
@@ -485,9 +542,15 @@
 				B192284628993AFA0059960C /* StoryCollectionViewCell.swift in Sources */,
 				B1F56951289C561D004E2CAB /* APIFeedGetURL.swift in Sources */,
 				B19722F72892A223002B0B3B /* PageEmailViewController.swift in Sources */,
+				B188C36D289D673B00363E0C /* MypageFeedCollectionViewCell.swift in Sources */,
+				B1B1FBE8289DC85B00E55EEC /* APIFeedPatch.swift in Sources */,
+				B1B1FBE6289DB7E200E55EEC /* FeedModifyViewController.swift in Sources */,
 				B192CC7428945EF6008C424C /* JoinFinalViewController.swift in Sources */,
+				B188C369289D5DFA00363E0C /* APIFeedPost.swift in Sources */,
+				B1B1FBF5289DFBB700E55EEC /* CommentResponse.swift in Sources */,
 				B19B0ABF289C3DC300996F4E /* MypageFeedViewController.swift in Sources */,
 				F696340428902C0900548666 /* LoginViewController.swift in Sources */,
+				B1B1FBEC289DE7C300E55EEC /* FeedCommentsViewController.swift in Sources */,
 				B19722F32892A1E8002B0B3B /* PageViewController.swift in Sources */,
 				B15DAB502895BAAA00BB313D /* FeedTabBarViewController.swift in Sources */,
 				F696340028902C0900548666 /* AppDelegate.swift in Sources */,
@@ -496,6 +559,7 @@
 				B19722EC28927EA2002B0B3B /* makeAlert.swift in Sources */,
 				B1BD42CE2893907300B28575 /* JoinAgreeViewController.swift in Sources */,
 				B19723002892E115002B0B3B /* JoinBirthViewController.swift in Sources */,
+				B188C367289D5AE800363E0C /* APIFeedPostURL.swift in Sources */,
 				B19722F0289295FE002B0B3B /* JoinPhoneViewController.swift in Sources */,
 				B1B922F4289AF7F3001440E9 /* APIUserGetURL.swift in Sources */,
 				B1B922E6289A8D0C001440E9 /* UserResponse.swift in Sources */,
@@ -506,13 +570,17 @@
 				B1A8904E289A4E1A00AD6C35 /* MyPageViewController.swift in Sources */,
 				B192283C28992F620059960C /* StoryTableViewCell.swift in Sources */,
 				B19722F92892BD87002B0B3B /* JoinSMSViewController.swift in Sources */,
+				B1B1FBEA289DC86A00E55EEC /* APIFeedPatchURL.swift in Sources */,
 				B1B922E3289A7DAC001440E9 /* APIUserPost.swift in Sources */,
 				B1F56953289C5BE2004E2CAB /* FeedResponse.swift in Sources */,
 				B19B0AB0289BD04800996F4E /* LoginNavigationViewController.swift in Sources */,
 				B19B0AC1289C3DD900996F4E /* MypageTagViewController.swift in Sources */,
 				B1F5694F289C55EB004E2CAB /* APIFeedGet.swift in Sources */,
+				B188C372289D95AA00363E0C /* BottomSheetViewController.swift in Sources */,
 				B19722EE28928DD9002B0B3B /* JoinViewController.swift in Sources */,
 				B19B0AB8289C071B00996F4E /* UserKakaoSignUpRequest.swift in Sources */,
+				B1B1FBF0289DE8A300E55EEC /* FeedCommentsTableViewCell.swift in Sources */,
+				B1B1FBF3289DF8A500E55EEC /* dateSub.swift in Sources */,
 				B1B922F0289A9F25001440E9 /* UserPostRequest.swift in Sources */,
 				B19722FB2892CDB8002B0B3B /* JoinNameViewController.swift in Sources */,
 				B192284B28993D7D0059960C /* FeedTableViewCell.swift in Sources */,
