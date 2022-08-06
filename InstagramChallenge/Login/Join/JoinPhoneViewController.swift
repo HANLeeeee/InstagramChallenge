@@ -15,10 +15,12 @@ class JoinPhoneViewController: UIViewController {
     var currentIndex: Int = 0
     var pageViewController: PageViewController!
     
+    //MARK: 생명주기
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
+    //MARK: 데이터전달
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "GoPageViewController" {
             let pageVC = segue.destination as! PageViewController
@@ -30,12 +32,11 @@ class JoinPhoneViewController: UIViewController {
     }
 }
 
-//MARK: 액션이벤트
+
+
+
+//MARK: IBAction
 extension JoinPhoneViewController {
-    @IBAction func bgViewTab(_ sender: Any) {
-        view.endEditing(true)
-    }
-    
     @IBAction func btnAction(_ btn: UIButton) {
         switch btn {
         case btnPhone:
@@ -54,5 +55,9 @@ extension JoinPhoneViewController {
         default:
             return
         }
+    }
+    
+    @IBAction func bgViewTab(_ sender: Any) {
+        view.endEditing(true)
     }
 }

@@ -8,24 +8,28 @@
 import UIKit
 
 class JoinFinalViewController: UIViewController {
-    
     @IBOutlet weak var labelTitle: UILabel!
     @IBOutlet weak var btnJoin: UIButton!
     @IBOutlet weak var btnLogin: UIButton!
+    
     var joinData = UserPostRequest()
 
+    //MARK: 생명주기
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setUIJoinFinalViewController()
     }
     
+    //MARK: UI
     func setUIJoinFinalViewController() {
         labelTitle.text = "\(joinData.loginId!)\n님으로 가입하시겠어요?"
     }
     
 }
 
+
+
+//MARK: IBAction
 extension JoinFinalViewController {
     @IBAction func btnAction(_ btn: UIButton) {
         switch btn {
@@ -40,43 +44,49 @@ extension JoinFinalViewController {
             return
         }
     }
-    
+}
+
+
+
+//MARK: 회원가입
+extension JoinFinalViewController {
     func createUser() {
         if let userName = joinData.realName,
            let userPW = joinData.password,
            let userID = joinData.loginId,
            let userBirth = joinData.birthDate,
            let userPN = joinData.phoneNumber {
-            APIUserPost().signUp(realName: userName, password: userPW, loginId: userID, birthDate: userBirth, phoneNumber: userPN, joinFinalVC: self)
-
+            APIUserPost().signUp(realName: userName, password: userPW, loginId: userID, birthDate: userBirth, phoneNumber: userPN, completion: { result in
+                switch result {
+                case .success(let result):
+                    if result.isSuccess {
+                        UserDefaultsData.shared.setToken(userID: userID, jwt: result.result!.jwt!)
+                        self.changeRootView()
+                        
+                    } else {
+                        let alert = makeAlert("알림", "회원가입에 실패하였습니다.", true, "확인")
+                        self.present(alert, animated: false)
+                        self.navigationController?.popToRootViewController(animated: true)
+                    }
+                
+                case .failure(let error):
+                    print(error)
+                }
+                
+            })
             return
         }
     }
 }
 
 
+
+//MARK: 커스텀메소드
 extension JoinFinalViewController {
-    func joinsuccessAPI(_ result: UserResponseResult) {
-        changeRootView()
-    }
-    
-    func joinfailureAPI(_ code: Int) {
-        
-        let alert = makeAlert("알림", "회원가입에 실패하였습니다.", true, "확인")
-        present(alert, animated: false)
-        
-        self.navigationController?.popToRootViewController(animated: true)
-    }
-    
     func changeRootView() {
-        presentFeedVC()
-    }
-    
-    func presentFeedVC() {
         let feedStoryboard = UIStoryboard(name: "Feed", bundle: nil)
         let FeedTabBarViewController = feedStoryboard.instantiateViewController(withIdentifier: "FeedTabBarViewController") as! FeedTabBarViewController
 
-        FeedTabBarViewController.modalPresentationStyle = .fullScreen
-        self.present(FeedTabBarViewController, animated: true, completion: nil)
+        (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.changeRootVC(FeedTabBarViewController, animated: true)
     }
 }

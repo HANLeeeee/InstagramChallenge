@@ -8,7 +8,6 @@
 import UIKit
 
 class PageViewController: UIPageViewController {
-    
     var completeHandler: ((Int)->())?
     let pageVCs: [UIViewController] = {
         let storyBoard = UIStoryboard(name: "Login", bundle: nil)
@@ -28,16 +27,15 @@ class PageViewController: UIPageViewController {
     required init?(coder aDecoder: NSCoder) {
         super.init(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
     }
-    
+
     //MARK: 생명주기
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        initPageController()
+        registerPageController()
     }
     
-    func initPageController() {
-        
+    //MARK: 페이지뷰 등록
+    func registerPageController() {
         self.dataSource = self
         self.delegate = self
         
@@ -48,8 +46,10 @@ class PageViewController: UIPageViewController {
 }
 
 
-extension PageViewController: UIPageViewControllerDataSource , UIPageViewControllerDelegate {
 
+
+//MARK: 페이지뷰 델리게이트
+extension PageViewController: UIPageViewControllerDataSource , UIPageViewControllerDelegate {
     func setViewControllersIndex(index: Int) {
         if index < 0 && index >= pageVCs.count {
             return

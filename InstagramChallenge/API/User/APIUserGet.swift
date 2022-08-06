@@ -25,19 +25,13 @@ class APIUserGet {
         }
     }
 
-    func searchUserID(loginId: String, joinUserIDVC: JoinUserIDViewController) {
+    func searchUserID(loginId: String, completion: @escaping (Result<UserResponse, AFError>) -> Void) {
         AF.request(APIUserGetURL.searchUserID(loginId: loginId))
             .validate()
             .responseDecodable(of: UserResponse.self) { response in
-//            debugPrint(response)
-
             switch response.result {
             case .success(let result):
-                if result.isSuccess {
-                    joinUserIDVC.searchUserIDsuccessAPI(loginId)
-                } else {
-                    joinUserIDVC.searchUserIDfailureAPI(result.code, loginId)
-                }
+                completion(.success(result))
             case .failure(let error):
                 print("에러에러리스폰스에러 \(error.localizedDescription)")
             }

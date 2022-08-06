@@ -8,27 +8,23 @@
 import UIKit
 
 class JoinUserIDViewController: UIViewController {
-
     @IBOutlet weak var btnLogin: UIButton!
     @IBOutlet weak var btnNext: UIButton!
     @IBOutlet weak var tfUserID: UITextField!
     @IBOutlet weak var labelHidden: UILabel!
-    
     @IBOutlet weak var btnTopConstraint: NSLayoutConstraint!
-    var constraint: CGFloat = 0
     
-    var joinData = UserPostRequest()
+    var constraint: CGFloat = 0
     var statusMessage: String = ""
-
+    var joinData = UserPostRequest()
+    
+    //MARK: 생명주기
     override func viewDidLoad() {
         super.viewDidLoad()
         setUIJoinUserIDViewController()
     }
     
-}
-
-
-extension JoinUserIDViewController {
+    //MARK: UI
     func setUIJoinUserIDViewController() {
         constraint = btnTopConstraint.constant
         
@@ -54,19 +50,21 @@ extension JoinUserIDViewController {
             }
         }
     }
+    
+    //MARK: 데이터전달
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "GoJoinFinalViewController" {
+            let jFVC = segue.destination as! JoinFinalViewController
+            jFVC.joinData = self.joinData
+        }
+    }
 }
 
 
-//MARK: 액션이벤트
+
+
+//MARK: IBAction
 extension JoinUserIDViewController {
-    @IBAction func bgViewTab(_ sender: Any) {
-        view.endEditing(true)
-    }
-    
-    @IBAction func tfEditingChagedAction(_ sender: Any) {
-        visibleLoginStatusMessgae(false)
-    }
-    
     @IBAction func btnAction(_ btn: UIButton) {
         switch btn {
         case btnLogin:
@@ -85,52 +83,58 @@ extension JoinUserIDViewController {
             return
         }
     }
-        
-    func idIsValidCheck(_ id: String) -> Bool {
-        let str = "^[a-z0-9_.]*$"
-        let predic = NSPredicate(format: "SELF MATCHES %@", str)
-
-        return predic.evaluate(with: id)
+    
+    @IBAction func bgViewTab(_ sender: Any) {
+        view.endEditing(true)
     }
     
+    @IBAction func tfEditingChagedAction(_ sender: Any) {
+        visibleLoginStatusMessgae(false)
+    }
+}
+
+
+
+
+//MARK: 회원 검색
+extension JoinUserIDViewController {
     func searchUserID() {
         if let userID = tfUserID.text  {
-            APIUserGet().searchUserID(loginId: userID, joinUserIDVC: self)
+            APIUserGet().searchUserID(loginId: userID, completion: { result in
+                switch result {
+                case .success(let result):
+                    print(result)
+                    if result.isSuccess {
+                        self.joinData.userID = userID
+                        self.performSegue(withIdentifier: "GoJoinFinalViewController", sender: nil)
+                        
+                    } else {
+                        switch result.code {
+                        case 2230:
+                            self.statusMessage = "사용자 이름 \(userID)을(를) 사용할 수 없습니다."
+                            self.visibleLoginStatusMessgae(true)
+                        default:
+                            self.statusMessage = "다른 아이디를 사용해주세요."
+                            self.visibleLoginStatusMessgae(true)
+                        }
+                    }
+                case .failure(let error):
+                    print(error)
+                }
+            })
             return
         }
     }
 }
 
 
+
+//MARK: 커스텀메소드
 extension JoinUserIDViewController {
-    
-    func searchUserIDsuccessAPI(_ loginId: String) {
-        joinData.userID = loginId
-        performSegue(withIdentifier: "GoJoinFinalViewController", sender: nil)
-    }
-    
-    func searchUserIDfailureAPI(_ code: Int,_ userID: String) {
-        print("4")
-        switch code {
-        case 2103:
-            print("파라미터 이상")
-        case 2230:
-            statusMessage = "사용자 이름 \(userID)을(를) 사용할 수 없습니다."
-            visibleLoginStatusMessgae(true)
-        default:
-            statusMessage = "다른 아이디를 사용해주세요."
-            visibleLoginStatusMessgae(true)
-        }
-    }
-}
+    func idIsValidCheck(_ id: String) -> Bool {
+        let str = "^[a-z0-9_.]*$"
+        let predic = NSPredicate(format: "SELF MATCHES %@", str)
 
-
-
-extension JoinUserIDViewController {
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "GoJoinFinalViewController" {
-            let jFVC = segue.destination as! JoinFinalViewController
-            jFVC.joinData = self.joinData
-        }
+        return predic.evaluate(with: id)
     }
 }

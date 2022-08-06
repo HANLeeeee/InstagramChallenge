@@ -8,16 +8,9 @@
 import UIKit
 
 class PageEmailViewController: UIViewController {
-
+    
+    //MARK: 생명주기
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
     }
 }

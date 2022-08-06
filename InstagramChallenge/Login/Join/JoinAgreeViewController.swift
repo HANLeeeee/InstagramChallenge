@@ -9,42 +9,43 @@ import UIKit
 import SafariServices
 
 class JoinAgreeViewController: UIViewController {
+    @IBOutlet weak var btnNext: UIButton!
     @IBOutlet weak var btnRadioAll: UIButton!
     @IBOutlet var btnRadioS: [UIButton]!
     @IBOutlet var btnLinkS: [UIButton]!
-    @IBOutlet weak var btnNext: UIButton!
     
     var joinData = UserPostRequest()
 
+    //MARK: 생명주기
     override func viewDidLoad() {
         super.viewDidLoad()
-            
         setUIJoinAgreeView()
     }
     
-    //MARK: 화면UI변경
+    //MARK: UI
     func setUIJoinAgreeView() {
         btnHandler(btnRadioAll)
         btnRadioS.forEach {
             btnHandler($0)
         }
-        
         btnNext.backgroundColor = UIColor(named: "ColorBtnBefore")
         btnNext.layer.cornerRadius = 10
         btnNext.isEnabled = false
     }
     
-    //라디오버튼 핸들러
-    func btnHandler(_ btnChange: UIButton) {
-        btnChange.configurationUpdateHandler = { btn in
-            var config = UIButton.Configuration.plain()
-            config.image = btn.isSelected ? UIImage(systemName: "checkmark.circle.fill")  : UIImage(systemName: "circle")
-            config.baseBackgroundColor = .clear
-            btn.configuration = config
+    //MARK: 데이터전달
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "GoJoinUserIDViewController" {
+            let jIDVC = segue.destination as! JoinUserIDViewController
+            jIDVC.joinData = self.joinData
         }
     }
 }
 
+
+
+
+//MARK: IBAction
 extension JoinAgreeViewController {
     @IBAction func btnAction(_ btn: UIButton) {
         switch btn {
@@ -87,6 +88,20 @@ extension JoinAgreeViewController {
             return
         }
     }
+}
+
+
+
+//MARK: 커스텀메소드
+extension JoinAgreeViewController {
+    func btnHandler(_ btnChange: UIButton) {
+        btnChange.configurationUpdateHandler = { btn in
+            var config = UIButton.Configuration.plain()
+            config.image = btn.isSelected ? UIImage(systemName: "checkmark.circle.fill")  : UIImage(systemName: "circle")
+            config.baseBackgroundColor = .clear
+            btn.configuration = config
+        }
+    }
     
     func btnStatus(_ selected: Bool) {
         switch selected {
@@ -96,15 +111,6 @@ extension JoinAgreeViewController {
         case false:
             btnNext.backgroundColor = UIColor(named: "ColorBtnBefore")
             btnNext.isEnabled = false
-        }
-    }
-}
-
-extension JoinAgreeViewController {
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "GoJoinUserIDViewController" {
-            let jIDVC = segue.destination as! JoinUserIDViewController
-            jIDVC.joinData = self.joinData
         }
     }
 }

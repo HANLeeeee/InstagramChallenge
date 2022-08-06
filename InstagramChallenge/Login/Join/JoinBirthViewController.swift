@@ -18,13 +18,13 @@ class JoinBirthViewController: UIViewController {
     var joinData = UserPostRequest()
     let formatter = DateFormatter()
     
+    //MARK: 생명주기
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setUIJoinBirthView()
     }
 
-    //MARK: 화면UI변경
+    //MARK: UI
     func setUIJoinBirthView() {
         viewBirth.layer.borderWidth = 1
         viewBirth.layer.borderColor = UIColor.tintColor.cgColor
@@ -38,8 +38,46 @@ class JoinBirthViewController: UIViewController {
         formatter.dateFormat = "yyyy년 MM월 dd일"
         formatter.locale = Locale(identifier: "ko_KR")
         labelBirth.text = formatter.string(from: datepicker.date)
-        
     }
+    
+    //MARK: 데이터전달
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "GoJoinAgreeViewController" {
+            let jAVC = segue.destination as! JoinAgreeViewController
+            jAVC.joinData = self.joinData
+        }
+    }
+    
+}
+
+
+
+
+//MARK: IBAction
+extension JoinBirthViewController {
+    @IBAction func btnAction(_ btn: UIButton) {
+        switch btn {
+        case btnNext:
+            let dateformatter = DateFormatter()
+            dateformatter.dateFormat = "yyyy.MM.dd"
+            let userBirth = dateformatter.string(from: datepicker.date)
+
+            joinData.userBirth = userBirth
+            performSegue(withIdentifier: "GoJoinAgreeViewController", sender: nil)
+            
+        default:
+            return
+        }
+    }
+    
+    @IBAction func bgViewBirthTab(_ sender: Any) {
+        datepicker.isHidden = false
+        if viewBottomConstraint.constant == 0 {
+            viewBottomConstraint.constant += datepicker.frame.height
+        }
+    }
+    
+    
     @IBAction func datePickerValueChanged(_ sender: Any) {
         labelBirth.textColor = .black
         labelBirth.text = formatter.string(from: datepicker.date)
@@ -56,42 +94,6 @@ class JoinBirthViewController: UIViewController {
             btnNext.backgroundColor = UIColor(named: "ColorBtnBefore")
             btnNext.isEnabled = false
             labelAge.text = ""
-
-        }
-    }
-}
-
-extension JoinBirthViewController {
-    @IBAction func bgViewBirthTab(_ sender: Any) {
-        datepicker.isHidden = false
-        if viewBottomConstraint.constant == 0 {
-            viewBottomConstraint.constant += datepicker.frame.height
-        }
-    }
-    
-    @IBAction func btnAction(_ btn: UIButton) {
-        switch btn {
-        case btnNext:
-            let dateformatter = DateFormatter()
-            dateformatter.dateFormat = "yyyy.MM.dd"
-            let userBirth = dateformatter.string(from: datepicker.date)
-
-            joinData.userBirth = userBirth
-            performSegue(withIdentifier: "GoJoinAgreeViewController", sender: nil)
-            
-        default:
-            return
-        }
-        
-    }
-    
-}
-
-extension JoinBirthViewController {
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "GoJoinAgreeViewController" {
-            let jAVC = segue.destination as! JoinAgreeViewController
-            jAVC.joinData = self.joinData
         }
     }
 }

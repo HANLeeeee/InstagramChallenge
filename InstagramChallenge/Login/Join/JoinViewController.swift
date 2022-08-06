@@ -8,7 +8,6 @@
 import UIKit
 
 class JoinViewController: UIViewController {
-    
     @IBOutlet weak var btnLogin: UIButton!
     @IBOutlet weak var btnKakaoLogin: UIButton!
     
@@ -24,27 +23,29 @@ class JoinViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-    
         navigationController?.setNavigationBarHidden(false, animated: animated)
+    }
+    
+    //MARK: UI
+    func setUIJoinViewController() {
         let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
         backBarButtonItem.tintColor = .black
         self.navigationItem.backBarButtonItem = backBarButtonItem
-        
     }
 
 }
 
 
-//MARK: 액션이벤트
+
+
+//MARK: IBAction
 extension JoinViewController {
     @IBAction func btnAction(_ btn: UIButton) {
         switch btn {
         case btnLogin:
             self.navigationController?.popViewController(animated: true)
             
-        case btnKakaoLogin:
-            print("")
-            
+            //!!!!!!카카오로그인
         default:
             return
         }

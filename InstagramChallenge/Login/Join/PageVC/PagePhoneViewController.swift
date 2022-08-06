@@ -8,10 +8,8 @@
 import UIKit
 
 class PagePhoneViewController: UIViewController {
-
     @IBOutlet weak var viewPhoneEdit: UIView!
     @IBOutlet weak var tfPhoneNum: UITextField!
-    
     @IBOutlet weak var btnKakaoLogin: UIButton!
     @IBOutlet weak var btnNext: UIButton!
     
@@ -29,8 +27,7 @@ class PagePhoneViewController: UIViewController {
         super.viewDidDisappear(animated)
     }
     
-    
-    //MARK: 화면UI변경
+    //MARK: UI
     func setUIPagePhoneView() {
         viewPhoneEdit.layer.borderColor = UIColor.systemGray5.cgColor
         viewPhoneEdit.layer.borderWidth = 0.5
@@ -41,23 +38,22 @@ class PagePhoneViewController: UIViewController {
         btnNext.backgroundColor = UIColor(named: "ColorBtnBefore")
         btnNext.layer.cornerRadius = 10
     }
-}
-
-//MARK: 액션이벤트
-extension PagePhoneViewController {
-    @IBAction func tfEditingChangeAction(_ textField: UITextField) {
-        if textField.text!.count > 11 {
-            textField.deleteBackward()
-        }
-        if textField.text!.count < 1 {
-            btnNext.backgroundColor = UIColor(named: "ColorBtnBefore")
-            btnNext.isEnabled = false
-        } else {
-            btnNext.backgroundColor = UIColor.link
-            btnNext.isEnabled = true
+    
+    //MARK: 데이터전달
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "GoJoinSMSViewController" {
+            let JoinSMSViewController = segue.destination as! JoinSMSViewController
+            JoinSMSViewController.resultPhoneNum = tfPhoneNum.text ?? ""
         }
     }
-    
+}
+
+
+
+
+
+//MARK: IBAction
+extension PagePhoneViewController {
     @IBAction func btnAction(_ btn: UIButton) {
         switch btn {
         case btnNext:
@@ -70,14 +66,17 @@ extension PagePhoneViewController {
         }
         
     }
-}
-
-
-extension PagePhoneViewController {
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "GoJoinSMSViewController" {
-            let JoinSMSViewController = segue.destination as! JoinSMSViewController
-            JoinSMSViewController.resultPhoneNum = tfPhoneNum.text ?? ""
+    
+    @IBAction func tfEditingChangeAction(_ textField: UITextField) {
+        if textField.text!.count > 11 {
+            textField.deleteBackward()
+        }
+        if textField.text!.count < 1 {
+            btnNext.backgroundColor = UIColor(named: "ColorBtnBefore")
+            btnNext.isEnabled = false
+        } else {
+            btnNext.backgroundColor = UIColor.link
+            btnNext.isEnabled = true
         }
     }
 }

@@ -9,12 +9,8 @@ import UIKit
 
 class FeedTabBarViewController: UITabBarController {
 
+    //MARK: 생명주기
     override func viewDidLoad() {
         super.viewDidLoad()
     }
-    
-//    override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
-//        <#code#>
-//    }
-
 }
