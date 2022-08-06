@@ -52,6 +52,9 @@
                                                         </constraints>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <state key="normal" backgroundImage="naviicon_DM"/>
+                                                        <connections>
+                                                            <action selector="btnAction:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="D9i-6p-spk"/>
+                                                        </connections>
                                                     </button>
                                                 </subviews>
                                             </stackView>
@@ -95,11 +98,13 @@
                     </view>
                     <navigationItem key="navigationItem" id="drb-Qb-8Vd"/>
                     <connections>
+                        <outlet property="btnChat" destination="kAu-GU-MbW" id="8We-Ag-S7L"/>
                         <outlet property="btnNewPost" destination="FBR-h3-qFo" id="X4k-5x-lnO"/>
                         <outlet property="feedTableView" destination="7aN-02-UNb" id="0mo-S8-Zjl"/>
                         <segue destination="Y1f-9m-3g8" kind="show" identifier="GoFeedNewViewController" id="k8E-Kf-efP"/>
                         <segue destination="hki-dU-AiQ" kind="show" identifier="GoFeedModifyViewController" id="xV0-Vy-jFg"/>
                         <segue destination="fwH-sY-jt4" kind="show" identifier="GoFeedCommentsViewController" id="bOE-wg-OMB"/>
+                        <segue destination="YOh-iJ-qUv" kind="show" identifier="GoFeedChatViewController" id="n3f-cd-khn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -393,7 +398,124 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1919" y="524"/>
+            <point key="canvasLocation" x="1919" y="466"/>
+        </scene>
+        <!--Feed Chat View Controller-->
+        <scene sceneID="dLq-B4-uEl">
+            <objects>
+                <viewController storyboardIdentifier="FeedChatViewController" hidesBottomBarWhenPushed="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="YOh-iJ-qUv" customClass="FeedChatViewController" customModule="InstagramChallenge" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5im-dn-0V3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="4KE-KT-SJm">
+                                <rect key="frame" x="0.0" y="88" width="414" height="724"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0ZV-yB-NLn">
+                                <rect key="frame" x="0.0" y="812" width="414" height="50"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5d8-is-twZ">
+                                        <rect key="frame" x="10" y="5" width="394" height="40"/>
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Kfj-vv-avz">
+                                                <rect key="frame" x="5" y="0.5" width="40" height="39"/>
+                                                <color key="tintColor" systemColor="tintColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="40" id="FrE-J6-mck"/>
+                                                    <constraint firstAttribute="width" secondItem="Kfj-vv-avz" secondAttribute="height" multiplier="1:1" id="Q0S-ne-Tg2"/>
+                                                </constraints>
+                                            </imageView>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="mgU-oj-oh8">
+                                                <rect key="frame" x="50" y="5" width="269" height="30"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <color key="textColor" systemColor="labelColor"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8CE-x2-Kl8">
+                                                <rect key="frame" x="324" y="4.5" width="70" height="31"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="70" id="tSt-TI-mJH"/>
+                                                </constraints>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="보내기">
+                                                    <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="14"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="btnAction:" destination="YOh-iJ-qUv" eventType="touchUpInside" id="Ojr-0K-wJi"/>
+                                                    <action selector="btnAction:" destination="fwH-sY-jt4" eventType="touchUpInside" id="o5I-ii-kkM"/>
+                                                </connections>
+                                            </button>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_chatEmoticon" translatesAutoresizingMaskIntoConstraints="NO" id="SVh-YV-vRy">
+                                                <rect key="frame" x="280" y="0.0" width="109" height="40"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="SVh-YV-vRy" secondAttribute="height" multiplier="109:40" id="wVG-66-FUX"/>
+                                                </constraints>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="SVh-YV-vRy" secondAttribute="trailing" constant="5" id="135-wh-p4m"/>
+                                            <constraint firstItem="SVh-YV-vRy" firstAttribute="top" secondItem="5d8-is-twZ" secondAttribute="top" id="8Xo-t7-XvT"/>
+                                            <constraint firstAttribute="trailing" secondItem="8CE-x2-Kl8" secondAttribute="trailing" id="OA4-gS-toA"/>
+                                            <constraint firstAttribute="bottom" secondItem="Kfj-vv-avz" secondAttribute="bottom" id="Sir-IX-Bob"/>
+                                            <constraint firstAttribute="bottom" secondItem="mgU-oj-oh8" secondAttribute="bottom" constant="5" id="cyx-XQ-E9X"/>
+                                            <constraint firstItem="mgU-oj-oh8" firstAttribute="top" secondItem="5d8-is-twZ" secondAttribute="top" constant="5" id="fEL-lv-Vtr"/>
+                                            <constraint firstItem="8CE-x2-Kl8" firstAttribute="leading" secondItem="mgU-oj-oh8" secondAttribute="trailing" constant="5" id="icE-uz-2AZ"/>
+                                            <constraint firstAttribute="bottom" secondItem="SVh-YV-vRy" secondAttribute="bottom" id="jCl-Bw-xwI"/>
+                                            <constraint firstItem="mgU-oj-oh8" firstAttribute="leading" secondItem="Kfj-vv-avz" secondAttribute="trailing" constant="5" id="l3k-Rs-2XS"/>
+                                            <constraint firstItem="Kfj-vv-avz" firstAttribute="leading" secondItem="5d8-is-twZ" secondAttribute="leading" constant="5" id="xnM-wq-Rgq"/>
+                                            <constraint firstItem="8CE-x2-Kl8" firstAttribute="centerY" secondItem="Kfj-vv-avz" secondAttribute="centerY" id="yDA-EB-s1t"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="5d8-is-twZ" firstAttribute="top" secondItem="0ZV-yB-NLn" secondAttribute="top" constant="5" id="GBp-sS-RKN"/>
+                                    <constraint firstAttribute="trailing" secondItem="5d8-is-twZ" secondAttribute="trailing" constant="10" id="Hu7-jY-sNw"/>
+                                    <constraint firstItem="5d8-is-twZ" firstAttribute="centerY" secondItem="0ZV-yB-NLn" secondAttribute="centerY" id="To3-mz-E5o"/>
+                                    <constraint firstAttribute="bottom" secondItem="5d8-is-twZ" secondAttribute="bottom" constant="5" id="Y5H-13-t9S"/>
+                                    <constraint firstAttribute="height" constant="50" id="iAE-cg-BsO"/>
+                                    <constraint firstItem="5d8-is-twZ" firstAttribute="leading" secondItem="0ZV-yB-NLn" secondAttribute="leading" constant="10" id="ypA-gq-mVK"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="cIJ-fu-kNM"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="cIJ-fu-kNM" firstAttribute="bottom" secondItem="0ZV-yB-NLn" secondAttribute="bottom" id="6w2-wo-eDF"/>
+                            <constraint firstAttribute="trailing" secondItem="0ZV-yB-NLn" secondAttribute="trailing" id="9ID-sI-h5U"/>
+                            <constraint firstItem="4KE-KT-SJm" firstAttribute="top" secondItem="cIJ-fu-kNM" secondAttribute="top" id="KYR-ks-hc0"/>
+                            <constraint firstItem="0ZV-yB-NLn" firstAttribute="leading" secondItem="cIJ-fu-kNM" secondAttribute="leading" id="c6F-Ju-83H"/>
+                            <constraint firstItem="0ZV-yB-NLn" firstAttribute="top" secondItem="4KE-KT-SJm" secondAttribute="bottom" id="ecO-la-5lx"/>
+                            <constraint firstItem="4KE-KT-SJm" firstAttribute="leading" secondItem="cIJ-fu-kNM" secondAttribute="leading" id="ecc-Bx-h4D"/>
+                            <constraint firstItem="cIJ-fu-kNM" firstAttribute="trailing" secondItem="4KE-KT-SJm" secondAttribute="trailing" id="p09-pn-3n5"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="Svf-op-s20" appends="YES" id="IZr-MS-Hhh"/>
+                        </connections>
+                    </view>
+                    <navigationItem key="navigationItem" id="R1M-oZ-EH6"/>
+                    <connections>
+                        <outlet property="btnSend" destination="8CE-x2-Kl8" id="XX7-1Q-8gd"/>
+                        <outlet property="chatTableView" destination="4KE-KT-SJm" id="EgU-WA-Ky0"/>
+                        <outlet property="heightConstraint" destination="iAE-cg-BsO" id="y8h-rR-xfC"/>
+                        <outlet property="imageViewEmoticon" destination="SVh-YV-vRy" id="QaN-pf-jOW"/>
+                        <outlet property="textViewMsg" destination="mgU-oj-oh8" id="AIP-6t-Z1d"/>
+                        <outlet property="viewBgChatMsg" destination="5d8-is-twZ" id="dNF-c2-yCg"/>
+                        <outlet property="viewConstraint" destination="6w2-wo-eDF" id="TqQ-Wd-g47"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NKS-hw-Pmx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Svf-op-s20">
+                    <connections>
+                        <action selector="viewbgTabAction:" destination="YOh-iJ-qUv" id="2uu-8e-wll"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="2753.6231884057975" y="794.86607142857144"/>
         </scene>
         <!--댓글-->
         <scene sceneID="Xkp-yf-fQz">
@@ -411,30 +533,36 @@
                                 <rect key="frame" x="0.0" y="812" width="414" height="50"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.crop.circle.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="gZ2-Zr-Kz1">
-                                        <rect key="frame" x="10" y="0.5" width="50" height="49"/>
+                                        <rect key="frame" x="10" y="5.5" width="40" height="39"/>
                                         <color key="tintColor" systemColor="systemGray4Color"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="gZ2-Zr-Kz1" secondAttribute="height" multiplier="1:1" id="FjH-9t-JBn"/>
-                                            <constraint firstAttribute="height" constant="50" id="cE8-Vd-oNZ"/>
+                                            <constraint firstAttribute="height" constant="40" id="cE8-Vd-oNZ"/>
                                         </constraints>
                                     </imageView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5gC-eO-oj9">
-                                        <rect key="frame" x="65" y="0.0" width="334" height="50"/>
+                                        <rect key="frame" x="55" y="5" width="344" height="40"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="댓글 달기...." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cMl-pe-aes">
-                                                <rect key="frame" x="10" y="0.0" width="269" height="50"/>
+                                                <rect key="frame" x="10" y="0.0" width="279" height="40"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <action selector="tfEditingChangeAction:" destination="fwH-sY-jt4" eventType="editingChanged" id="Hgt-gW-lYr"/>
+                                                </connections>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r2V-2a-pWv">
-                                                <rect key="frame" x="284" y="9" width="50" height="32"/>
+                                                <rect key="frame" x="294" y="4.5" width="50" height="31"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="50" id="SdS-YJ-Gy2"/>
                                                 </constraints>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="게시">
-                                                    <fontDescription key="titleFontDescription" type="system" pointSize="15"/>
+                                                    <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="14"/>
                                                 </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="btnAction:" destination="fwH-sY-jt4" eventType="touchUpInside" id="kRk-oV-KXs"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -478,9 +606,12 @@
                     </view>
                     <navigationItem key="navigationItem" title="댓글" id="DLk-uu-kSW"/>
                     <connections>
+                        <outlet property="btnCreateComments" destination="r2V-2a-pWv" id="OBf-g2-OtP"/>
                         <outlet property="tableViewComment" destination="75V-e3-PKt" id="8Q0-G3-DqE"/>
+                        <outlet property="tfComments" destination="cMl-pe-aes" id="vxZ-yl-sim"/>
                         <outlet property="viewBgComment" destination="5gC-eO-oj9" id="JmY-yr-fh0"/>
                         <outlet property="viewComment" destination="nDC-ab-PgR" id="KPl-oL-Y4I"/>
+                        <outlet property="viewCommentConstraint" destination="HCT-dL-b6G" id="m0v-uj-fIb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yxo-9s-LsW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -490,7 +621,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="1918.840579710145" y="1212.7232142857142"/>
+            <point key="canvasLocation" x="1919" y="1143"/>
         </scene>
         <!--새 게시물-->
         <scene sceneID="utx-Q7-ZgF">
@@ -515,20 +646,14 @@
                                                             <constraint firstAttribute="width" secondItem="pN8-hy-Uic" secondAttribute="height" id="kQ6-sM-GLz"/>
                                                         </constraints>
                                                     </imageView>
-                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="AMJ-Hd-YX3">
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="문구 입력...." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="AMJ-Hd-YX3">
                                                         <rect key="frame" x="105" y="10" width="299" height="80"/>
                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                         <gestureRecognizers/>
-                                                        <color key="textColor" systemColor="labelColor"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <color key="textColor" systemColor="systemGrayColor"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                     </textView>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="문구 입력..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eOt-Tm-NVD">
-                                                        <rect key="frame" x="105" y="10" width="64.5" height="17"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                        <color key="textColor" systemColor="systemGrayColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
@@ -538,10 +663,8 @@
                                                     <constraint firstAttribute="bottom" secondItem="pN8-hy-Uic" secondAttribute="bottom" constant="10" id="OaM-xc-XzH"/>
                                                     <constraint firstAttribute="bottom" secondItem="AMJ-Hd-YX3" secondAttribute="bottom" constant="10" id="PWE-wo-GBr"/>
                                                     <constraint firstItem="AMJ-Hd-YX3" firstAttribute="leading" secondItem="pN8-hy-Uic" secondAttribute="trailing" constant="10" id="RHK-Bd-Kcu"/>
-                                                    <constraint firstItem="eOt-Tm-NVD" firstAttribute="top" secondItem="AMJ-Hd-YX3" secondAttribute="top" id="ZKR-bg-eWw"/>
                                                     <constraint firstItem="pN8-hy-Uic" firstAttribute="leading" secondItem="ZHs-w9-Oni" secondAttribute="leading" constant="15" id="tOv-fv-M0G"/>
                                                     <constraint firstAttribute="trailing" secondItem="AMJ-Hd-YX3" secondAttribute="trailing" constant="10" id="vBm-Oq-OHY"/>
-                                                    <constraint firstItem="eOt-Tm-NVD" firstAttribute="leading" secondItem="AMJ-Hd-YX3" secondAttribute="leading" id="vjt-XQ-gnD"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zf5-N0-cW6" userLabel="ViewLine">
@@ -760,6 +883,9 @@
                                 <rect key="frame" x="0.0" y="188" width="414" height="674"/>
                                 <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.68624857719370858" colorSpace="custom" customColorSpace="sRGB"/>
                                 <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="dcO-HB-hzw" appends="YES" id="1YQ-xe-seI"/>
+                                </connections>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="R1S-Tt-ctl"/>
@@ -787,11 +913,15 @@
                         <outlet property="barbtnNext" destination="VgO-oO-gSL" id="a8E-os-apy"/>
                         <outlet property="hiddenView" destination="Ogp-np-xbY" id="qdl-UX-AeU"/>
                         <outlet property="imageViewPickImage" destination="pN8-hy-Uic" id="dGg-rO-4Av"/>
-                        <outlet property="placeHolder" destination="eOt-Tm-NVD" id="rUZ-Uk-NAi"/>
                         <outlet property="textView" destination="AMJ-Hd-YX3" id="JOS-Lf-1BU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mf1-c2-BAy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="dcO-HB-hzw">
+                    <connections>
+                        <action selector="tabBackView:" destination="Y1f-9m-3g8" id="ZAn-7x-c3q"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="944" y="1527"/>
         </scene>
@@ -811,7 +941,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tDQ-Rv-G27" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2742" y="59"/>
+            <point key="canvasLocation" x="4313" y="-325"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="wab-Dm-VQA">
@@ -829,7 +959,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VUM-kx-b7S" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3623" y="57"/>
+            <point key="canvasLocation" x="5194" y="-327"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="4gU-73-DWI">
@@ -847,7 +977,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zOU-ez-zVu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4526" y="59"/>
+            <point key="canvasLocation" x="6097" y="-325"/>
         </scene>
         <!--Mypage-->
         <scene sceneID="NrG-GX-oJT">
@@ -907,7 +1037,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="camera.circle.fill" catalog="system" width="128" height="121"/>
         <image name="chevron.forward" catalog="system" width="96" height="128"/>
+        <image name="icon_chatEmoticon" width="460" height="168"/>
         <image name="icon_tabbar_home" width="35" height="35"/>
         <image name="icon_tabbar_home_fill" width="35" height="35"/>
         <image name="icon_tabbar_reels" width="35" height="35"/>
@@ -940,6 +1072,9 @@
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="tintColor">
+            <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

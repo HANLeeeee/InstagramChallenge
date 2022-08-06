@@ -72,32 +72,6 @@ enum APIFeedGetURL: URLRequestConvertible {
         }
     }
     
-    
-//    var parameters: Parameters {
-//        switch self {
-//        case .getFeeds(_, let pageIndex, let size):
-//            var params = Parameters()
-//            params["pageIndex"] = pageIndex
-//            params["size"] = size
-//            
-//            return params
-//            
-//        case .getFeedsUser(_, let pageIndex, let size, let loginId):
-//            var params = Parameters()
-//            params["pageIndex"] = pageIndex
-//            params["size"] = size
-//            params["loginId"] = loginId
-//            return params
-//            
-//        case .getComments(_, let feedId, let pageIndex, let size):
-//            var params = Parameters()
-//            params["feedId"] = feedId
-//            params["pageIndex"] = pageIndex
-//            params["size"] = size
-//            return params
-//        }
-//    }
-    
     func asURLRequest() throws -> URLRequest {
         var request = URLRequest(url: url)
 

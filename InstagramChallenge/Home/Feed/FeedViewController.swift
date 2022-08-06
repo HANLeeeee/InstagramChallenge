@@ -16,14 +16,15 @@ class FeedViewController: UIViewController {
     let refreshControl = UIRefreshControl()
     
     @IBOutlet weak var btnNewPost: UIButton!
-    
+    @IBOutlet weak var btnChat: UIButton!
+    @IBOutlet weak var feedTableView: UITableView!
+
     var pickImage = UIImage()
     var pageIndex = 0
     var size = 10
     
     var modifyIndex = 0
 
-    @IBOutlet weak var feedTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         setUIFeedViewController()
@@ -40,10 +41,7 @@ class FeedViewController: UIViewController {
         getFeedInfo(pageIdx: pageIndex)
         
     }
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-    }
-    
+
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.navigationController?.setNavigationBarHidden(false, animated: false)
@@ -55,24 +53,6 @@ class FeedViewController: UIViewController {
         self.navigationItem.backBarButtonItem = backBarButtonItem
     }
     
-    func getFeedInfo(pageIdx: Int) {
-        APIFeedGet().getFeeds(accessToken: userToken.jwt!, pageIndex: pageIdx, size: size) { result in
-            switch result {
-            case .success(let feedsResult):
-                if self.pageIndex == 0 {
-                    self.feedsResult = feedsResult
-                } else {
-                    self.feedsResult += feedsResult
-                }
-                self.feedTableView.reloadData()
-                self.refreshControl.endRefreshing()
-
-            case .failure(let error):
-                print(error)
-            }
-        }
-    }
-
     func registerTableView() {
         let storytableViewCellNib = UINib(nibName: "StoryTableViewCell", bundle: nil)
         self.feedTableView.register(storytableViewCellNib, forCellReuseIdentifier: "StoryTableViewCell")
@@ -87,6 +67,27 @@ class FeedViewController: UIViewController {
         
         refreshControl.endRefreshing()
         feedTableView.refreshControl = refreshControl
+    }
+    
+    func getFeedInfo(pageIdx: Int) {
+        APIFeedGet().getFeeds(accessToken: userToken.jwt!, pageIndex: pageIdx, size: size) { result in
+            switch result {
+            case .success(let feedsResult):
+                if self.pageIndex == 0 {
+                    self.feedsResult = feedsResult
+                } else {
+                    self.feedsResult += feedsResult
+                }
+                DispatchQueue.main.async {
+                    self.feedTableView.reloadData()
+                }
+                
+                self.refreshControl.endRefreshing()
+
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
     
     func setNavigationBackBtn() {
@@ -110,7 +111,7 @@ class FeedViewController: UIViewController {
             
         case "GoFeedCommentsViewController":
             let feedCommentsVC = segue.destination as! FeedCommentsViewController
-            feedCommentsVC.feedIdx = feedsResult[modifyIndex].feedId!
+            feedCommentsVC.feedId = feedsResult[modifyIndex].feedId!
             feedCommentsVC.userID = feedsResult[modifyIndex].feedLoginId!
             feedCommentsVC.commentsText = feedsResult[modifyIndex].feedText ?? ""
             feedCommentsVC.commentsfeedDate = feedsResult[modifyIndex].feedCreatedAt!
@@ -126,8 +127,6 @@ class FeedViewController: UIViewController {
 //MARK: 테이블뷰
 extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        print(scrollView.contentOffset.y)
-        
         let offset = scrollView.contentOffset.y
         if offset < 0 {
             pageIndex = 0
@@ -136,7 +135,6 @@ extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
         } else if self.feedTableView.contentOffset.y > feedTableView.contentSize.height-feedTableView.bounds.size.height {
             pageIndex += 1
             getFeedInfo(pageIdx: pageIndex)
-            self.feedTableView.reloadData()
         }
     }
 
@@ -224,6 +222,9 @@ extension FeedViewController {
         switch btn {
         case btnNewPost:
             imagePicker()
+            
+        case btnChat:
+            performSegue(withIdentifier: "GoFeedChatViewController", sender: nil)
             
         default:
             return
@@ -335,7 +336,7 @@ extension FeedViewController {
     func makeActionSheet(alertTitle: String, alertMessage: String) -> UIAlertController {
         let actionSheet = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: UIAlertController.Style.actionSheet)
         let delete = UIAlertAction(title: "삭제", style: .destructive) { action in
-            print("클릭1")
+            self.deleteFeed()
         }
         let save = UIAlertAction(title: "보관", style: .default)
         actionSheet.addAction(delete)
@@ -348,6 +349,17 @@ extension FeedViewController {
     }
     
     func deleteFeed() {
-        APIFeedPatch().deleteFeed(accessToken: userToken.jwt!, feedId: modifyIndex)
+        APIFeedPatch().deleteFeed(accessToken: userToken.jwt!, feedId: feedsResult[modifyIndex].feedId!, completion: { res in
+            switch res {
+            case .success(let deleteRes):
+                if deleteRes.isSuccess {
+                    self.pageIndex = 0
+                    self.getFeedInfo(pageIdx: self.pageIndex)
+                }
+            case .failure(let error):
+                print(error)
+            }
+            
+        })
     }
 }

@@ -31,18 +31,15 @@ class APIFeedPatch {
     }
 
     //MARK: 피드 삭제
-    func deleteFeed(accessToken: String, feedId: Int) {
+    func deleteFeed(accessToken: String, feedId: Int, completion: @escaping (Result<FeedResponse, AFError>) -> Void) {
         AF.request(APIFeedPatchURL.deleteFeed(accessToken: accessToken, feedId: feedId))
             .validate()
             .responseDecodable(of: FeedResponse.self) { response in
-            debugPrint(response)
+//            debugPrint(response)
             switch response.result {
             case .success(let result):
-                if result.isSuccess {
-                    print("삭제성공")
-                } else {
-                    print("삭제문제발생")
-                }
+                completion(.success(result))
+            
             case .failure(let error):
                 print("에러에러리스폰스에러 \(error.localizedDescription)")
             }

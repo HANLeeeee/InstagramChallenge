@@ -17,7 +17,6 @@ class FeedNewViewController: UIViewController {
     var pickImage = UIImage()
     @IBOutlet weak var imageViewPickImage: UIImageView!
     @IBOutlet weak var hiddenView: UIView!
-    @IBOutlet weak var placeHolder: UILabel!
     
     var uploadURL: String = ""
     
@@ -39,7 +38,6 @@ class FeedNewViewController: UIViewController {
     
     func setUIFeedNewViewController() {
         imageViewPickImage.image = pickImage
-//        textView.isEditable = false
     }
 }
 
@@ -55,7 +53,12 @@ extension FeedNewViewController {
             switch barbtnNext.title{
             case "공유":
                 print("사진저장!!!")
-                uploadToFirebase()
+                if textView.text != "문구 입력...." {
+                    uploadToFirebase()
+                } else {
+                    let alert = makeAlert("알림", "게시글을 입력해야합니다", true, "확인")
+                    self.present(alert, animated: true)
+                }
                 
             case "확인":
                 view.endEditing(true)
@@ -132,15 +135,22 @@ extension FeedNewViewController {
     }
 
     @objc func keyboardShow(notification: NSNotification) {
-        placeHolder.isHidden = true
         self.navigationController?.navigationBar.topItem?.title = "문구"
         barbtnNext.title = "확인"
         hiddenView.isHidden = false
+        if textView.text == "문구 입력...." {
+            textView.text = ""
+            textView.textColor = .black
+        }
     }
 
     @objc func keyboardHide(notification: NSNotification) {
         self.navigationController?.navigationBar.topItem?.title = "새 게시물"
         barbtnNext.title = "공유"
         hiddenView.isHidden = true
+        if textView.text?.count == 0 {
+            textView.text = "문구 입력...."
+            textView.textColor = .gray
+        }
     }
 }

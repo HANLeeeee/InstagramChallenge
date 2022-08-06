@@ -8,11 +8,6 @@
 import Foundation
 import Alamofire
 
-
-//case createFeed(accessToken: String, feedText: String, contentsUrls: [String])
-//case createComment(accessToken: String, feedId: Int, commentText: String)
-
-
 class APIFeedPost {
     
     //MARK: 피드 생성
@@ -23,7 +18,6 @@ class APIFeedPost {
 //            debugPrint(response)
             switch response.result {
             case .success(let result):
-                print("피드생성~?~?~? \(result.code)")
                 completion(.success(result))
             case .failure(let error):
                 print("에러에러리스폰스에러 \(error.localizedDescription)")
@@ -32,14 +26,14 @@ class APIFeedPost {
     }
 
     //MARK: 댓글 생성
-    func createComment(accessToken: String, feedId: Int, commentText: String) {
+    func createComment(accessToken: String, feedId: Int, commentText: String, completion: @escaping (Result<FeedResponse, AFError>) -> Void) {
         AF.request(APIFeedPostURL.createComment(accessToken: accessToken, feedId: feedId, commentText: commentText))
             .validate()
             .responseDecodable(of: FeedResponse.self) { response in
-            debugPrint(response)
+//            debugPrint(response)
             switch response.result {
             case .success(let result):
-                print(result)
+                completion(.success(result))
 
             case .failure(let error):
                 print("에러에러리스폰스에러 \(error.localizedDescription)")

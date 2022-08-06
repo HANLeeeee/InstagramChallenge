@@ -11,6 +11,16 @@
 		B15DAB4A2895ACE000BB313D /* Feed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B15DAB492895ACE000BB313D /* Feed.storyboard */; };
 		B15DAB4C2895B73700BB313D /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15DAB4B2895B73700BB313D /* FeedViewController.swift */; };
 		B15DAB502895BAAA00BB313D /* FeedTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15DAB4F2895BAAA00BB313D /* FeedTabBarViewController.swift */; };
+		B16588DD289E73B800B80B4F /* FeedChatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16588DC289E73B800B80B4F /* FeedChatViewController.swift */; };
+		B16588E1289E8FF400B80B4F /* YouChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16588DF289E8FF400B80B4F /* YouChatTableViewCell.swift */; };
+		B16588E2289E8FF400B80B4F /* YouChatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B16588E0289E8FF400B80B4F /* YouChatTableViewCell.xib */; };
+		B16588E7289E9A2800B80B4F /* MeChatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16588E5289E9A2800B80B4F /* MeChatTableViewCell.swift */; };
+		B16588E8289E9A2800B80B4F /* MeChatTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B16588E6289E9A2800B80B4F /* MeChatTableViewCell.xib */; };
+		B16588ED289EA13F00B80B4F /* APIChatGet.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16588EC289EA13F00B80B4F /* APIChatGet.swift */; };
+		B16588EF289EA16B00B80B4F /* APIChatGetURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16588EE289EA16B00B80B4F /* APIChatGetURL.swift */; };
+		B16588F1289EA53600B80B4F /* ChatResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16588F0289EA53600B80B4F /* ChatResponse.swift */; };
+		B16588F3289EB72200B80B4F /* APIChatPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16588F2289EB72200B80B4F /* APIChatPost.swift */; };
+		B16588F5289EB72C00B80B4F /* APIChatPostURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16588F4289EB72C00B80B4F /* APIChatPostURL.swift */; };
 		B188C367289D5AE800363E0C /* APIFeedPostURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = B188C366289D5AE800363E0C /* APIFeedPostURL.swift */; };
 		B188C369289D5DFA00363E0C /* APIFeedPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = B188C368289D5DFA00363E0C /* APIFeedPost.swift */; };
 		B188C36D289D673B00363E0C /* MypageFeedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B188C36B289D673B00363E0C /* MypageFeedCollectionViewCell.swift */; };
@@ -24,7 +34,7 @@
 		B192284C28993D7D0059960C /* FeedTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B192284A28993D7D0059960C /* FeedTableViewCell.xib */; };
 		B192CC722894582B008C424C /* JoinUserIDViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B192CC712894582B008C424C /* JoinUserIDViewController.swift */; };
 		B192CC7428945EF6008C424C /* JoinFinalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B192CC7328945EF6008C424C /* JoinFinalViewController.swift */; };
-		B19722EC28927EA2002B0B3B /* makeAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19722EB28927EA2002B0B3B /* makeAlert.swift */; };
+		B19722EC28927EA2002B0B3B /* MakeAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19722EB28927EA2002B0B3B /* MakeAlert.swift */; };
 		B19722EE28928DD9002B0B3B /* JoinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19722ED28928DD9002B0B3B /* JoinViewController.swift */; };
 		B19722F0289295FE002B0B3B /* JoinPhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19722EF289295FE002B0B3B /* JoinPhoneViewController.swift */; };
 		B19722F32892A1E8002B0B3B /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19722F22892A1E8002B0B3B /* PageViewController.swift */; };
@@ -49,7 +59,7 @@
 		B1B1FBEC289DE7C300E55EEC /* FeedCommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B1FBEB289DE7C300E55EEC /* FeedCommentsViewController.swift */; };
 		B1B1FBF0289DE8A300E55EEC /* FeedCommentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B1FBEE289DE8A300E55EEC /* FeedCommentsTableViewCell.swift */; };
 		B1B1FBF1289DE8A300E55EEC /* FeedCommentsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B1B1FBEF289DE8A300E55EEC /* FeedCommentsTableViewCell.xib */; };
-		B1B1FBF3289DF8A500E55EEC /* dateSub.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B1FBF2289DF8A500E55EEC /* dateSub.swift */; };
+		B1B1FBF3289DF8A500E55EEC /* DateSub.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B1FBF2289DF8A500E55EEC /* DateSub.swift */; };
 		B1B1FBF5289DFBB700E55EEC /* CommentResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B1FBF4289DFBB700E55EEC /* CommentResponse.swift */; };
 		B1B922E1289A777D001440E9 /* APIUserPostURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B922E0289A777D001440E9 /* APIUserPostURL.swift */; };
 		B1B922E3289A7DAC001440E9 /* APIUserPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B922E2289A7DAC001440E9 /* APIUserPost.swift */; };
@@ -77,6 +87,16 @@
 		B15DAB492895ACE000BB313D /* Feed.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Feed.storyboard; sourceTree = "<group>"; };
 		B15DAB4B2895B73700BB313D /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		B15DAB4F2895BAAA00BB313D /* FeedTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTabBarViewController.swift; sourceTree = "<group>"; };
+		B16588DC289E73B800B80B4F /* FeedChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedChatViewController.swift; sourceTree = "<group>"; };
+		B16588DF289E8FF400B80B4F /* YouChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YouChatTableViewCell.swift; sourceTree = "<group>"; };
+		B16588E0289E8FF400B80B4F /* YouChatTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = YouChatTableViewCell.xib; sourceTree = "<group>"; };
+		B16588E5289E9A2800B80B4F /* MeChatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MeChatTableViewCell.swift; sourceTree = "<group>"; };
+		B16588E6289E9A2800B80B4F /* MeChatTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MeChatTableViewCell.xib; sourceTree = "<group>"; };
+		B16588EC289EA13F00B80B4F /* APIChatGet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIChatGet.swift; sourceTree = "<group>"; };
+		B16588EE289EA16B00B80B4F /* APIChatGetURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIChatGetURL.swift; sourceTree = "<group>"; };
+		B16588F0289EA53600B80B4F /* ChatResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatResponse.swift; sourceTree = "<group>"; };
+		B16588F2289EB72200B80B4F /* APIChatPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIChatPost.swift; sourceTree = "<group>"; };
+		B16588F4289EB72C00B80B4F /* APIChatPostURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIChatPostURL.swift; sourceTree = "<group>"; };
 		B188C366289D5AE800363E0C /* APIFeedPostURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIFeedPostURL.swift; sourceTree = "<group>"; };
 		B188C368289D5DFA00363E0C /* APIFeedPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIFeedPost.swift; sourceTree = "<group>"; };
 		B188C36B289D673B00363E0C /* MypageFeedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageFeedCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -94,7 +114,7 @@
 		B19722E128927577002B0B3B /* KakaoSDKAuth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = KakaoSDKAuth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B19722E42892757A002B0B3B /* KakaoSDKCommon.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = KakaoSDKCommon.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B19722E72892757D002B0B3B /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B19722EB28927EA2002B0B3B /* makeAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = makeAlert.swift; sourceTree = "<group>"; };
+		B19722EB28927EA2002B0B3B /* MakeAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MakeAlert.swift; sourceTree = "<group>"; };
 		B19722ED28928DD9002B0B3B /* JoinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinViewController.swift; sourceTree = "<group>"; };
 		B19722EF289295FE002B0B3B /* JoinPhoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinPhoneViewController.swift; sourceTree = "<group>"; };
 		B19722F22892A1E8002B0B3B /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
@@ -119,7 +139,7 @@
 		B1B1FBEB289DE7C300E55EEC /* FeedCommentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCommentsViewController.swift; sourceTree = "<group>"; };
 		B1B1FBEE289DE8A300E55EEC /* FeedCommentsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCommentsTableViewCell.swift; sourceTree = "<group>"; };
 		B1B1FBEF289DE8A300E55EEC /* FeedCommentsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeedCommentsTableViewCell.xib; sourceTree = "<group>"; };
-		B1B1FBF2289DF8A500E55EEC /* dateSub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dateSub.swift; sourceTree = "<group>"; };
+		B1B1FBF2289DF8A500E55EEC /* DateSub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateSub.swift; sourceTree = "<group>"; };
 		B1B1FBF4289DFBB700E55EEC /* CommentResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentResponse.swift; sourceTree = "<group>"; };
 		B1B922E0289A777D001440E9 /* APIUserPostURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIUserPostURL.swift; sourceTree = "<group>"; };
 		B1B922E2289A7DAC001440E9 /* APIUserPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIUserPost.swift; sourceTree = "<group>"; };
@@ -175,6 +195,46 @@
 				232C4B3E7C73C48E09956F98 /* Pods_InstagramChallenge.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B16588DE289E8FAF00B80B4F /* ChatTable */ = {
+			isa = PBXGroup;
+			children = (
+				B16588E0289E8FF400B80B4F /* YouChatTableViewCell.xib */,
+				B16588DF289E8FF400B80B4F /* YouChatTableViewCell.swift */,
+				B16588E6289E9A2800B80B4F /* MeChatTableViewCell.xib */,
+				B16588E5289E9A2800B80B4F /* MeChatTableViewCell.swift */,
+			);
+			path = ChatTable;
+			sourceTree = "<group>";
+		};
+		B16588E9289E9B5F00B80B4F /* Comment */ = {
+			isa = PBXGroup;
+			children = (
+				B1B1FBEB289DE7C300E55EEC /* FeedCommentsViewController.swift */,
+				B1B1FBED289DE86F00E55EEC /* CommentsTable */,
+			);
+			path = Comment;
+			sourceTree = "<group>";
+		};
+		B16588EA289E9B7300B80B4F /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				B16588DC289E73B800B80B4F /* FeedChatViewController.swift */,
+				B16588DE289E8FAF00B80B4F /* ChatTable */,
+			);
+			path = Chat;
+			sourceTree = "<group>";
+		};
+		B16588EB289EA12800B80B4F /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				B16588EE289EA16B00B80B4F /* APIChatGetURL.swift */,
+				B16588EC289EA13F00B80B4F /* APIChatGet.swift */,
+				B16588F4289EB72C00B80B4F /* APIChatPostURL.swift */,
+				B16588F2289EB72200B80B4F /* APIChatPost.swift */,
+			);
+			path = Chat;
 			sourceTree = "<group>";
 		};
 		B16B30B02891CEB300B978BD /* Base */ = {
@@ -240,24 +300,23 @@
 			isa = PBXGroup;
 			children = (
 				B15DAB4B2895B73700BB313D /* FeedViewController.swift */,
+				B192283928992EBD0059960C /* StoryTable */,
+				B192284828993D290059960C /* FeedTable */,
 				B1A89047289A3D8900AD6C35 /* FeedNewViewController.swift */,
 				B1B1FBE5289DB7E200E55EEC /* FeedModifyViewController.swift */,
-				B1B1FBEB289DE7C300E55EEC /* FeedCommentsViewController.swift */,
 				B188C371289D95AA00363E0C /* BottomSheetViewController.swift */,
-				B192284828993D290059960C /* FeedTable */,
-				B192283928992EBD0059960C /* StoryTable */,
-				B1B1FBED289DE86F00E55EEC /* CommentsTable */,
 			);
 			path = Feed;
 			sourceTree = "<group>";
 		};
-		B19722EA28927E47002B0B3B /* PopUpAlert */ = {
+		B19722EA28927E47002B0B3B /* PublicFunc */ = {
 			isa = PBXGroup;
 			children = (
-				B19722EB28927EA2002B0B3B /* makeAlert.swift */,
-				B1B1FBF2289DF8A500E55EEC /* dateSub.swift */,
+				B1F56954289C68AE004E2CAB /* NumberFormatter.swift */,
+				B19722EB28927EA2002B0B3B /* MakeAlert.swift */,
+				B1B1FBF2289DF8A500E55EEC /* DateSub.swift */,
 			);
-			path = PopUpAlert;
+			path = PublicFunc;
 			sourceTree = "<group>";
 		};
 		B19722F12892A1D1002B0B3B /* PageVC */ = {
@@ -293,6 +352,8 @@
 				B15DAB492895ACE000BB313D /* Feed.storyboard */,
 				B15DAB4F2895BAAA00BB313D /* FeedTabBarViewController.swift */,
 				B192CC7528945F7B008C424C /* Feed */,
+				B16588E9289E9B5F00B80B4F /* Comment */,
+				B16588EA289E9B7300B80B4F /* Chat */,
 				B1A89050289A51F700AD6C35 /* Mypage */,
 			);
 			path = Home;
@@ -333,6 +394,7 @@
 			children = (
 				B1F5694C289C55C2004E2CAB /* User */,
 				B1F5694D289C55CE004E2CAB /* Feed */,
+				B16588EB289EA12800B80B4F /* Chat */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -345,6 +407,7 @@
 				B1B922E5289A8D0C001440E9 /* UserResponse.swift */,
 				B1F56952289C5BE2004E2CAB /* FeedResponse.swift */,
 				B1B1FBF4289DFBB700E55EEC /* CommentResponse.swift */,
+				B16588F0289EA53600B80B4F /* ChatResponse.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -404,9 +467,8 @@
 			children = (
 				B1A8904B289A4AC600AD6C35 /* GoogleService-Info.plist */,
 				F696340828902C0D00548666 /* Assets.xcassets */,
-				B1F56954289C68AE004E2CAB /* NumberFormatter.swift */,
 				B16B30B02891CEB300B978BD /* Base */,
-				B19722EA28927E47002B0B3B /* PopUpAlert */,
+				B19722EA28927E47002B0B3B /* PublicFunc */,
 				B1B922F5289AF85C001440E9 /* UserDefaults */,
 				B1B922E4289A8CFC001440E9 /* Data */,
 				B1B922D9289A6D29001440E9 /* API */,
@@ -477,6 +539,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F696340C28902C0D00548666 /* LaunchScreen.storyboard in Resources */,
+				B16588E2289E8FF400B80B4F /* YouChatTableViewCell.xib in Resources */,
+				B16588E8289E9A2800B80B4F /* MeChatTableViewCell.xib in Resources */,
 				B1A8904C289A4AC600AD6C35 /* GoogleService-Info.plist in Resources */,
 				B188C36E289D673B00363E0C /* MypageFeedCollectionViewCell.xib in Resources */,
 				B192283D28992F620059960C /* StoryTableViewCell.xib in Resources */,
@@ -541,6 +605,8 @@
 			files = (
 				B192284628993AFA0059960C /* StoryCollectionViewCell.swift in Sources */,
 				B1F56951289C561D004E2CAB /* APIFeedGetURL.swift in Sources */,
+				B16588F5289EB72C00B80B4F /* APIChatPostURL.swift in Sources */,
+				B16588F3289EB72200B80B4F /* APIChatPost.swift in Sources */,
 				B19722F72892A223002B0B3B /* PageEmailViewController.swift in Sources */,
 				B188C36D289D673B00363E0C /* MypageFeedCollectionViewCell.swift in Sources */,
 				B1B1FBE8289DC85B00E55EEC /* APIFeedPatch.swift in Sources */,
@@ -549,6 +615,7 @@
 				B188C369289D5DFA00363E0C /* APIFeedPost.swift in Sources */,
 				B1B1FBF5289DFBB700E55EEC /* CommentResponse.swift in Sources */,
 				B19B0ABF289C3DC300996F4E /* MypageFeedViewController.swift in Sources */,
+				B16588ED289EA13F00B80B4F /* APIChatGet.swift in Sources */,
 				F696340428902C0900548666 /* LoginViewController.swift in Sources */,
 				B1B1FBEC289DE7C300E55EEC /* FeedCommentsViewController.swift in Sources */,
 				B19722F32892A1E8002B0B3B /* PageViewController.swift in Sources */,
@@ -556,15 +623,17 @@
 				F696340028902C0900548666 /* AppDelegate.swift in Sources */,
 				B19B0AC3289C3EED00996F4E /* TabManViewController.swift in Sources */,
 				B1F56955289C68AE004E2CAB /* NumberFormatter.swift in Sources */,
-				B19722EC28927EA2002B0B3B /* makeAlert.swift in Sources */,
+				B19722EC28927EA2002B0B3B /* MakeAlert.swift in Sources */,
 				B1BD42CE2893907300B28575 /* JoinAgreeViewController.swift in Sources */,
 				B19723002892E115002B0B3B /* JoinBirthViewController.swift in Sources */,
 				B188C367289D5AE800363E0C /* APIFeedPostURL.swift in Sources */,
+				B16588E7289E9A2800B80B4F /* MeChatTableViewCell.swift in Sources */,
 				B19722F0289295FE002B0B3B /* JoinPhoneViewController.swift in Sources */,
 				B1B922F4289AF7F3001440E9 /* APIUserGetURL.swift in Sources */,
 				B1B922E6289A8D0C001440E9 /* UserResponse.swift in Sources */,
 				B1B922F2289AF7D4001440E9 /* APIUserGet.swift in Sources */,
 				B1A89048289A3D8900AD6C35 /* FeedNewViewController.swift in Sources */,
+				B16588F1289EA53600B80B4F /* ChatResponse.swift in Sources */,
 				B15DAB4C2895B73700BB313D /* FeedViewController.swift in Sources */,
 				B1B922E1289A777D001440E9 /* APIUserPostURL.swift in Sources */,
 				B1A8904E289A4E1A00AD6C35 /* MyPageViewController.swift in Sources */,
@@ -574,17 +643,20 @@
 				B1B922E3289A7DAC001440E9 /* APIUserPost.swift in Sources */,
 				B1F56953289C5BE2004E2CAB /* FeedResponse.swift in Sources */,
 				B19B0AB0289BD04800996F4E /* LoginNavigationViewController.swift in Sources */,
+				B16588DD289E73B800B80B4F /* FeedChatViewController.swift in Sources */,
 				B19B0AC1289C3DD900996F4E /* MypageTagViewController.swift in Sources */,
+				B16588E1289E8FF400B80B4F /* YouChatTableViewCell.swift in Sources */,
 				B1F5694F289C55EB004E2CAB /* APIFeedGet.swift in Sources */,
 				B188C372289D95AA00363E0C /* BottomSheetViewController.swift in Sources */,
 				B19722EE28928DD9002B0B3B /* JoinViewController.swift in Sources */,
 				B19B0AB8289C071B00996F4E /* UserKakaoSignUpRequest.swift in Sources */,
 				B1B1FBF0289DE8A300E55EEC /* FeedCommentsTableViewCell.swift in Sources */,
-				B1B1FBF3289DF8A500E55EEC /* dateSub.swift in Sources */,
+				B1B1FBF3289DF8A500E55EEC /* DateSub.swift in Sources */,
 				B1B922F0289A9F25001440E9 /* UserPostRequest.swift in Sources */,
 				B19722FB2892CDB8002B0B3B /* JoinNameViewController.swift in Sources */,
 				B192284B28993D7D0059960C /* FeedTableViewCell.swift in Sources */,
 				B192CC722894582B008C424C /* JoinUserIDViewController.swift in Sources */,
+				B16588EF289EA16B00B80B4F /* APIChatGetURL.swift in Sources */,
 				B1B922F7289AF873001440E9 /* UserDefaultsData.swift in Sources */,
 				B19722F52892A216002B0B3B /* PagePhoneViewController.swift in Sources */,
 				F696340228902C0900548666 /* SceneDelegate.swift in Sources */,

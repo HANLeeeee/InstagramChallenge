@@ -20,8 +20,13 @@ class FeedCommentsTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        labelCoComment.text = "답글 달기"
+        btnHeart.backgroundImage(for: .normal)
+
+    }
 }

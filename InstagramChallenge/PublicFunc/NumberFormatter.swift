@@ -1,8 +1,8 @@
 //
 //  NumberFormatter.swift
-//  CloneCoding_Starbucks
+//  InstagramChallenge
 //
-//  Created by 하늘이 on 2022/07/15.
+//  Created by 최하늘 on 2022/07/28.
 //
 
 import Foundation

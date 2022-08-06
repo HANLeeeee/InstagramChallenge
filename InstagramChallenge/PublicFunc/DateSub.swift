@@ -13,8 +13,13 @@ public func dateSub(date: String) -> String {
     let formatter = DateFormatter()
     formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
     let dateChangeFormat = formatter.date(from: date)!
+    
+    let seconds: Int = Int(currentDate.timeIntervalSince(dateChangeFormat))
+    if seconds < 60 {
+        return "\(seconds)초 전"
+    }
 
-    let minutes: Int = Int(currentDate.timeIntervalSince(dateChangeFormat)) / 60
+    let minutes = seconds / 60
     if minutes < 60 {
         return "\(minutes)분 전"
     }

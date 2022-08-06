@@ -9,14 +9,12 @@ import Foundation
 import Alamofire
 
 class APIFeedGet {
-
-    
     //MARK: 피드 조회
     func getFeeds(accessToken: String, pageIndex: Int, size: Int, completion: @escaping (Result<[FeedResponseResult], AFError>) -> Void) {
         AF.request(APIFeedGetURL.getFeeds(accessToken: accessToken, pageIndex: pageIndex, size: size))
             .validate()
             .responseDecodable(of: FeedResponse.self) { response in
-                debugPrint(response)
+//                debugPrint(response)
             switch response.result {
             case .success(let result):
                 if result.isSuccess {
@@ -34,7 +32,7 @@ class APIFeedGet {
         AF.request(APIFeedGetURL.getFeedsUser(accessToken: accessToken, pageIndex: pageIndex, size: size, loginId: loginId))
             .validate()
             .responseDecodable(of: FeedResponse.self) { response in
-                debugPrint(response)
+//                debugPrint(response)
             switch response.result {
             case .success(let result):
                 if result.isSuccess {
@@ -52,7 +50,7 @@ class APIFeedGet {
         AF.request(APIFeedGetURL.getComments(accessToken: accessToken, feedId: feedId, pageIndex: pageIndex, size: size))
             .validate()
             .responseDecodable(of: CommentResponse.self) { response in
-                debugPrint(response)
+//                debugPrint(response)
             switch response.result {
             case .success(let result):
                 if result.isSuccess {

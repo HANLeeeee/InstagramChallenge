@@ -9,8 +9,6 @@ import Foundation
 import Alamofire
 
 class APIUserGet {
-    var autoResult = false
-
     func autoSignIn(accessToken: String, completion: @escaping (Result<UserResponse, AFError>) -> Void) {
         AF.request(APIUserGetURL.autoSignIn(accessToken: accessToken))
             .validate()
@@ -22,7 +20,6 @@ class APIUserGet {
                 print(result)
                 
             case .failure(let error):
-                self.autoResult = false
                 print("에러에러리스폰스에러 \(error.localizedDescription)")
             }
         }
@@ -32,7 +29,7 @@ class APIUserGet {
         AF.request(APIUserGetURL.searchUserID(loginId: loginId))
             .validate()
             .responseDecodable(of: UserResponse.self) { response in
-            debugPrint(response)
+//            debugPrint(response)
 
             switch response.result {
             case .success(let result):
