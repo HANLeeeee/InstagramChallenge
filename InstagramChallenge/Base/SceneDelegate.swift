@@ -15,18 +15,23 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var usertoken = UserDefaultsData.shared.getToken().jwt
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        APIUserGet().autoSignIn(accessToken: usertoken!, completion: { result in
-            switch result {
-            case .success(let result):
-                if result.code == 1001 {
-                    self.presentFeedVC()
-                } else {
-                    self.presentLoginVC()
+        
+        Loading.showLoading()
+        DispatchQueue.main.async {
+            APIUserGet().autoSignIn(accessToken: self.usertoken!, completion: { result in
+                Loading.hideLoading()
+                switch result {
+                case .success(let result):
+                    if result.code == 1001 {
+                        self.presentFeedVC()
+                    } else {
+                        self.presentLoginVC()
+                    }
+                case .failure(let error):
+                    print(error)
                 }
-            case .failure(let error):
-                print(error)
-            }
-        })
+            })
+        }
         guard let _ = (scene as? UIWindowScene) else { return }
     }
     

@@ -75,26 +75,30 @@ class FeedChatViewController: UIViewController {
    
     //MARK: 채팅정보가져오기
     func getChatInfo(pageIdx: Int) {
-        APIChatGet().searchChat(accessToken: userToken.jwt!, pageIndex: pageIdx, size: 20, completion: { result in
-            switch result {
-            case .success(let chatresult):
-                if self.pageIndex == 0 {
-                    self.chatResult = chatresult.reversed()
-                    self.scrollToBottom()
-                    
-                } else {
-                    if chatresult.count != 0 {
-                        self.chatResult.insert(contentsOf: chatresult.reversed(), at: 0)
-                        self.chatTableView.scrollNotTop()
+        Loading.showLoading()
+        DispatchQueue.main.async {
+            APIChatGet().searchChat(accessToken: self.userToken.jwt!, pageIndex: pageIdx, size: 20, completion: { result in
+                Loading.hideLoading()
+                switch result {
+                case .success(let chatresult):
+                    if self.pageIndex == 0 {
+                        self.chatResult = chatresult.reversed()
+                        self.scrollToBottom()
+                        
+                    } else {
+                        if chatresult.count != 0 {
+                            self.chatResult.insert(contentsOf: chatresult.reversed(), at: 0)
+                            self.chatTableView.scrollNotTop()
+                        }
                     }
-                }
-                self.refreshControl.endRefreshing()
+                    self.refreshControl.endRefreshing()
 
-            case .failure(let error):
-                print(error)
-            }
-            
-        })
+                case .failure(let error):
+                    print(error)
+                }
+                
+            })
+        }
     }
 }
 
@@ -124,19 +128,23 @@ extension FeedChatViewController {
 //MARK: 버튼액션
 extension FeedChatViewController {
     func createMsgAction() {
-        APIChatPost().createChat(accessToken: userToken.jwt!, content: textViewMsg.text, completion: { result in
-            switch result {
-            case .success(let result):
-                if result.isSuccess {
-                    self.textViewMsg.text = ""
-                    self.pageIndex = 0
-                    self.getChatInfo(pageIdx: self.pageIndex)
-                    self.sendNotification(reply: result.result.reply)
+        Loading.showLoading()
+        DispatchQueue.main.async {
+            APIChatPost().createChat(accessToken: self.userToken.jwt!, content: self.textViewMsg.text, completion: { result in
+                Loading.hideLoading()
+                switch result {
+                case .success(let result):
+                    if result.isSuccess {
+                        self.textViewMsg.text = ""
+                        self.pageIndex = 0
+                        self.getChatInfo(pageIdx: self.pageIndex)
+                        self.sendNotification(reply: result.result.reply)
+                    }
+                case .failure(let error):
+                    print(error)
                 }
-            case .failure(let error):
-                print(error)
-            }
-        })
+            })
+        }
     }
 }
 

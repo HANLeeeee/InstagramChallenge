@@ -110,6 +110,7 @@ extension LoginViewController{
     func btnLoginAction() {
         if isValidCheck(id: textFieldID.text!, pw: textFieldPW.text!) {
             checkUser()
+            
         } else {
             presentLoginFail()
         }
@@ -151,22 +152,26 @@ extension LoginViewController {
     }
     
     func checkUser() {
-        if let userID = textFieldID.text,
-           let userPW = textFieldPW.text {
-            APIUserPost().signIn(loginId: userID, password: userPW, completion: { result in
-                switch result {
-                case .success(let result):
-                    if result.isSuccess {
-                        UserDefaultsData.shared.setToken(userID: userID, jwt: result.result!.jwt!)
-                        self.presentFeedVC()
-                    } else {
-                        self.presentLoginFail()
+        Loading.showLoading()
+        DispatchQueue.main.async {
+            if let userID = self.textFieldID.text,
+               let userPW = self.textFieldPW.text {
+                APIUserPost().signIn(loginId: userID, password: userPW, completion: { result in
+                    Loading.hideLoading()
+                    switch result {
+                    case .success(let result):
+                        if result.isSuccess {
+                            UserDefaultsData.shared.setToken(userID: userID, jwt: result.result!.jwt!)
+                            self.presentFeedVC()
+                        } else {
+                            self.presentLoginFail()
+                        }
+                    case .failure(let error):
+                        print(error)
                     }
-                case .failure(let error):
-                    print(error)
-                }
-            })
-            return
+                })
+                return
+            }
         }
     }
 }

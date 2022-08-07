@@ -38,9 +38,8 @@ extension JoinFinalViewController {
             self.navigationController?.popToRootViewController(animated: true)
             
         case btnJoin:
-            print("가입완료!")
             createUser()
-
+            
         default:
             return
         }
@@ -52,30 +51,33 @@ extension JoinFinalViewController {
 //MARK: 회원가입
 extension JoinFinalViewController {
     func createUser() {
-        if let userName = joinData.realName,
-           let userPW = joinData.password,
-           let userID = joinData.loginId,
-           let userBirth = joinData.birthDate,
-           let userPN = joinData.phoneNumber {
-            APIUserPost().signUp(realName: userName, password: userPW, loginId: userID, birthDate: userBirth, phoneNumber: userPN, completion: { result in
-                switch result {
-                case .success(let result):
-                    if result.isSuccess {
-                        UserDefaultsData.shared.setToken(userID: userID, jwt: result.result!.jwt!)
-                        self.presentFeedVC()
-                        
-                    } else {
-                        let alert = makeAlert("알림", "회원가입에 실패하였습니다.", true, "확인")
-                        self.present(alert, animated: false)
-                        self.navigationController?.popToRootViewController(animated: true)
+        Loading.showLoading()
+        DispatchQueue.main.async {
+            if let userName = self.joinData.realName,
+               let userPW = self.joinData.password,
+               let userID = self.joinData.loginId,
+               let userBirth = self.joinData.birthDate,
+               let userPN = self.joinData.phoneNumber {
+                APIUserPost().signUp(realName: userName, password: userPW, loginId: userID, birthDate: userBirth, phoneNumber: userPN, completion: { result in
+                    Loading.hideLoading()
+                    switch result {
+                    case .success(let result):
+                        if result.isSuccess {
+                            UserDefaultsData.shared.setToken(userID: userID, jwt: result.result!.jwt!)
+                            self.presentFeedVC()
+                            
+                        } else {
+                            let alert = makeAlert("알림", "회원가입에 실패하였습니다.", true, "확인")
+                            self.present(alert, animated: false)
+                            self.navigationController?.popToRootViewController(animated: true)
+                        }
+                    
+                    case .failure(let error):
+                        print(error)
                     }
-                
-                case .failure(let error):
-                    print(error)
-                }
-                
-            })
-            return
+                })
+                return
+            }
         }
     }
 }

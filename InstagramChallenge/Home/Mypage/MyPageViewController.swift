@@ -44,24 +44,28 @@ class MypageViewController: UIViewController {
     
     //MARK: 마이페이지정보가져오기
     func getUserInfo() {
-        APIUserGet().searchMyPage(accessToken: userToken.jwt!, loginId: userToken.loginId!, completion: { result in
-            switch result {
-            case .success(let result):
-                if result.isSuccess {
-                    self.labelLoginId.text = result.result!.loginId ?? ""
-                    self.labelRealName.text = result.result!.realName ?? ""
-                    self.labelFeedCount.text = String(result.result!.feedCount ?? 0)
-                    self.labelFollowerCount.text = String(result.result!.followerCount ?? 0)
-                    self.labelFollowingCount.text = String(result.result!.followingCount ?? 0)
-                    
-                } else {
-                    self.presentLoginVC()
+        Loading.showLoading()
+        DispatchQueue.main.async {
+            APIUserGet().searchMyPage(accessToken: self.userToken.jwt!, loginId: self.userToken.loginId!, completion: { result in
+                Loading.hideLoading()
+                switch result {
+                case .success(let result):
+                    if result.isSuccess {
+                        self.labelLoginId.text = result.result!.loginId ?? ""
+                        self.labelRealName.text = result.result!.realName ?? ""
+                        self.labelFeedCount.text = String(result.result!.feedCount ?? 0)
+                        self.labelFollowerCount.text = String(result.result!.followerCount ?? 0)
+                        self.labelFollowingCount.text = String(result.result!.followingCount ?? 0)
+                        
+                    } else {
+                        self.presentLoginVC()
+                    }
+                
+                case .failure(let error):
+                    print(error)
                 }
-            
-            case .failure(let error):
-                print(error)
-            }
-        })
+            })
+        }
     }
 }
 

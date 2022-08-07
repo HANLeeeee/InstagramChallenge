@@ -72,7 +72,7 @@ extension JoinUserIDViewController {
         case btnNext:
             if idIsValidCheck(tfUserID.text!) {
                 searchUserID()
-                
+            
             } else {
                 self.statusMessage = "아이디는 영어, 숫자, '_', '.'만 사용 가능합니다."
                 visibleLoginStatusMessgae(true)
@@ -98,30 +98,33 @@ extension JoinUserIDViewController {
 //MARK: 회원 검색
 extension JoinUserIDViewController {
     func searchUserID() {
-        if let userID = tfUserID.text  {
-            APIUserGet().searchUserID(loginId: userID, completion: { result in
-                switch result {
-                case .success(let result):
-                    print(result)
-                    if result.isSuccess {
-                        self.joinData.userID = userID
-                        self.performSegue(withIdentifier: "GoJoinFinalViewController", sender: nil)
-                        
-                    } else {
-                        switch result.code {
-                        case 2230:
-                            self.statusMessage = "사용자 이름 \(userID)을(를) 사용할 수 없습니다."
-                            self.visibleLoginStatusMessgae(true)
-                        default:
-                            self.statusMessage = "다른 아이디를 사용해주세요."
-                            self.visibleLoginStatusMessgae(true)
+        Loading.showLoading()
+        DispatchQueue.main.async {
+            if let userID = self.tfUserID.text  {
+                APIUserGet().searchUserID(loginId: userID, completion: { result in
+                    Loading.hideLoading()
+                    switch result {
+                    case .success(let result):
+                        if result.isSuccess {
+                            self.joinData.userID = userID
+                            self.performSegue(withIdentifier: "GoJoinFinalViewController", sender: nil)
+                            
+                        } else {
+                            switch result.code {
+                            case 2230:
+                                self.statusMessage = "사용자 이름 \(userID)을(를) 사용할 수 없습니다."
+                                self.visibleLoginStatusMessgae(true)
+                            default:
+                                self.statusMessage = "다른 아이디를 사용해주세요."
+                                self.visibleLoginStatusMessgae(true)
+                            }
                         }
+                    case .failure(let error):
+                        print(error)
                     }
-                case .failure(let error):
-                    print(error)
-                }
-            })
-            return
+                })
+                return
+            }
         }
     }
 }

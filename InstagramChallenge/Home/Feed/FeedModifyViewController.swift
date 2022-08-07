@@ -84,16 +84,20 @@ extension FeedModifyViewController {
 //MARK: 버튼액션
 extension FeedModifyViewController {
     func setModifyFeed() {
-        APIFeedPatch().modifyFeed(accessToken: userToken.jwt!, feedId: feedID, feedText: textView.text, completion: { result in
-            switch result {
-            case .success(_):
-                self.navigationController?.popViewController(animated: true)
-                
-            case .failure(let error):
-                print(error)
-                self.navigationController?.popViewController(animated: true)
-            }
-        })
+        Loading.showLoading()
+        DispatchQueue.main.async {
+            APIFeedPatch().modifyFeed(accessToken: self.userToken.jwt!, feedId: self.feedID, feedText: self.textView.text, completion: { result in
+                Loading.hideLoading()
+                switch result {
+                case .success(_):
+                    self.navigationController?.popViewController(animated: true)
+                    
+                case .failure(let error):
+                    print(error)
+                    self.navigationController?.popViewController(animated: true)
+                }
+            })
+        }
     }
 }
 

@@ -71,22 +71,26 @@ class FeedCommentsViewController: UIViewController {
     
     //MARK: 댓글정보가져오기
     func setCommentsInfo(pageIdx: Int) {
-        APIFeedGet().getComments(accessToken: userToken.jwt!, feedId: feedId, pageIndex: pageIdx, size: 10, completion: { result in
-            switch result {
-            case .success(let commentsResult):
-                if pageIdx == 0 {
-                    self.commentsResult = commentsResult
+        Loading.showLoading()
+        DispatchQueue.main.async {
+            APIFeedGet().getComments(accessToken: self.userToken.jwt!, feedId: self.feedId, pageIndex: pageIdx, size: 10, completion: { result in
+                Loading.hideLoading()
+                switch result {
+                case .success(let commentsResult):
+                    if pageIdx == 0 {
+                        self.commentsResult = commentsResult
 
-                } else {
-                    self.commentsResult += commentsResult
+                    } else {
+                        self.commentsResult += commentsResult
+                    }
+                    self.tableViewComment.reloadData()
+                    self.refreshControl.endRefreshing()
+                    
+                case .failure(let error):
+                    print(error)
                 }
-                self.tableViewComment.reloadData()
-                self.refreshControl.endRefreshing()
-                
-            case .failure(let error):
-                print(error)
-            }
-        })
+            })
+        }
     }
 }
 
@@ -126,21 +130,24 @@ extension FeedCommentsViewController {
 //MARK: 버튼액션
 extension FeedCommentsViewController {
     func createCommentsAction() {
-        APIFeedPost().createComment(accessToken: userToken.jwt!, feedId: self.feedId, commentText: tfComments.text!, completion: { result in
-            switch result {
-            case .success(let result):
-                if result.isSuccess {
-                    self.tfComments.text = ""
-                    self.pageIndex = 0
-                    self.setCommentsInfo(pageIdx: self.pageIndex)
+        Loading.showLoading()
+        DispatchQueue.main.async {
+            APIFeedPost().createComment(accessToken: self.userToken.jwt!, feedId: self.feedId, commentText: self.tfComments.text!, completion: { result in
+                Loading.hideLoading()
+                switch result {
+                case .success(let result):
+                    if result.isSuccess {
+                        self.tfComments.text = ""
+                        self.pageIndex = 0
+                        self.setCommentsInfo(pageIdx: self.pageIndex)
+                    }
+                case .failure(let error):
+                    print(error)
                 }
-            case .failure(let error):
-                print(error)
-            }
-        })
+            })
+        }
     }
 }
-
 
 
 

@@ -23,6 +23,7 @@
 		B16588F5289EB72C00B80B4F /* APIChatPostURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16588F4289EB72C00B80B4F /* APIChatPostURL.swift */; };
 		B16588F7289EE36300B80B4F /* APIKakaoPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16588F6289EE36300B80B4F /* APIKakaoPost.swift */; };
 		B16588F9289EE3A600B80B4F /* APIKakaoPostURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16588F8289EE3A600B80B4F /* APIKakaoPostURL.swift */; };
+		B17B5C45289FF6BB00B699B9 /* Loading.swift in Sources */ = {isa = PBXBuildFile; fileRef = B17B5C44289FF6BB00B699B9 /* Loading.swift */; };
 		B188C367289D5AE800363E0C /* APIFeedPostURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = B188C366289D5AE800363E0C /* APIFeedPostURL.swift */; };
 		B188C369289D5DFA00363E0C /* APIFeedPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = B188C368289D5DFA00363E0C /* APIFeedPost.swift */; };
 		B188C36D289D673B00363E0C /* MypageFeedCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B188C36B289D673B00363E0C /* MypageFeedCollectionViewCell.swift */; };
@@ -101,6 +102,9 @@
 		B16588F4289EB72C00B80B4F /* APIChatPostURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIChatPostURL.swift; sourceTree = "<group>"; };
 		B16588F6289EE36300B80B4F /* APIKakaoPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKakaoPost.swift; sourceTree = "<group>"; };
 		B16588F8289EE3A600B80B4F /* APIKakaoPostURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKakaoPostURL.swift; sourceTree = "<group>"; };
+		B17B5C40289FF49700B699B9 /* ko */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = ko; path = ko.lproj/Login.storyboard; sourceTree = "<group>"; };
+		B17B5C41289FF49A00B699B9 /* ko */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = ko; path = ko.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B17B5C44289FF6BB00B699B9 /* Loading.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loading.swift; sourceTree = "<group>"; };
 		B188C366289D5AE800363E0C /* APIFeedPostURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIFeedPostURL.swift; sourceTree = "<group>"; };
 		B188C368289D5DFA00363E0C /* APIFeedPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIFeedPost.swift; sourceTree = "<group>"; };
 		B188C36B289D673B00363E0C /* MypageFeedCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageFeedCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -161,9 +165,7 @@
 		F69633FF28902C0900548666 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F696340128902C0900548666 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		F696340328902C0900548666 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		F696340628902C0900548666 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Login.storyboard; sourceTree = "<group>"; };
 		F696340828902C0D00548666 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		F696340B28902C0D00548666 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F696340D28902C0D00548666 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FF9E68987F05A4CDC4872731 /* Pods-InstagramChallenge.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramChallenge.release.xcconfig"; path = "Target Support Files/Pods-InstagramChallenge/Pods-InstagramChallenge.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -319,6 +321,7 @@
 				B1F56954289C68AE004E2CAB /* NumberFormatter.swift */,
 				B19722EB28927EA2002B0B3B /* MakeAlert.swift */,
 				B1B1FBF2289DF8A500E55EEC /* DateSub.swift */,
+				B17B5C44289FF6BB00B699B9 /* Loading.swift */,
 			);
 			path = PublicFunc;
 			sourceTree = "<group>";
@@ -527,7 +530,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
-				Base,
+				ko,
 			);
 			mainGroup = F69633F328902C0900548666;
 			productRefGroup = F69633FD28902C0900548666 /* Products */;
@@ -609,6 +612,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B17B5C45289FF6BB00B699B9 /* Loading.swift in Sources */,
 				B192284628993AFA0059960C /* StoryCollectionViewCell.swift in Sources */,
 				B1F56951289C561D004E2CAB /* APIFeedGetURL.swift in Sources */,
 				B16588F5289EB72C00B80B4F /* APIChatPostURL.swift in Sources */,
@@ -678,7 +682,7 @@
 		F696340528902C0900548666 /* Login.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				F696340628902C0900548666 /* Base */,
+				B17B5C40289FF49700B699B9 /* ko */,
 			);
 			name = Login.storyboard;
 			sourceTree = "<group>";
@@ -686,7 +690,7 @@
 		F696340A28902C0D00548666 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				F696340B28902C0D00548666 /* Base */,
+				B17B5C41289FF49A00B699B9 /* ko */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -698,6 +702,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
@@ -758,6 +763,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";

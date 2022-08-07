@@ -27,6 +27,7 @@ class MypageFeedViewController: UIViewController {
         pageIdx = 0
         feedsResult.removeAll()
         getFeedImage()
+        
     }
     
     //MARK: 컬렉션뷰셀 등록
@@ -40,20 +41,24 @@ class MypageFeedViewController: UIViewController {
     
     //MARK: 피드정보가져오기
     func getFeedImage() {
-        APIFeedGet().getFeedsUser(accessToken: userInfo.jwt!, pageIndex: pageIdx, size: 12, loginId: userInfo.loginId!, completion: { result in
-            switch result {
-            case .success(let result):
-                if self.pageIdx == 0 {
-                    self.feedsResult = result
-                } else {
-                    self.feedsResult += result
+        Loading.showLoading()
+        DispatchQueue.main.async {
+            APIFeedGet().getFeedsUser(accessToken: self.userInfo.jwt!, pageIndex: self.pageIdx, size: 12, loginId: self.userInfo.loginId!, completion: { result in
+                Loading.hideLoading()
+                switch result {
+                case .success(let result):
+                    if self.pageIdx == 0 {
+                        self.feedsResult = result
+                    } else {
+                        self.feedsResult += result
+                    }
+                    self.collectionView.reloadData()
+                    
+                case .failure(let error):
+                    print(error)
                 }
-                self.collectionView.reloadData()
-                
-            case .failure(let error):
-                print(error)
-            }
-        })
+            })
+        }
     }
 }
 
