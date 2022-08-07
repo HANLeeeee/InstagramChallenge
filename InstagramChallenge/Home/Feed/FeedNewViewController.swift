@@ -12,6 +12,7 @@ import FirebaseCore
 class FeedNewViewController: UIViewController {
     let userInfo = UserDefaultsData.shared.getToken()
     @IBOutlet weak var barbtnNext: UIBarButtonItem!
+    @IBOutlet weak var btnSeoul: UIView!
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var imageViewPickImage: UIImageView!
     @IBOutlet weak var hiddenView: UIView!
@@ -38,7 +39,9 @@ class FeedNewViewController: UIViewController {
     
     //MARK: UI
     func setUIFeedNewViewController() {
+        btnSeoul.layer.cornerRadius = 10
         imageViewPickImage.image = pickImage
+    
     }
 }
 

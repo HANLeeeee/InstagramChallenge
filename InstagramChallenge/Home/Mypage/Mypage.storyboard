@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="UQ7-lW-eeK">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -38,14 +39,9 @@
                                                 </constraints>
                                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                <state key="normal" backgroundImage="line.3.horizontal" catalog="system">
-                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <state key="normal">
+                                                    <imageReference key="backgroundImage" image="icon_stack" symbolScale="large"/>
                                                 </state>
-                                                <buttonConfiguration key="configuration" style="plain">
-                                                    <backgroundConfiguration key="background" imageContentMode="scaleAspectFit">
-                                                        <imageReference key="image" image="icon_stack" symbolScale="large"/>
-                                                    </backgroundConfiguration>
-                                                </buttonConfiguration>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -95,35 +91,30 @@
                                                 <subviews>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Icx-sL-gvi">
                                                         <rect key="frame" x="10" y="10" width="359" height="30"/>
+                                                        <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="30" id="P0J-OJ-5bT"/>
                                                         </constraints>
-                                                        <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" title="프로필 편집">
-                                                            <backgroundConfiguration key="background">
-                                                                <color key="backgroundColor" systemColor="systemGray5Color"/>
-                                                            </backgroundConfiguration>
-                                                            <fontDescription key="titleFontDescription" type="system" pointSize="13"/>
-                                                            <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        </buttonConfiguration>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal" title="프로필 편집">
+                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
                                                         <connections>
                                                             <action selector="btnAction:" destination="TIi-2C-UyE" eventType="touchUpInside" id="gU0-kr-HUc"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jw5-lB-zac">
                                                         <rect key="frame" x="374" y="10" width="30" height="30"/>
+                                                        <color key="backgroundColor" systemColor="systemGray6Color"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="Jw5-lB-zac" secondAttribute="height" multiplier="1:1" id="gkw-ji-6c7"/>
                                                         </constraints>
                                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                        <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" image="person.badge.plus" catalog="system">
-                                                            <backgroundConfiguration key="background">
-                                                                <color key="backgroundColor" systemColor="systemGray5Color"/>
-                                                            </backgroundConfiguration>
-                                                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" scale="small"/>
-                                                        </buttonConfiguration>
+                                                        <state key="normal" image="person.badge.plus" catalog="system">
+                                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="small"/>
+                                                        </state>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -275,6 +266,7 @@
                     <navigationItem key="navigationItem" id="BHV-HM-MBq"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="btnAdd" destination="Jw5-lB-zac" id="8Rx-Wj-ym4"/>
                         <outlet property="btnLogout" destination="Icx-sL-gvi" id="6eM-I2-yGc"/>
                         <outlet property="btnNewPost" destination="wbZ-Tk-5e7" id="A8f-dh-SDt"/>
                         <outlet property="labelFeedCount" destination="taH-eh-768" id="K8f-JR-mI4"/>
@@ -412,14 +404,13 @@
         <image name="icon_tabbar_profile" width="35" height="35"/>
         <image name="icon_tabbar_profile_fill" width="35" height="35"/>
         <image name="icon_tagimage" width="474" height="448"/>
-        <image name="line.3.horizontal" catalog="system" width="128" height="64"/>
         <image name="naviicon_plus" width="219" height="218"/>
         <image name="person.badge.plus" catalog="system" width="128" height="124"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
-        <systemColor name="systemGray5Color">
-            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemGray6Color">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

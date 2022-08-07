@@ -11,6 +11,7 @@ import YPImagePicker
 class MypageViewController: UIViewController {
     let userToken = UserDefaultsData.shared.getToken()
 
+    @IBOutlet weak var btnAdd: UIButton!
     @IBOutlet weak var btnLogout: UIButton!
     @IBOutlet weak var btnNewPost: UIButton!
     @IBOutlet weak var labelLoginId: UILabel!
@@ -33,6 +34,9 @@ class MypageViewController: UIViewController {
     
     //MARK: UI
     func setUIMypageViewController() {
+        btnLogout.layer.cornerRadius = 10
+        btnAdd.layer.cornerRadius = 10
+        
         let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
         backBarButtonItem.tintColor = .black
         self.navigationItem.backBarButtonItem = backBarButtonItem

@@ -27,7 +27,7 @@ class JoinBirthViewController: UIViewController {
     //MARK: UI
     func setUIJoinBirthView() {
         viewBirth.layer.borderWidth = 1
-        viewBirth.layer.borderColor = UIColor.tintColor.cgColor
+        viewBirth.layer.borderColor = UIColor.link.cgColor
         viewBirth.layer.cornerRadius = 5
         
         btnNext.backgroundColor = UIColor(named: "ColorBtnBefore")

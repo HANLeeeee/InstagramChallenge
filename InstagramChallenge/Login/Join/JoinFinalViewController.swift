@@ -22,6 +22,7 @@ class JoinFinalViewController: UIViewController {
     
     //MARK: UI
     func setUIJoinFinalViewController() {
+        btnJoin.layer.cornerRadius = 10
         labelTitle.text = "\(joinData.loginId!)\n님으로 가입하시겠어요?"
     }
     

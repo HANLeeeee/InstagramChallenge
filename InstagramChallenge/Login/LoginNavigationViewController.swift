@@ -6,10 +6,23 @@
 //
 
 import UIKit
+import UserNotifications
 
 class LoginNavigationViewController: UINavigationController {
+    let userNotificationCenter = UNUserNotificationCenter.current()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        requestNotificationAuthorization()
+    }
+    
+    func requestNotificationAuthorization() {
+        let authOptions = UNAuthorizationOptions(arrayLiteral: .alert, .badge, .sound)
+
+        userNotificationCenter.requestAuthorization(options: authOptions) { success, error in
+            if let error = error {
+                print("Error: \(error)")
+            }
+        }
     }
 }

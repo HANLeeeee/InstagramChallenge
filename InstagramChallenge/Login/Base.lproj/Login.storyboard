@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hWD-49-dW3">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -157,10 +158,8 @@
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="SKt-9n-dDi" secondAttribute="height" multiplier="261:40" id="KRI-E5-gIj"/>
                                         </constraints>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain">
-                                            <backgroundConfiguration key="background" image="bg_kakaoLogin"/>
-                                        </buttonConfiguration>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" backgroundImage="bg_kakaoLogin"/>
                                         <connections>
                                             <action selector="btnAction:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1gl-Jp-iey"/>
                                         </connections>
@@ -317,10 +316,8 @@
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="Haj-9I-DV4" secondAttribute="height" multiplier="261:40" id="SAJ-KF-830"/>
                                         </constraints>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain">
-                                            <backgroundConfiguration key="background" image="bg_kakaoLogin"/>
-                                        </buttonConfiguration>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" backgroundImage="bg_kakaoLogin"/>
                                         <connections>
                                             <action selector="btnAction:" destination="IWW-9S-uIM" eventType="touchUpInside" id="avH-s4-z61"/>
                                         </connections>
@@ -551,7 +548,7 @@
                                                     <constraint firstAttribute="height" constant="40" id="ThN-Gr-gv8"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits" keyboardType="phonePad" textContentType="tel"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad" textContentType="tel"/>
                                                 <connections>
                                                     <action selector="tfEditingChangeAction:" destination="fkk-qU-eab" eventType="editingChanged" id="CQ8-HP-FpU"/>
                                                 </connections>
@@ -663,10 +660,8 @@
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="ujN-ln-mQE" secondAttribute="height" multiplier="261:40" id="g7o-gZ-MIE"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain">
-                                    <backgroundConfiguration key="background" image="bg_kakaoLogin"/>
-                                </buttonConfiguration>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" backgroundImage="bg_kakaoLogin"/>
                                 <connections>
                                     <action selector="btnAction:" destination="fkk-qU-eab" eventType="touchUpInside" id="Zsz-Lp-Gm4"/>
                                 </connections>
@@ -1574,14 +1569,18 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tZ6-4m-MHd">
-                                                        <rect key="frame" x="365" y="11" width="29" height="28"/>
+                                                        <rect key="frame" x="359" y="10.5" width="30" height="29"/>
                                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="tZ6-4m-MHd" secondAttribute="height" multiplier="1:1" id="PAV-g0-cTg"/>
+                                                            <constraint firstAttribute="height" constant="30" id="YA4-QM-YRe"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                         <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                        <state key="normal" image="checkmark.circle.fill" catalog="system">
+                                                        <state key="normal" backgroundImage="circle" catalog="system">
                                                             <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25"/>
                                                         </state>
                                                         <connections>
                                                             <action selector="btnAction:" destination="NpZ-si-zZg" eventType="touchUpInside" id="9L0-zq-HBO"/>
@@ -1593,7 +1592,7 @@
                                                     <constraint firstItem="tZ6-4m-MHd" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="2jS-rc-rQN" secondAttribute="trailing" constant="8" symbolic="YES" id="C1F-r0-4q5"/>
                                                     <constraint firstAttribute="height" constant="50" id="FHE-Ve-nJo"/>
                                                     <constraint firstItem="2jS-rc-rQN" firstAttribute="centerY" secondItem="wfl-5j-TKm" secondAttribute="centerY" id="KRe-zM-50D"/>
-                                                    <constraint firstAttribute="trailing" secondItem="tZ6-4m-MHd" secondAttribute="trailing" constant="20" id="KoB-ni-nJu"/>
+                                                    <constraint firstAttribute="trailing" secondItem="tZ6-4m-MHd" secondAttribute="trailing" constant="25" id="KoB-ni-nJu"/>
                                                     <constraint firstItem="tZ6-4m-MHd" firstAttribute="centerY" secondItem="wfl-5j-TKm" secondAttribute="centerY" id="Mwa-GB-GQM"/>
                                                     <constraint firstItem="2jS-rc-rQN" firstAttribute="leading" secondItem="wfl-5j-TKm" secondAttribute="leading" constant="20" id="rSX-iO-3vP"/>
                                                 </constraints>
@@ -1643,12 +1642,15 @@
                                                         </subviews>
                                                     </stackView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xAa-XQ-FSh">
-                                                        <rect key="frame" x="365" y="21" width="29" height="28"/>
+                                                        <rect key="frame" x="359" y="20.5" width="30" height="29"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="xAa-XQ-FSh" secondAttribute="height" multiplier="1:1" id="l2e-0p-yE5"/>
+                                                            <constraint firstAttribute="height" constant="30" id="qTh-LC-YeF"/>
+                                                        </constraints>
                                                         <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                        <state key="normal" image="circle" catalog="system">
+                                                        <state key="normal" backgroundImage="circle" catalog="system">
                                                             <color key="titleColor" white="0.47999999999999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25"/>
                                                         </state>
                                                         <connections>
                                                             <action selector="btnAction:" destination="NpZ-si-zZg" eventType="touchUpInside" id="yrV-fQ-paj"/>
@@ -1660,7 +1662,7 @@
                                                     <constraint firstItem="NtD-y2-QBi" firstAttribute="centerY" secondItem="JoQ-Ky-GDv" secondAttribute="centerY" id="RAy-F1-OkH"/>
                                                     <constraint firstItem="NtD-y2-QBi" firstAttribute="top" secondItem="JoQ-Ky-GDv" secondAttribute="top" constant="10" id="VHd-UO-tu4"/>
                                                     <constraint firstItem="NtD-y2-QBi" firstAttribute="leading" secondItem="JoQ-Ky-GDv" secondAttribute="leading" constant="20" id="e2M-vn-IKX"/>
-                                                    <constraint firstAttribute="trailing" secondItem="xAa-XQ-FSh" secondAttribute="trailing" constant="20" id="eGe-Ve-2Vy"/>
+                                                    <constraint firstAttribute="trailing" secondItem="xAa-XQ-FSh" secondAttribute="trailing" constant="25" id="eGe-Ve-2Vy"/>
                                                     <constraint firstAttribute="height" constant="70" id="eMw-7U-Vw9"/>
                                                     <constraint firstAttribute="bottom" secondItem="NtD-y2-QBi" secondAttribute="bottom" constant="10" id="hTC-A9-tG7"/>
                                                     <constraint firstItem="xAa-XQ-FSh" firstAttribute="centerY" secondItem="JoQ-Ky-GDv" secondAttribute="centerY" id="zVW-48-dhs"/>
@@ -1692,12 +1694,15 @@
                                                         </subviews>
                                                     </stackView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CTh-0e-We5">
-                                                        <rect key="frame" x="365" y="21" width="29" height="28"/>
+                                                        <rect key="frame" x="359" y="20.5" width="30" height="29"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="30" id="Act-aF-oOm"/>
+                                                            <constraint firstAttribute="width" secondItem="CTh-0e-We5" secondAttribute="height" multiplier="1:1" id="YWc-YZ-xLw"/>
+                                                        </constraints>
                                                         <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                        <state key="normal" image="circle" catalog="system">
+                                                        <state key="normal" backgroundImage="circle" catalog="system">
                                                             <color key="titleColor" white="0.47999999999999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25"/>
                                                         </state>
                                                         <connections>
                                                             <action selector="btnAction:" destination="NpZ-si-zZg" eventType="touchUpInside" id="lBy-Kv-MUi"/>
@@ -1710,7 +1715,7 @@
                                                     <constraint firstAttribute="height" constant="70" id="DPO-A2-R5N"/>
                                                     <constraint firstItem="eAX-6G-lvX" firstAttribute="centerY" secondItem="bL4-pj-6D3" secondAttribute="centerY" id="NEE-Ym-w58"/>
                                                     <constraint firstItem="eAX-6G-lvX" firstAttribute="top" secondItem="bL4-pj-6D3" secondAttribute="top" constant="10" id="WDh-fG-ZrT"/>
-                                                    <constraint firstAttribute="trailing" secondItem="CTh-0e-We5" secondAttribute="trailing" constant="20" id="ZlT-Bg-Y6P"/>
+                                                    <constraint firstAttribute="trailing" secondItem="CTh-0e-We5" secondAttribute="trailing" constant="25" id="ZlT-Bg-Y6P"/>
                                                     <constraint firstItem="CTh-0e-We5" firstAttribute="centerY" secondItem="bL4-pj-6D3" secondAttribute="centerY" id="p6F-Og-Wg7"/>
                                                     <constraint firstItem="eAX-6G-lvX" firstAttribute="leading" secondItem="bL4-pj-6D3" secondAttribute="leading" constant="20" id="uw2-Of-pYx"/>
                                                 </constraints>
@@ -1741,12 +1746,15 @@
                                                         </subviews>
                                                     </stackView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wlY-4h-91T">
-                                                        <rect key="frame" x="365" y="21" width="29" height="28"/>
+                                                        <rect key="frame" x="359" y="20.5" width="30" height="29"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="30" id="cmc-Xi-pr1"/>
+                                                            <constraint firstAttribute="width" secondItem="wlY-4h-91T" secondAttribute="height" multiplier="1:1" id="q4e-9R-3wJ"/>
+                                                        </constraints>
                                                         <color key="tintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                        <state key="normal" image="circle" catalog="system">
+                                                        <state key="normal" backgroundImage="circle" catalog="system">
                                                             <color key="titleColor" white="0.47999999999999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25"/>
                                                         </state>
                                                         <connections>
                                                             <action selector="btnAction:" destination="NpZ-si-zZg" eventType="touchUpInside" id="AVY-LX-PZl"/>
@@ -1759,7 +1767,7 @@
                                                     <constraint firstItem="jMp-PL-7ve" firstAttribute="centerY" secondItem="YNA-dK-ns3" secondAttribute="centerY" id="Im9-i6-Efk"/>
                                                     <constraint firstItem="jMp-PL-7ve" firstAttribute="top" secondItem="YNA-dK-ns3" secondAttribute="top" constant="10" id="IwU-s6-GFg"/>
                                                     <constraint firstItem="jMp-PL-7ve" firstAttribute="leading" secondItem="YNA-dK-ns3" secondAttribute="leading" constant="20" id="Oeb-hZ-uUe"/>
-                                                    <constraint firstAttribute="trailing" secondItem="wlY-4h-91T" secondAttribute="trailing" constant="20" id="PE1-No-tQw"/>
+                                                    <constraint firstAttribute="trailing" secondItem="wlY-4h-91T" secondAttribute="trailing" constant="25" id="PE1-No-tQw"/>
                                                     <constraint firstItem="wlY-4h-91T" firstAttribute="centerY" secondItem="YNA-dK-ns3" secondAttribute="centerY" id="pmr-qR-dyD"/>
                                                     <constraint firstAttribute="bottom" secondItem="jMp-PL-7ve" secondAttribute="bottom" constant="10" id="u4q-SB-v3g"/>
                                                 </constraints>
@@ -2112,17 +2120,15 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8WO-0f-yOn">
                                         <rect key="frame" x="41.5" y="18" width="331" height="40"/>
+                                        <color key="backgroundColor" systemColor="linkColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="Tf8-aT-j1f"/>
                                         </constraints>
-                                        <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="plain" title="가입하기">
-                                            <backgroundConfiguration key="background">
-                                                <color key="backgroundColor" systemColor="linkColor"/>
-                                            </backgroundConfiguration>
-                                            <fontDescription key="titleFontDescription" type="boldSystem" pointSize="12"/>
-                                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </buttonConfiguration>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="가입하기">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
                                         <connections>
                                             <action selector="btnAction:" destination="BWM-rX-gXU" eventType="touchUpInside" id="zKc-Wk-mqv"/>
                                         </connections>
@@ -2192,7 +2198,6 @@
     </inferredMetricsTieBreakers>
     <resources>
         <image name="bg_kakaoLogin" width="300" height="45"/>
-        <image name="checkmark.circle.fill" catalog="system" width="128" height="121"/>
         <image name="circle" catalog="system" width="128" height="121"/>
         <image name="icon_cake" width="547" height="456"/>
         <image name="icon_eyeSlash" width="185.5" height="194.5"/>

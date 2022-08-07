@@ -17,6 +17,7 @@ class JoinViewController: UIViewController {
     //MARK: 생명주기
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUIJoinViewController()
     }
     
     override func viewWillAppear(_ animated: Bool) {

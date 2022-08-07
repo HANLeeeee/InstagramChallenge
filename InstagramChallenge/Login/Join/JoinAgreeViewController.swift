@@ -24,13 +24,16 @@ class JoinAgreeViewController: UIViewController {
     
     //MARK: UI
     func setUIJoinAgreeView() {
-        btnHandler(btnRadioAll)
+        btnRadioAll.setBackgroundImage(UIImage(systemName: "circle"), for: .normal)
+        btnRadioAll.setBackgroundImage(UIImage(systemName: "checkmark.circle"), for: .selected)
         btnRadioS.forEach {
-            btnHandler($0)
+            $0.setBackgroundImage(UIImage(systemName: "circle"), for: .normal)
+            $0.setBackgroundImage(UIImage(systemName: "checkmark.circle"), for: .selected)
         }
         btnNext.backgroundColor = UIColor(named: "ColorBtnBefore")
         btnNext.layer.cornerRadius = 10
         btnNext.isEnabled = false
+        
     }
     
     //MARK: 데이터전달
@@ -96,15 +99,6 @@ extension JoinAgreeViewController {
 
 //MARK: 커스텀메소드
 extension JoinAgreeViewController {
-    func btnHandler(_ btnChange: UIButton) {
-        btnChange.configurationUpdateHandler = { btn in
-            var config = UIButton.Configuration.plain()
-            config.image = btn.isSelected ? UIImage(systemName: "checkmark.circle.fill")  : UIImage(systemName: "circle")
-            config.baseBackgroundColor = .clear
-            btn.configuration = config
-        }
-    }
-    
     func btnStatus(_ selected: Bool) {
         switch selected {
         case true:

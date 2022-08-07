@@ -27,7 +27,6 @@ class JoinUserIDViewController: UIViewController {
     //MARK: UI
     func setUIJoinUserIDViewController() {
         constraint = btnTopConstraint.constant
-        
         btnNext.layer.cornerRadius = 10
     }
     

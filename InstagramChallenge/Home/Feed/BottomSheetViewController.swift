@@ -15,7 +15,8 @@ protocol BtnDidTabdDelegate {
 class BottomSheetViewController: UIViewController {
     @IBOutlet var btnS: [UIButton]!
     @IBOutlet weak var bottomStackView: UIStackView!
-
+    @IBOutlet var stackViewS: [UIStackView]!
+    
     var btnDidTabdDelegate: BtnDidTabdDelegate?
     var cellIndex: Int = 0
 
@@ -27,7 +28,9 @@ class BottomSheetViewController: UIViewController {
     
     //MARK: UI
     func setUIBottomSheetViewController() {
-        bottomStackView.layer.cornerRadius = 10
+        stackViewS.forEach {
+            $0.layer.cornerRadius = 10
+        }
     }
 }
 

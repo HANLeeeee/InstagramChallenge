@@ -6,9 +6,11 @@
 //
 
 import UIKit
+import UserNotifications
 
 class FeedChatViewController: UIViewController {
     let userToken = UserDefaultsData.shared.getToken()
+    let notificationCenter = UNUserNotificationCenter.current()
 
     @IBOutlet weak var heightConstraint: NSLayoutConstraint!
     @IBOutlet weak var chatTableView: UITableView!
@@ -28,7 +30,6 @@ class FeedChatViewController: UIViewController {
         super.viewDidLoad()
         setUIFeedChatViewController()
         registerTableView()
-    
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -71,7 +72,7 @@ class FeedChatViewController: UIViewController {
         refreshControl.endRefreshing()
         chatTableView.refreshControl = refreshControl
     }
-    
+   
     //MARK: 채팅정보가져오기
     func getChatInfo(pageIdx: Int) {
         APIChatGet().searchChat(accessToken: userToken.jwt!, pageIndex: pageIdx, size: 20, completion: { result in
@@ -127,10 +128,10 @@ extension FeedChatViewController {
             switch result {
             case .success(let result):
                 if result.isSuccess {
-                    print("성공")
                     self.textViewMsg.text = ""
                     self.pageIndex = 0
                     self.getChatInfo(pageIdx: self.pageIndex)
+                    self.sendNotification(reply: result.result.reply)
                 }
             case .failure(let error):
                 print(error)
@@ -143,6 +144,23 @@ extension FeedChatViewController {
 
 //MARK: 커스텀메소드
 extension FeedChatViewController {
+    //알림받기
+    func sendNotification(reply: String) {
+        let content = UNMutableNotificationContent()
+                content.title = "채팅"
+                content.body = reply
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 0.5, repeats: false)
+        
+        let request = UNNotificationRequest(
+            identifier: "chatNotification",
+            content: content,
+            trigger: trigger
+        )
+        notificationCenter.add(request) { error in
+            print(error ?? "")
+        }
+    }
+    
     func scrollToBottom(){
         DispatchQueue.main.async {
             self.chatTableView.reloadData()
