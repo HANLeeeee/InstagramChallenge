@@ -34,7 +34,6 @@ class FeedViewController: UIViewController {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(true, animated: false)
         
-        //피드초기화
         pageIndex = 0
         feedsResult.removeAll()
         getFeedInfo(pageIdx: pageIndex)

@@ -66,11 +66,13 @@ extension JoinAgreeViewController {
             
         case btnRadioS[0], btnRadioS[1], btnRadioS[2]:
             if !btn.isSelected {
+                btnRadioAll.isSelected = false
                 btn.isSelected = true
                 if btnRadioS[0].isSelected && btnRadioS[1].isSelected && btnRadioS[2].isSelected {
                     btnStatus(true)
                 }
             } else {
+                btnRadioAll.isSelected = false
                 btn.isSelected = false
                 btnStatus(false)
             }

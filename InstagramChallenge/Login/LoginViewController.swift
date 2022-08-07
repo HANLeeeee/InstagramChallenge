@@ -44,6 +44,9 @@ class LoginViewController: UIViewController {
         btnLogin.backgroundColor = UIColor(named: "ColorBtnBefore")
         btnLogin.layer.cornerRadius = 10
         btnLogin.isEnabled = false
+        
+        btnEye.setBackgroundImage(UIImage(named: "icon_eye"), for: .selected)
+        btnEye.setBackgroundImage(UIImage(named: "icon_eyeSlash"), for: .normal)
     }
 }
 
@@ -55,7 +58,7 @@ extension LoginViewController {
     @IBAction func btnAction(_ btn: UIButton) {
         switch btn {
         case btnEye:
-            btnEyeTouchUp(btn)
+            btnEyeTouchUp()
             
         case btnLogin:
             btnLoginAction()
@@ -94,14 +97,12 @@ extension LoginViewController {
 
 //MARK: 버튼액션
 extension LoginViewController{
-    func btnEyeTouchUp(_ btn: UIButton) {
-        if btn.isSelected {
-            btn.isSelected = false
-            btn.setBackgroundImage(UIImage(named: "icon_eye"), for: .selected)
+    func btnEyeTouchUp() {
+        if btnEye.isSelected {
+            btnEye.isSelected = false
             textFieldPW.isSecureTextEntry = true
         } else {
-            btn.isSelected = true
-            btn.setBackgroundImage(UIImage(named: "icon_eyeSlash"), for: .normal)
+            btnEye.isSelected = true
             textFieldPW.isSecureTextEntry = false
         }
     }
@@ -189,7 +190,7 @@ extension LoginViewController {
                             if result.isSuccess {
                                 self.presentFeedVC()
                             } else {
-                                self.kakaologinfailureAPI(result.code)
+                                self.kakaologinfailure(result.code)
                             }
                         case .failure(let error):
                             print(error)
@@ -206,7 +207,6 @@ extension LoginViewController {
                 print(error)
                 self.present(self.alert, animated: true)
             } else {
-                print("성공")
                 if (authToken?.accessToken) != nil {
                     print("어세스토큰발생 \(authToken!.accessToken)")
                     APIKakaoPost().kakaoSignIn(accessToken: authToken!.accessToken, completion: { result in
@@ -215,7 +215,7 @@ extension LoginViewController {
                             if result.isSuccess {
                                 self.presentFeedVC()
                             } else {
-                                self.kakaologinfailureAPI(result.code)
+                                self.kakaologinfailure(result.code)
                             }
                         case .failure(let error):
                             print(error)
@@ -226,7 +226,7 @@ extension LoginViewController {
         }
     }
 
-    func kakaologinfailureAPI(_ code: Int) {
+    func kakaologinfailure(_ code: Int) {
         switch code {
         case 2100:
             //회원가입이 안된상태
@@ -236,6 +236,7 @@ extension LoginViewController {
         }
     }
 }
+
 
 
 

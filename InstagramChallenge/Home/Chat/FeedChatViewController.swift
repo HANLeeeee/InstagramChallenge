@@ -168,11 +168,9 @@ extension FeedChatViewController: UITextViewDelegate {
         if textView.numberOfLine() == 1 {
             heightConstraint.constant = 50
         } else if textView.numberOfLine() < 6 {
-            print("다섯줄안넘음")
             let size = CGSize(width: view.frame.width, height: .infinity)
             let estimated  = textView.sizeThatFits(size)
             heightConstraint.constant = estimated.height+15
-
         }
     }
 }

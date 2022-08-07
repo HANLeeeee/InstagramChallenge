@@ -74,8 +74,7 @@ class FeedCommentsViewController: UIViewController {
         APIFeedGet().getComments(accessToken: userToken.jwt!, feedId: feedId, pageIndex: pageIdx, size: 10, completion: { result in
             switch result {
             case .success(let commentsResult):
-                if self.pageIndex == 0 {
-                    print("dydydydy \(commentsResult)")
+                if pageIdx == 0 {
                     self.commentsResult = commentsResult
 
                 } else {
@@ -157,7 +156,6 @@ extension FeedCommentsViewController: UITableViewDelegate, UITableViewDataSource
         } else if self.tableViewComment.contentOffset.y > tableViewComment.contentSize.height-tableViewComment.bounds.size.height {
             pageIndex += 1
             setCommentsInfo(pageIdx: pageIndex)
-            self.tableViewComment.reloadData()
         }
     }
     

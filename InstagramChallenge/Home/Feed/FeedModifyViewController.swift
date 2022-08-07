@@ -15,7 +15,9 @@ class FeedModifyViewController: UIViewController {
     @IBOutlet weak var labelUserID: UILabel!
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var viewBack: UIView!
+    @IBOutlet weak var textViewHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     var originY: CGFloat = 0
     var feedID = 0
@@ -41,10 +43,11 @@ class FeedModifyViewController: UIViewController {
     
     //MARK: UI
     func setUIFeedModifyViewController() {
-        originY = viewBack.frame.origin.y
+        textView.delegate = self
 
         labelUserID.text = userID
         textView.text = modifyText
+        textView.contentInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
         
         guard let imageUrl = URL(string: modifyImageURL) else {
             imageView.image = UIImage()
@@ -97,12 +100,34 @@ extension FeedModifyViewController {
 
 
 
+//MARK: 텍스트뷰 델리게이트
+extension FeedModifyViewController: UITextViewDelegate {
+    func textViewDidChange(_ textView: UITextView) {
+        let size = CGSize(width: view.frame.width, height: .infinity)
+        let estimated  = textView.sizeThatFits(size)
+        textViewHeightConstraint.constant = estimated.height+15
+        scrollView.scrollToBottom()
+    }
+}
+
+extension UIScrollView {
+    func scrollToBottom() {
+        let offset = CGPoint(
+            x: 0,
+            y: contentSize.height - bounds.height
+        )
+        setContentOffset(offset, animated: false)
+    }
+}
+
+
+
 //MARK: 키보드옵저버
 extension FeedModifyViewController {
     func keyboardObserver() {
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWhillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
 
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
 
     func keyboardObserverRemove() {
@@ -110,26 +135,32 @@ extension FeedModifyViewController {
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
     }
 
-    @objc func keyboardShow(notification: NSNotification) {
+    @objc func keyboardWhillShow(notification: NSNotification) {
         if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
-            let keyboardRectangle = keyboardFrame.cgRectValue
-            let keyboardHeight = keyboardRectangle.height
-            UIView.animate(withDuration: 1) {
-                self.viewBack.frame.origin.y -= keyboardHeight
-                
-              }
-          }
+            let keyboardHeight = keyboardFrame.cgRectValue.height
+            let scenes = UIApplication.shared.connectedScenes
+            let windowScene = scenes.first as? UIWindowScene
+            let window = windowScene?.windows.first
+            if self.bottomConstraint.constant == 0 {
+                self.bottomConstraint.constant += (keyboardHeight-(window?.safeAreaInsets.bottom ?? 0))
+                self.scrollView.scrollToBottom()
+            }
+        }
     }
 
-    @objc func keyboardHide(notification: NSNotification) {
-        if self.originY != self.viewBack.frame.origin.y {
-            if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
-                let keyboardRectangle = keyboardFrame.cgRectValue
-                let keyboardHeight = keyboardRectangle.height
-                UIView.animate(withDuration: 1) {
-                    self.viewBack.frame.origin.y += keyboardHeight
-                }
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
+            let keyboardHeight = keyboardFrame.cgRectValue.height
+            let scenes = UIApplication.shared.connectedScenes
+            let windowScene = scenes.first as? UIWindowScene
+            let window = windowScene?.windows.first
+            if self.bottomConstraint.constant != 0 {
+                self.bottomConstraint.constant -= (keyboardHeight-(window?.safeAreaInsets.bottom ?? 0))
+                self.scrollView.scrollToBottom()
             }
         }
     }
 }
+
+
+

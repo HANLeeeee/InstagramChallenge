@@ -279,13 +279,13 @@
         <!--정보 수정-->
         <scene sceneID="BIH-XC-Rro">
             <objects>
-                <viewController storyboardIdentifier="FeedModifyViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hki-dU-AiQ" customClass="FeedModifyViewController" customModule="InstagramChallenge" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FeedModifyViewController" hidesBottomBarWhenPushed="YES" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hki-dU-AiQ" customClass="FeedModifyViewController" customModule="InstagramChallenge" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KaX-LU-lb6">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fT5-XT-pYi">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Taf-Le-WVw">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
@@ -326,32 +326,54 @@
                                             <constraint firstItem="njT-OO-WdN" firstAttribute="centerY" secondItem="Taf-Le-WVw" secondAttribute="centerY" id="bow-A9-2ZV"/>
                                         </constraints>
                                     </view>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eIW-nK-Y2c">
-                                        <rect key="frame" x="0.0" y="50" width="414" height="414"/>
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F2N-S8-I8E">
+                                        <rect key="frame" x="0.0" y="50" width="414" height="724"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="8Lc-Vm-T8U">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="474"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eIW-nK-Y2c">
+                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="414"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="eIW-nK-Y2c" secondAttribute="height" multiplier="1:1" id="835-FD-mJh"/>
+                                                        </constraints>
+                                                    </imageView>
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ftk-6A-hF4">
+                                                        <rect key="frame" x="0.0" y="424" width="414" height="50"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="50" id="cI8-2E-tdI"/>
+                                                        </constraints>
+                                                        <mutableString key="text">wing application argument: -FIRAnalyticsDebugEnabled (see http://goo.gl/RfcP7r)
+2022-08-07 18:16:20.358175+0900 InstagramChallenge[9002:153981] 9.4.0 - [FirebaseAnalytics][I-ACS800023] No pending snapshot to activate. SDK name: app_measurement
+2022-08-07 18:16:20.391583+0900 InstagramChallenge[9002:153981] [boringssl] boringssl_metrics_log_metric_block_invoke(153) Failed to log metrics
+2022-08-07 18:16:20.396218+0900 InstagramChallenge[9002:153985] 9.4.0 - [FirebaseAnalytics][I-ACS023012] Analytics collection enabled
+2022-08-07 18:16:20.396565+0900 InstagramChallenge[9002:153985] 9.4.0 - [FirebaseAnalytics][I-ACS023220] Analytics screen reporting is enabled. Call Analytics.logEvent(AnalyticsEventScreenView, parameters: [...]) to log a screen view event. To disable automatic screen reporting, set the flag FirebaseAuto</mutableString>
+                                                        <color key="textColor" systemColor="labelColor"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
+                                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                    </textView>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="eIW-nK-Y2c" secondAttribute="height" multiplier="1:1" id="835-FD-mJh"/>
+                                            <constraint firstAttribute="trailing" secondItem="8Lc-Vm-T8U" secondAttribute="trailing" id="9n0-Sd-jHg"/>
+                                            <constraint firstItem="8Lc-Vm-T8U" firstAttribute="top" secondItem="F2N-S8-I8E" secondAttribute="top" id="Cp5-hh-py9"/>
+                                            <constraint firstAttribute="bottom" secondItem="8Lc-Vm-T8U" secondAttribute="bottom" id="NCR-jt-HL2"/>
+                                            <constraint firstItem="8Lc-Vm-T8U" firstAttribute="leading" secondItem="F2N-S8-I8E" secondAttribute="leading" id="Rl3-Ug-41Y"/>
+                                            <constraint firstItem="8Lc-Vm-T8U" firstAttribute="width" secondItem="F2N-S8-I8E" secondAttribute="width" id="rXJ-8r-Fzk"/>
                                         </constraints>
-                                    </imageView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="안녕하세요" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ftk-6A-hF4">
-                                        <rect key="frame" x="10" y="474" width="394" height="241"/>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <color key="textColor" systemColor="labelColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
+                                    </scrollView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="Taf-Le-WVw" firstAttribute="leading" secondItem="fT5-XT-pYi" secondAttribute="leading" id="1yX-aX-meN"/>
-                                    <constraint firstItem="eIW-nK-Y2c" firstAttribute="leading" secondItem="fT5-XT-pYi" secondAttribute="leading" id="FzU-bI-WSf"/>
-                                    <constraint firstAttribute="trailing" secondItem="ftk-6A-hF4" secondAttribute="trailing" constant="10" id="JX1-V6-xuq"/>
-                                    <constraint firstAttribute="trailing" secondItem="eIW-nK-Y2c" secondAttribute="trailing" id="SFn-Mq-fam"/>
-                                    <constraint firstItem="eIW-nK-Y2c" firstAttribute="top" secondItem="Taf-Le-WVw" secondAttribute="bottom" id="TuY-wW-jvb"/>
-                                    <constraint firstItem="ftk-6A-hF4" firstAttribute="top" secondItem="eIW-nK-Y2c" secondAttribute="bottom" constant="10" id="VbP-3V-nrL"/>
+                                    <constraint firstAttribute="bottom" secondItem="F2N-S8-I8E" secondAttribute="bottom" id="MSl-Qw-rtB"/>
+                                    <constraint firstItem="F2N-S8-I8E" firstAttribute="top" secondItem="Taf-Le-WVw" secondAttribute="bottom" id="X1L-q6-66k"/>
                                     <constraint firstItem="Taf-Le-WVw" firstAttribute="top" secondItem="fT5-XT-pYi" secondAttribute="top" id="YxR-wr-b8K"/>
-                                    <constraint firstAttribute="bottom" secondItem="ftk-6A-hF4" secondAttribute="bottom" constant="10" id="ZDP-Gc-jqw"/>
+                                    <constraint firstAttribute="trailing" secondItem="F2N-S8-I8E" secondAttribute="trailing" id="YzR-3d-FSl"/>
                                     <constraint firstAttribute="trailing" secondItem="Taf-Le-WVw" secondAttribute="trailing" id="bmD-8M-9xA"/>
-                                    <constraint firstItem="ftk-6A-hF4" firstAttribute="leading" secondItem="fT5-XT-pYi" secondAttribute="leading" constant="10" id="xZu-Q8-Qvx"/>
+                                    <constraint firstItem="F2N-S8-I8E" firstAttribute="leading" secondItem="fT5-XT-pYi" secondAttribute="leading" id="tel-Qh-cAe"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -383,12 +405,14 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="bottomConstraint" destination="MSl-Qw-rtB" id="KOD-7k-M37"/>
                         <outlet property="btnBack" destination="rIM-V8-76y" id="OrO-5n-eHz"/>
                         <outlet property="btnOK" destination="yjS-Q4-8NM" id="HQK-yI-9dO"/>
                         <outlet property="imageView" destination="eIW-nK-Y2c" id="D5I-06-KgE"/>
                         <outlet property="labelUserID" destination="maZ-xT-Pkc" id="EFf-EM-fLx"/>
+                        <outlet property="scrollView" destination="F2N-S8-I8E" id="iII-BX-p7b"/>
                         <outlet property="textView" destination="ftk-6A-hF4" id="kVw-2i-xo2"/>
-                        <outlet property="viewBack" destination="fT5-XT-pYi" id="kMt-gp-52T"/>
+                        <outlet property="textViewHeightConstraint" destination="cI8-2E-tdI" id="wT5-Nm-90p"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FRe-dI-brA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -604,7 +628,11 @@
                             <outletCollection property="gestureRecognizers" destination="VzI-Ub-Lpo" appends="YES" id="1Vg-3T-I9V"/>
                         </connections>
                     </view>
-                    <navigationItem key="navigationItem" title="댓글" id="DLk-uu-kSW"/>
+                    <navigationItem key="navigationItem" title="댓글" id="DLk-uu-kSW">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="line.horizontal.3" catalog="system" id="ORX-QZ-hQm">
+                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="0.97821651229999995" colorSpace="custom" customColorSpace="sRGB"/>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="btnCreateComments" destination="r2V-2a-pWv" id="OBf-g2-OtP"/>
                         <outlet property="tableViewComment" destination="75V-e3-PKt" id="8Q0-G3-DqE"/>
@@ -1022,6 +1050,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="D4w-LZ-Sb6">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="jZF-sk-jcj">
@@ -1045,6 +1074,7 @@
         <image name="icon_tabbar_reels" width="35" height="35"/>
         <image name="icon_tabbar_search" width="35" height="35"/>
         <image name="icon_tabbar_shop" width="35" height="35"/>
+        <image name="line.horizontal.3" catalog="system" width="128" height="64"/>
         <image name="link" catalog="system" width="128" height="122"/>
         <image name="logo_instagram" width="354" height="105.5"/>
         <image name="naviicon_DM" width="202.5" height="202.5"/>

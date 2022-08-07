@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -31,7 +32,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yEt-Q3-t1u">
-                                                <rect key="frame" x="46" y="5" width="36" height="26.5"/>
+                                                <rect key="frame" x="46" y="0.0" width="36" height="36"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="yEt-Q3-t1u" secondAttribute="height" multiplier="1:1" id="bQC-QV-HPU"/>
                                                 </constraints>
@@ -40,6 +41,11 @@
                                                 <state key="normal" backgroundImage="line.3.horizontal" catalog="system">
                                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <buttonConfiguration key="configuration" style="plain">
+                                                    <backgroundConfiguration key="background" imageContentMode="scaleAspectFit">
+                                                        <imageReference key="image" image="icon_stack" symbolScale="large"/>
+                                                    </backgroundConfiguration>
+                                                </buttonConfiguration>
                                             </button>
                                         </subviews>
                                     </stackView>
@@ -293,7 +299,7 @@
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="A2T-YS-r38">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="c0v-EN-Iah">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="c0v-EN-Iah">
                                     <size key="itemSize" width="128" height="128"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -402,6 +408,7 @@
     </scenes>
     <resources>
         <image name="icon_profile" width="286" height="286"/>
+        <image name="icon_stack" width="74" height="71"/>
         <image name="icon_tabbar_profile" width="35" height="35"/>
         <image name="icon_tabbar_profile_fill" width="35" height="35"/>
         <image name="icon_tagimage" width="474" height="448"/>

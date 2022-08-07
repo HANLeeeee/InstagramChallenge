@@ -38,7 +38,7 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" textContentType="name"/>
                                         <connections>
-                                            <action selector="tfEditingChangeAction:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="V2R-g0-ghQ"/>
+                                            <action selector="tfEditingChangeAction:" destination="BYZ-38-t0r" eventType="editingChanged" id="yUZ-Ai-V3J"/>
                                         </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="비밀번호" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fmN-JP-tZd" userLabel="TextFieldPW">
@@ -2188,7 +2188,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="nWy-rF-gEV"/>
+        <segue reference="31E-wh-Eho"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="bg_kakaoLogin" width="300" height="45"/>
