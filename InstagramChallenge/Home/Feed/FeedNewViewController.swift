@@ -57,6 +57,9 @@ extension FeedNewViewController {
             switch barbtnNext.title{
             case "공유":
                 if textView.text != "문구 입력...." {
+                    Loading.showLoading()
+                    DispatchQueue.main.async {
+                    }
                     uploadToFirebase()
                     
                 } else {
@@ -110,20 +113,17 @@ extension FeedNewViewController {
     }
     
     func uploadToServer() {
-        Loading.showLoading()
-        DispatchQueue.main.async {
-            APIFeedPost().createFeed(accessToken: self.userInfo.jwt!, feedText: self.textView.text ?? "", contentsUrls: [self.uploadURL], completion: { result in
-                Loading.hideLoading()
-                switch result {
-                case .success(let result):
-                    if result.isSuccess {
-                        self.navigationController?.popToRootViewController(animated: true)
-                    }
-                case .failure(let error):
-                    print(error)
+        APIFeedPost().createFeed(accessToken: self.userInfo.jwt!, feedText: self.textView.text ?? "", contentsUrls: [self.uploadURL], completion: { result in
+            Loading.hideLoading()
+            switch result {
+            case .success(let result):
+                if result.isSuccess {
+                    self.navigationController?.popToRootViewController(animated: true)
                 }
-            })
-        }
+            case .failure(let error):
+                print(error)
+            }
+        })
     }
     
     func getCurrentMilly() -> Int64 {

@@ -408,11 +408,11 @@
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="50" id="cI8-2E-tdI"/>
                                                         </constraints>
-                                                        <mutableString key="text">wing application argument: -FIRAnalyticsDebugEnabled (see http://goo.gl/RfcP7r)
+                                                        <string key="text">wing application argument: -FIRAnalyticsDebugEnabled (see http://goo.gl/RfcP7r)
 2022-08-07 18:16:20.358175+0900 InstagramChallenge[9002:153981] 9.4.0 - [FirebaseAnalytics][I-ACS800023] No pending snapshot to activate. SDK name: app_measurement
 2022-08-07 18:16:20.391583+0900 InstagramChallenge[9002:153981] [boringssl] boringssl_metrics_log_metric_block_invoke(153) Failed to log metrics
 2022-08-07 18:16:20.396218+0900 InstagramChallenge[9002:153985] 9.4.0 - [FirebaseAnalytics][I-ACS023012] Analytics collection enabled
-2022-08-07 18:16:20.396565+0900 InstagramChallenge[9002:153985] 9.4.0 - [FirebaseAnalytics][I-ACS023220] Analytics screen reporting is enabled. Call Analytics.logEvent(AnalyticsEventScreenView, parameters: [...]) to log a screen view event. To disable automatic screen reporting, set the flag FirebaseAuto</mutableString>
+2022-08-07 18:16:20.396565+0900 InstagramChallenge[9002:153985] 9.4.0 - [FirebaseAnalytics][I-ACS023220] Analytics screen reporting is enabled. Call Analytics.logEvent(AnalyticsEventScreenView, parameters: [...]) to log a screen view event. To disable automatic screen reporting, set the flag FirebaseAuto</string>
                                                         <color key="textColor" systemColor="labelColor"/>
                                                         <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="15"/>
                                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -640,14 +640,13 @@
                                                 </connections>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r2V-2a-pWv">
-                                                <rect key="frame" x="294" y="4.5" width="50" height="31"/>
+                                                <rect key="frame" x="294" y="5.5" width="50" height="29"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="50" id="SdS-YJ-Gy2"/>
                                                 </constraints>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="plain" title="게시">
-                                                    <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="14"/>
-                                                </buttonConfiguration>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="게시"/>
                                                 <connections>
                                                     <action selector="btnAction:" destination="fwH-sY-jt4" eventType="touchUpInside" id="kRk-oV-KXs"/>
                                                 </connections>
@@ -776,12 +775,12 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Tp-7A-cKq">
-                                                        <rect key="frame" x="369.5" y="9.5" width="34.5" height="31"/>
+                                                        <rect key="frame" x="393.5" y="16" width="10.5" height="18"/>
                                                         <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain">
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal">
                                                             <imageReference key="image" image="chevron.forward" catalog="system" symbolScale="medium"/>
-                                                        </buttonConfiguration>
+                                                        </state>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -810,7 +809,7 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fiA-7j-7JG">
-                                                        <rect key="frame" x="384" y="10" width="15" height="15"/>
+                                                        <rect key="frame" x="389" y="10" width="15" height="15"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="15" id="224-Ax-Iyb"/>
                                                             <constraint firstAttribute="width" secondItem="fiA-7j-7JG" secondAttribute="height" multiplier="1:1" id="PyA-cS-A2Q"/>
@@ -840,7 +839,7 @@
                                                     <constraint firstItem="fiA-7j-7JG" firstAttribute="top" secondItem="s0c-UF-L8X" secondAttribute="top" constant="10" id="5KZ-U7-AWO"/>
                                                     <constraint firstItem="MQm-Gi-PwF" firstAttribute="top" secondItem="s0c-UF-L8X" secondAttribute="top" constant="10" id="5e5-UY-e3n"/>
                                                     <constraint firstItem="uDj-2D-fSE" firstAttribute="leading" secondItem="s0c-UF-L8X" secondAttribute="leading" constant="15" id="DOI-wv-TCv"/>
-                                                    <constraint firstAttribute="trailing" secondItem="fiA-7j-7JG" secondAttribute="trailing" constant="15" id="GFr-Z8-Av1"/>
+                                                    <constraint firstAttribute="trailing" secondItem="fiA-7j-7JG" secondAttribute="trailing" constant="10" id="GFr-Z8-Av1"/>
                                                     <constraint firstItem="MQm-Gi-PwF" firstAttribute="leading" secondItem="s0c-UF-L8X" secondAttribute="leading" constant="15" id="NBv-wc-w59"/>
                                                     <constraint firstItem="uDj-2D-fSE" firstAttribute="top" secondItem="MQm-Gi-PwF" secondAttribute="bottom" constant="15" id="rjB-al-NQt"/>
                                                 </constraints>
@@ -944,12 +943,12 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CKV-Zn-ZwH">
-                                                        <rect key="frame" x="369.5" y="9.5" width="34.5" height="31"/>
+                                                        <rect key="frame" x="393.5" y="16" width="10.5" height="18"/>
                                                         <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain">
+                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                        <state key="normal">
                                                             <imageReference key="image" image="chevron.forward" catalog="system" symbolScale="medium"/>
-                                                        </buttonConfiguration>
+                                                        </state>
                                                     </button>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>

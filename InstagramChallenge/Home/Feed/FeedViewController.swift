@@ -54,26 +54,22 @@ class FeedViewController: UIViewController {
     
     //MARK: 피드정보가져오기
     func getFeedInfo(pageIdx: Int) {
-        Loading.showLoading()
-        APIFeedGet().getFeeds(accessToken: self.userToken.jwt!, pageIndex: pageIdx, size: 10) { result in
-            DispatchQueue.main.async {
-                Loading.hideLoading()
-                switch result {
-                case .success(let feedsResult):
-                    if self.pageIndex == 0 {
-                        self.feedsResult = feedsResult
-                    } else {
-                        self.feedsResult += feedsResult
-                    }
-                    DispatchQueue.main.async {
-                        self.feedTableView.reloadData()
-                    }
-                    
-                    self.refreshControl.endRefreshing()
-
-                case .failure(let error):
-                    print(error)
+        APIFeedGet().getFeeds(accessToken: userToken.jwt!, pageIndex: pageIdx, size: 10) { result in
+            switch result {
+            case .success(let feedsResult):
+                if self.pageIndex == 0 {
+                    self.feedsResult = feedsResult
+                } else {
+                    self.feedsResult += feedsResult
                 }
+                DispatchQueue.main.async {
+                    self.feedTableView.reloadData()
+                }
+                
+                self.refreshControl.endRefreshing()
+
+            case .failure(let error):
+                print(error)
             }
         }
     }
@@ -217,21 +213,17 @@ extension FeedViewController: BtnDidTabdDelegate{
     }
     
     func deleteFeed() {
-        Loading.showLoading()
-        DispatchQueue.main.async {
-            APIFeedPatch().deleteFeed(accessToken: self.userToken.jwt!, feedId: self.feedsResult[self.modifyIndex].feedId!, completion: { res in
-                Loading.hideLoading()
-                switch res {
-                case .success(let deleteRes):
-                    if deleteRes.isSuccess {
-                        self.pageIndex = 0
-                        self.getFeedInfo(pageIdx: self.pageIndex)
-                    }
-                case .failure(let error):
-                    print(error)
+        APIFeedPatch().deleteFeed(accessToken: userToken.jwt!, feedId: feedsResult[modifyIndex].feedId!, completion: { res in
+            switch res {
+            case .success(let deleteRes):
+                if deleteRes.isSuccess {
+                    self.pageIndex = 0
+                    self.getFeedInfo(pageIdx: self.pageIndex)
                 }
-            })
-        }
+            case .failure(let error):
+                print(error)
+            }
+        })
     }
 }
 
