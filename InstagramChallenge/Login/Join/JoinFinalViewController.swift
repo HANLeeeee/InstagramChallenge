@@ -61,7 +61,7 @@ extension JoinFinalViewController {
                 case .success(let result):
                     if result.isSuccess {
                         UserDefaultsData.shared.setToken(userID: userID, jwt: result.result!.jwt!)
-                        self.changeRootView()
+                        self.presentFeedVC()
                         
                     } else {
                         let alert = makeAlert("알림", "회원가입에 실패하였습니다.", true, "확인")
@@ -83,7 +83,7 @@ extension JoinFinalViewController {
 
 //MARK: 커스텀메소드
 extension JoinFinalViewController {
-    func changeRootView() {
+    func presentFeedVC() {
         let feedStoryboard = UIStoryboard(name: "Feed", bundle: nil)
         let FeedTabBarViewController = feedStoryboard.instantiateViewController(withIdentifier: "FeedTabBarViewController") as! FeedTabBarViewController
 

@@ -59,21 +59,14 @@
                             <constraint firstAttribute="trailing" secondItem="N61-8i-tPn" secondAttribute="trailing" constant="10" id="lJp-Ye-qZz"/>
                         </constraints>
                     </view>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mvn-lo-jva">
-                        <rect key="frame" x="0.0" y="50" width="702" height="1"/>
-                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="1" id="YZj-AW-qbJ"/>
-                        </constraints>
-                    </view>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ex" translatesAutoresizingMaskIntoConstraints="NO" id="wcf-zp-ces">
-                        <rect key="frame" x="0.0" y="51" width="702" height="702"/>
+                        <rect key="frame" x="0.0" y="50" width="702" height="702"/>
                         <constraints>
                             <constraint firstAttribute="width" secondItem="wcf-zp-ces" secondAttribute="height" multiplier="1:1" id="Z7f-Sj-jmU"/>
                         </constraints>
                     </imageView>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HXR-MS-RHT">
-                        <rect key="frame" x="0.0" y="753" width="702" height="370"/>
+                        <rect key="frame" x="0.0" y="752" width="702" height="371"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Zbb-eV-2En">
                                 <rect key="frame" x="0.0" y="0.0" width="702" height="40"/>
@@ -182,7 +175,7 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4일 전" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u9b-VV-UlE">
-                                <rect key="frame" x="20" y="251" width="29.5" height="99"/>
+                                <rect key="frame" x="20" y="251" width="29.5" height="100"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -216,15 +209,12 @@
                 <constraints>
                     <constraint firstAttribute="trailing" secondItem="wcf-zp-ces" secondAttribute="trailing" id="1oI-Ld-Txb"/>
                     <constraint firstAttribute="trailing" secondItem="JM0-0d-usU" secondAttribute="trailing" id="76D-oO-WoO"/>
-                    <constraint firstAttribute="trailing" secondItem="mvn-lo-jva" secondAttribute="trailing" id="798-2Y-aPO"/>
                     <constraint firstAttribute="bottom" secondItem="HXR-MS-RHT" secondAttribute="bottom" id="7sF-aA-4in"/>
-                    <constraint firstItem="wcf-zp-ces" firstAttribute="top" secondItem="mvn-lo-jva" secondAttribute="bottom" id="DAl-Fk-eBe"/>
+                    <constraint firstItem="wcf-zp-ces" firstAttribute="top" secondItem="JM0-0d-usU" secondAttribute="bottom" id="Eti-RA-BtO"/>
                     <constraint firstItem="wcf-zp-ces" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Mwx-EL-GlF"/>
-                    <constraint firstItem="mvn-lo-jva" firstAttribute="top" secondItem="JM0-0d-usU" secondAttribute="bottom" id="Tvn-yY-QPB"/>
                     <constraint firstItem="HXR-MS-RHT" firstAttribute="top" secondItem="wcf-zp-ces" secondAttribute="bottom" id="U3h-Gt-gfi"/>
                     <constraint firstItem="HXR-MS-RHT" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="a87-B5-NCA"/>
                     <constraint firstItem="JM0-0d-usU" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="bRF-y1-Rt8"/>
-                    <constraint firstItem="mvn-lo-jva" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="jOP-gK-DAA"/>
                     <constraint firstAttribute="trailing" secondItem="HXR-MS-RHT" secondAttribute="trailing" id="jq7-n7-AmZ"/>
                     <constraint firstItem="JM0-0d-usU" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="qlh-5K-6k1"/>
                 </constraints>

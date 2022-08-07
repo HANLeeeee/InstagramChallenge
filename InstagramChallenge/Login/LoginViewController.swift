@@ -156,6 +156,7 @@ extension LoginViewController {
                 switch result {
                 case .success(let result):
                     if result.isSuccess {
+                        UserDefaultsData.shared.setToken(userID: userID, jwt: result.result!.jwt!)
                         self.presentFeedVC()
                     } else {
                         self.presentLoginFail()
