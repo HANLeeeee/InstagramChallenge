@@ -9,7 +9,6 @@ import Foundation
 import Alamofire
 
 class APIChatPost {
-    
     //MARK: 채팅 생성
     func createChat(accessToken: String, content: String, completion: @escaping (Result<ChatPostResponse, AFError>) -> Void) {
         AF.request(APIChatPostURL.createChat(accessToken: accessToken, content: content))

@@ -9,7 +9,6 @@ import Foundation
 import Alamofire
 
 enum APIKakaoPostURL: URLRequestConvertible {
-    
     case kakaoSignUp(accessToken: String, realName: String, birthDate: String, loginId: String, phoneNumber: String)
     case kakaoSignIn(accessToken: String)
     

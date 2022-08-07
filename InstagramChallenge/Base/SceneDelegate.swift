@@ -15,29 +15,35 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var usertoken = UserDefaultsData.shared.getToken().jwt
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-
         APIUserGet().autoSignIn(accessToken: usertoken!, completion: { result in
             switch result {
             case .success(let result):
                 if result.code == 1001 {
-                    let feedStoryboard = UIStoryboard(name: "Feed", bundle: nil)
-                    guard let FeedTabBarViewController = feedStoryboard.instantiateViewController(withIdentifier: "FeedTabBarViewController") as? FeedTabBarViewController else {
-                        return
-                    }
-                    self.window?.rootViewController = FeedTabBarViewController
+                    self.presentFeedVC()
                 } else {
-                    let loginStoryboard = UIStoryboard(name: "Login", bundle: nil)
-                    guard let LoginNavigationViewController = loginStoryboard.instantiateViewController(withIdentifier: "LoginNavigationViewController") as? LoginNavigationViewController else {
-                        return
-                    }
-                    self.window?.rootViewController = LoginNavigationViewController
+                    self.presentLoginVC()
                 }
-                
             case .failure(let error):
                 print(error)
             }
         })
         guard let _ = (scene as? UIWindowScene) else { return }
+    }
+    
+    func presentFeedVC() {
+        let feedStoryboard = UIStoryboard(name: "Feed", bundle: nil)
+        guard let FeedTabBarViewController = feedStoryboard.instantiateViewController(withIdentifier: "FeedTabBarViewController") as? FeedTabBarViewController else {
+            return
+        }
+        self.window?.rootViewController = FeedTabBarViewController
+    }
+    
+    func presentLoginVC() {
+        let loginStoryboard = UIStoryboard(name: "Login", bundle: nil)
+        guard let LoginNavigationViewController = loginStoryboard.instantiateViewController(withIdentifier: "LoginNavigationViewController") as? LoginNavigationViewController else {
+            return
+        }
+        self.window?.rootViewController = LoginNavigationViewController
     }
     
     func changeRootVC (_ vc: UIViewController, animated: Bool) {

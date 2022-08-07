@@ -9,7 +9,6 @@ import Foundation
 import Alamofire
 
 enum APIChatPostURL: URLRequestConvertible {
-    
     case createChat(accessToken: String, content: String)
     
     var baseURL: URL {

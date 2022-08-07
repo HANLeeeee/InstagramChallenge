@@ -9,7 +9,6 @@ import Foundation
 import Alamofire
 
 enum APIFeedGetURL: URLRequestConvertible {
-    
     case getFeeds(accessToken: String, pageIndex: Int, size: Int)
     case getFeedsUser(accessToken: String, pageIndex: Int, size: Int, loginId: String)
     case getComments(accessToken: String, feedId: Int, pageIndex: Int, size: Int)

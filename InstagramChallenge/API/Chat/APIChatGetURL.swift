@@ -9,7 +9,6 @@ import Foundation
 import Alamofire
 
 enum APIChatGetURL: URLRequestConvertible {
-    
     case searchChat(accessToken: String, pageIndex: Int, size: Int)
     
     var baseURL: URL {

@@ -9,7 +9,6 @@ import Foundation
 import Alamofire
 
 enum APIFeedPostURL: URLRequestConvertible {
-    
     case createFeed(accessToken: String, feedText: String, contentsUrls: [String])
     case createComment(accessToken: String, feedId: Int, commentText: String)
     

@@ -14,7 +14,6 @@ class APIFeedGet {
         AF.request(APIFeedGetURL.getFeeds(accessToken: accessToken, pageIndex: pageIndex, size: size))
             .validate()
             .responseDecodable(of: FeedResponse.self) { response in
-//                debugPrint(response)
             switch response.result {
             case .success(let result):
                 if result.isSuccess {
@@ -32,7 +31,6 @@ class APIFeedGet {
         AF.request(APIFeedGetURL.getFeedsUser(accessToken: accessToken, pageIndex: pageIndex, size: size, loginId: loginId))
             .validate()
             .responseDecodable(of: FeedResponse.self) { response in
-//                debugPrint(response)
             switch response.result {
             case .success(let result):
                 if result.isSuccess {
@@ -50,7 +48,6 @@ class APIFeedGet {
         AF.request(APIFeedGetURL.getComments(accessToken: accessToken, feedId: feedId, pageIndex: pageIndex, size: size))
             .validate()
             .responseDecodable(of: CommentResponse.self) { response in
-//                debugPrint(response)
             switch response.result {
             case .success(let result):
                 if result.isSuccess {

@@ -9,7 +9,6 @@ import Foundation
 import Alamofire
 
 enum APIUserGetURL: URLRequestConvertible {
-    
     case autoSignIn(accessToken: String)
     case searchUserID(loginId: String)
     case searchMyPage(accessToken: String, loginId: String)

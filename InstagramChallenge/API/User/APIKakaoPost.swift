@@ -9,7 +9,6 @@ import Foundation
 import Alamofire
 
 class APIKakaoPost {
-    
     //MARK: 카카오 회원가입
     func kakaoSignUp(accessToken: String, realName: String, birthDate: String, loginId: String, phoneNumber: String) {
         AF.request(APIKakaoPostURL.kakaoSignUp(accessToken: accessToken, realName: realName, birthDate: birthDate, loginId: loginId, phoneNumber: phoneNumber))
@@ -45,14 +44,11 @@ class APIKakaoPost {
             debugPrint(response)
             switch response.result {
             case .success(let result):
-                if result.isSuccess {
-                    completion(.success(result))
-    //                        loginVC.kakaologinsuccessAPI()
-                }
+                completion(.success(result))
+
             case .failure(let error):
                 print("에러에러리스폰스에러 \(error.localizedDescription)")
             }
         }
     }
-
 }

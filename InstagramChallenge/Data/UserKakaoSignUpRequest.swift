@@ -6,6 +6,7 @@
 //
 
 import Foundation
+
 class UserKakaoSignUpRequest {
     var accessToken: String?
     var realName: String?

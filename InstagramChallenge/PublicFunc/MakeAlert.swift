@@ -8,7 +8,6 @@
 import Foundation
 import UIKit
 
-
 public func makeAlert(_ alertTitle: String, _ alertMessage: String, _ btnCancle: Bool, _ btnCancleTitle: String?) -> UIAlertController {
     let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: UIAlertController.Style.alert)
     

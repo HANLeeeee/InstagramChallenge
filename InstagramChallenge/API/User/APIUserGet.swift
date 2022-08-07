@@ -9,6 +9,7 @@ import Foundation
 import Alamofire
 
 class APIUserGet {
+    //MARK: 자동로그인
     func autoSignIn(accessToken: String, completion: @escaping (Result<UserResponse, AFError>) -> Void) {
         AF.request(APIUserGetURL.autoSignIn(accessToken: accessToken))
             .validate()
@@ -17,7 +18,6 @@ class APIUserGet {
             switch response.result {
             case .success(let result):
                 completion(.success(result))
-                print(result)
                 
             case .failure(let error):
                 print("에러에러리스폰스에러 \(error.localizedDescription)")
@@ -25,6 +25,7 @@ class APIUserGet {
         }
     }
 
+    //MARK: 아이디 중복 조회
     func searchUserID(loginId: String, completion: @escaping (Result<UserResponse, AFError>) -> Void) {
         AF.request(APIUserGetURL.searchUserID(loginId: loginId))
             .validate()
@@ -32,12 +33,14 @@ class APIUserGet {
             switch response.result {
             case .success(let result):
                 completion(.success(result))
+                
             case .failure(let error):
                 print("에러에러리스폰스에러 \(error.localizedDescription)")
             }
         }
     }
     
+    //MARK: 마이페이지 조회
     func searchMyPage(accessToken: String, loginId: String, completion: @escaping (Result<UserResponse, AFError>) -> Void) {
         AF.request(APIUserGetURL.searchMyPage(accessToken: accessToken, loginId: loginId))
             .validate()
@@ -45,11 +48,7 @@ class APIUserGet {
             switch response.result {
             case .success(let result):
                 completion(.success(result))
-//                if result.isSuccess {
-//                    mypageVC.searchMyPagesuccessAPI(result.result!)
-//                } else {
-//                    print(result.code, result.message)
-//                }
+
             case .failure(let error):
                 print("에러에러리스폰스에러 \(error.localizedDescription)")
             }

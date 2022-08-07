@@ -8,19 +8,14 @@
 import Foundation
 import Alamofire
 
-
-
 class APIFeedPatch {
-    
     //MARK: 피드 수정
     func modifyFeed(accessToken: String, feedId: Int, feedText: String, completion: @escaping (Result<FeedResponse, AFError>) -> Void) {
         AF.request(APIFeedPatchURL.modifyFeed(accessToken: accessToken, feedId: feedId, feedText: feedText))
             .validate()
             .responseDecodable(of: FeedResponse.self) { response in
-            debugPrint(response)
             switch response.result {
             case .success(let result):
-                print(result)
                 if result.isSuccess {
                     completion(.success(result))
                 }
@@ -35,7 +30,6 @@ class APIFeedPatch {
         AF.request(APIFeedPatchURL.deleteFeed(accessToken: accessToken, feedId: feedId))
             .validate()
             .responseDecodable(of: FeedResponse.self) { response in
-//            debugPrint(response)
             switch response.result {
             case .success(let result):
                 completion(.success(result))

@@ -33,6 +33,4 @@ class UserDefaultsData {
         let jwt = UserDefaults.standard.string(forKey: "jwt") ?? ""
         return UserToken(loginId: userID, jwt: jwt)
     }
-    
-
 }

@@ -15,10 +15,10 @@ class APIFeedPost {
         AF.request(APIFeedPostURL.createFeed(accessToken: accessToken, feedText: feedText, contentsUrls: contentsUrls))
             .validate()
             .responseDecodable(of: FeedResponse.self) { response in
-//            debugPrint(response)
             switch response.result {
             case .success(let result):
                 completion(.success(result))
+                
             case .failure(let error):
                 print("에러에러리스폰스에러 \(error.localizedDescription)")
             }
@@ -30,7 +30,6 @@ class APIFeedPost {
         AF.request(APIFeedPostURL.createComment(accessToken: accessToken, feedId: feedId, commentText: commentText))
             .validate()
             .responseDecodable(of: FeedResponse.self) { response in
-//            debugPrint(response)
             switch response.result {
             case .success(let result):
                 completion(.success(result))

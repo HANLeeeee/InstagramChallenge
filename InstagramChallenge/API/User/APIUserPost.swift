@@ -9,7 +9,6 @@ import Foundation
 import Alamofire
 
 class APIUserPost {
-    
     //MARK: 자체 회원가입
     func signUp(realName: String, password: String, loginId: String, birthDate: String, phoneNumber: String, completion: @escaping (Result<UserResponse, AFError>) -> Void) {
         AF.request(APIUserPostURL.signUp(realName: realName, password: password, loginId: loginId, birthDate: birthDate, phoneNumber: phoneNumber))

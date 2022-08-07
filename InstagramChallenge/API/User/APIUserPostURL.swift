@@ -9,7 +9,6 @@ import Foundation
 import Alamofire
 
 enum APIUserPostURL: URLRequestConvertible {
-    
     case signUp(realName: String, password: String, loginId: String, birthDate: String, phoneNumber: String)
     case signIn(loginId: String, password: String)
     
