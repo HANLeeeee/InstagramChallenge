@@ -10,6 +10,7 @@ import UIKit
 class MeChatTableViewCell: UITableViewCell {
     @IBOutlet weak var viewBg: UIView!
     @IBOutlet weak var labelMeChat: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         setUIMeChatTableViewCell()
@@ -19,13 +20,13 @@ class MeChatTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
+    //MARK: UI
     func setUIMeChatTableViewCell() {
         viewBg.layer.cornerRadius = 20
     }
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        
         labelMeChat.text = ""
     }
 }

@@ -8,7 +8,6 @@
 import UIKit
 
 class YouChatTableViewCell: UITableViewCell {
-
     @IBOutlet weak var viewBg: UIView!
     @IBOutlet weak var imageViewProfile: UIImageView!
     @IBOutlet weak var labelYouChat: UILabel!
@@ -22,6 +21,7 @@ class YouChatTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
     
+    //MARK: UI
     func setUIYouChatTableViewCell() {
         viewBg.layer.cornerRadius = 20
         viewBg.layer.borderWidth = 1
@@ -30,9 +30,7 @@ class YouChatTableViewCell: UITableViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
-        
         imageViewProfile.image = UIImage()
         labelYouChat.text = ""
     }
-    
 }

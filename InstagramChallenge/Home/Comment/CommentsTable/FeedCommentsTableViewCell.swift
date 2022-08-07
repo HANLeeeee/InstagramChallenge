@@ -27,6 +27,5 @@ class FeedCommentsTableViewCell: UITableViewCell {
         
         labelCoComment.text = "답글 달기"
         btnHeart.backgroundImage(for: .normal)
-
     }
 }

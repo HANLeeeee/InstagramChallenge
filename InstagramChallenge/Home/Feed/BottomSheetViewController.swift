@@ -14,20 +14,26 @@ protocol BtnDidTabdDelegate {
 
 class BottomSheetViewController: UIViewController {
     @IBOutlet var btnS: [UIButton]!
+    @IBOutlet weak var bottomStackView: UIStackView!
+
     var btnDidTabdDelegate: BtnDidTabdDelegate?
     var cellIndex: Int = 0
 
-    @IBOutlet weak var bottomStackView: UIStackView!
+    //MARK: 생명주기
     override func viewDidLoad() {
         super.viewDidLoad()
         setUIBottomSheetViewController()
     }
     
+    //MARK: UI
     func setUIBottomSheetViewController() {
         bottomStackView.layer.cornerRadius = 10
     }
 }
 
+
+
+//MARK: IBAction
 extension BottomSheetViewController {
     @IBAction func btnAction(_ btn: UIButton) {
         switch btn {

@@ -9,24 +9,23 @@ import UIKit
 
 class FeedModifyViewController: UIViewController {
     let userToken = UserDefaultsData.shared.getToken()
+    
     @IBOutlet weak var btnBack:UIBarButtonItem!
     @IBOutlet weak var btnOK: UIBarButtonItem!
-    
     @IBOutlet weak var labelUserID: UILabel!
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var imageView: UIImageView!
-    
     @IBOutlet weak var viewBack: UIView!
-    var originY: CGFloat = 0
     
+    var originY: CGFloat = 0
     var feedID = 0
     var userID = ""
     var modifyImageURL = ""
     var modifyText = ""
     
+    //MARK: 생명주기
     override func viewDidLoad() {
         super.viewDidLoad()
-
         setUIFeedModifyViewController()
     }
     
@@ -40,6 +39,7 @@ class FeedModifyViewController: UIViewController {
         keyboardObserverRemove()
     }
     
+    //MARK: UI
     func setUIFeedModifyViewController() {
         originY = viewBack.frame.origin.y
 
@@ -50,9 +50,36 @@ class FeedModifyViewController: UIViewController {
             imageView.image = UIImage()
             return }
         imageView.kf.setImage(with: imageUrl)
-        
+    }
+}
+
+
+
+//MARK: IBAction
+extension FeedModifyViewController {
+    @IBAction func btnAction(_ barbtn: UIBarButtonItem) {
+        switch barbtn {
+        case btnBack:
+            self.navigationController?.popViewController(animated: true)
+            
+        case btnOK:
+            setModifyFeed()
+            
+        default:
+            return
+        }
     }
     
+    @IBAction func bgViewTab(_ sender: Any) {
+        view.endEditing(true)
+    }
+}
+
+
+
+
+//MARK: 버튼액션
+extension FeedModifyViewController {
     func setModifyFeed() {
         APIFeedPatch().modifyFeed(accessToken: userToken.jwt!, feedId: feedID, feedText: textView.text, completion: { result in
             switch result {
@@ -65,28 +92,8 @@ class FeedModifyViewController: UIViewController {
             }
         })
     }
-
 }
 
-extension FeedModifyViewController {
-    @IBAction func bgViewTab(_ sender: Any) {
-        view.endEditing(true)
-    }
-    
-    @IBAction func btnAction(_ barbtn: UIBarButtonItem) {
-        switch barbtn {
-        case btnBack:
-            self.navigationController?.popViewController(animated: true)
-            
-        case btnOK:
-            setModifyFeed()
-            
-        default:
-            return
-        }
-        
-    }
-}
 
 
 

@@ -11,6 +11,7 @@ import YPImagePicker
 class MypageViewController: UIViewController {
     let userToken = UserDefaultsData.shared.getToken()
 
+    @IBOutlet weak var btnLogout: UIButton!
     @IBOutlet weak var btnNewPost: UIButton!
     @IBOutlet weak var labelLoginId: UILabel!
     @IBOutlet weak var labelRealName: UILabel!
@@ -18,6 +19,7 @@ class MypageViewController: UIViewController {
     @IBOutlet weak var labelFollowerCount: UILabel!
     @IBOutlet weak var labelFollowingCount: UILabel!
     
+    //MARK: 생명주기
     override func viewDidLoad() {
         super.viewDidLoad()
         setUIMypageViewController()
@@ -26,61 +28,63 @@ class MypageViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: animated)
-
         getUserInfo()
     }
     
+    //MARK: UI
     func setUIMypageViewController() {
         let backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: self, action: nil)
         backBarButtonItem.tintColor = .black
         self.navigationItem.backBarButtonItem = backBarButtonItem
     }
     
+    //MARK: 마이페이지정보가져오기
     func getUserInfo() {
-        APIUserGet().searchMyPage(accessToken: userToken.jwt!, loginId: userToken.loginId!, mypageVC: self)
+        APIUserGet().searchMyPage(accessToken: userToken.jwt!, loginId: userToken.loginId!, completion: { result in
+            switch result {
+            case .success(let result):
+                if result.isSuccess {
+                    self.labelLoginId.text = result.result!.loginId ?? ""
+                    self.labelRealName.text = result.result!.realName ?? ""
+                    self.labelFeedCount.text = String(result.result!.feedCount ?? 0)
+                    self.labelFollowerCount.text = String(result.result!.followerCount ?? 0)
+                    self.labelFollowingCount.text = String(result.result!.followingCount ?? 0)
+                    
+                } else {
+                    self.presentLoginVC()
+                }
+            
+            case .failure(let error):
+                print(error)
+            }
+        })
     }
-    
-    @IBAction func btnLogoutAction(_ sender: Any) {
-        UserDefaultsData.shared.removeAll()
-        presentLoginVC()
-    }
-    
-    func presentLoginVC() {
-        let loginStoryboard = UIStoryboard(name: "Login", bundle: nil)
-        let LoginNavigationViewController = loginStoryboard.instantiateViewController(withIdentifier: "LoginNavigationViewController") as! LoginNavigationViewController
-
-        LoginNavigationViewController.modalPresentationStyle = .fullScreen
-        self.present(LoginNavigationViewController, animated: true, completion: nil)
-    }
-    
-    
 }
 
-extension MypageViewController {
-    
-    func searchMyPagesuccessAPI(_ result: UserResponseResult) {
-        print(result)
-        labelLoginId.text = result.loginId ?? ""
-        labelRealName.text = result.realName ?? ""
-        labelFeedCount.text = String(result.feedCount ?? 0)
-        labelFollowerCount.text = String(result.followerCount ?? 0)
-        labelFollowingCount.text = String(result.followingCount ?? 0)
-        
-    }
-    
-}
 
+
+//MARK: IBAction
 extension MypageViewController {
     @IBAction func btnAction(_ btn: UIButton) {
         switch btn {
         case btnNewPost:
-            print("")
             imagePicker()
+        
+        //프로필편집을 누르면 로그아웃 (임의 설정)
+        case btnLogout:
+            UserDefaultsData.shared.removeAll()
+            presentLoginVC()
+            
         default:
             return
         }
     }
-    
+}
+
+
+//MARK: 버튼액션
+extension MypageViewController {
+    //새 게시물등록을을 위한 갤러리 열기 -YPImagePicker라이브러리
     func imagePicker() {
         var config = YPImagePickerConfiguration()
         config.screens = [.library]
@@ -98,10 +102,17 @@ extension MypageViewController {
                 }
                 FeedNewViewController.pickImage = photo.image
                 self.navigationController?.pushViewController(FeedNewViewController, animated: true)
-//                self.performSegue(withIdentifier: "GoFeedNewViewController", sender: nil)
             }
             picker.dismiss(animated: true, completion: nil)
         }
         present(picker, animated: true, completion: nil)
+    }
+    
+    func presentLoginVC() {
+        let loginStoryboard = UIStoryboard(name: "Login", bundle: nil)
+        let LoginNavigationViewController = loginStoryboard.instantiateViewController(withIdentifier: "LoginNavigationViewController") as! LoginNavigationViewController
+
+        LoginNavigationViewController.modalPresentationStyle = .fullScreen
+        self.present(LoginNavigationViewController, animated: true, completion: nil)
     }
 }

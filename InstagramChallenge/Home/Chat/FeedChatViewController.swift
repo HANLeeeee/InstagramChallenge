@@ -9,8 +9,6 @@ import UIKit
 
 class FeedChatViewController: UIViewController {
     let userToken = UserDefaultsData.shared.getToken()
-    var chatResult = [ChatResponseResult]()
-    let refreshControl = UIRefreshControl()
 
     @IBOutlet weak var heightConstraint: NSLayoutConstraint!
     @IBOutlet weak var chatTableView: UITableView!
@@ -20,21 +18,24 @@ class FeedChatViewController: UIViewController {
     @IBOutlet weak var imageViewEmoticon: UIImageView!
     @IBOutlet weak var viewConstraint: NSLayoutConstraint!
     
+    var chatResult = [ChatResponseResult]()
+    let refreshControl = UIRefreshControl()
     var pageIndex = 0
     var size = 10
     
+    //MARK: 생명주기
     override func viewDidLoad() {
         super.viewDidLoad()
         setUIFeedChatViewController()
         registerTableView()
     
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         keyboardObserver()
         
-        //채팅초기화
         pageIndex = 0
         chatResult.removeAll()
         getChatInfo(pageIdx: pageIndex)
@@ -45,6 +46,7 @@ class FeedChatViewController: UIViewController {
         keyboardObserverRemove()
     }
     
+    //MARK: UI
     func setUIFeedChatViewController() {
         textViewMsg.delegate = self
         
@@ -53,6 +55,7 @@ class FeedChatViewController: UIViewController {
         viewBgChatMsg.layer.borderColor = UIColor.systemGray3.cgColor
     }
     
+    //MARK: 테이블뷰셀 등록
     func registerTableView() {
         let youtableViewCellNib = UINib(nibName: "YouChatTableViewCell", bundle: nil)
         self.chatTableView.register(youtableViewCellNib, forCellReuseIdentifier: "YouChatTableViewCell")
@@ -69,6 +72,7 @@ class FeedChatViewController: UIViewController {
         chatTableView.refreshControl = refreshControl
     }
     
+    //MARK: 채팅정보가져오기
     func getChatInfo(pageIdx: Int) {
         APIChatGet().searchChat(accessToken: userToken.jwt!, pageIndex: pageIdx, size: 20, completion: { result in
             switch result {
@@ -76,13 +80,13 @@ class FeedChatViewController: UIViewController {
                 if self.pageIndex == 0 {
                     self.chatResult = chatresult.reversed()
                     self.scrollToBottom()
+                    
                 } else {
                     if chatresult.count != 0 {
                         self.chatResult.insert(contentsOf: chatresult.reversed(), at: 0)
                         self.chatTableView.scrollNotTop()
                     }
                 }
-                
                 self.refreshControl.endRefreshing()
 
             case .failure(let error):
@@ -91,23 +95,11 @@ class FeedChatViewController: UIViewController {
             
         })
     }
-    
-    func scrollToBottom(){
-        DispatchQueue.main.async {
-            self.chatTableView.reloadData()
-
-            if self.chatResult.count > 0 {
-               let ip = IndexPath(row: self.chatResult.count-1, section: 0)
-               self.chatTableView.scrollToRow(at: ip, at: .bottom, animated: false)
-            }
-        }
-    }
-    
-    @IBAction func viewbgTabAction(_ sender: Any) {
-        view.endEditing(true)
-    }
 }
 
+
+
+//MARK: IBAction
 extension FeedChatViewController {
     @IBAction func btnAction(_ btn: UIButton) {
         switch btn {
@@ -121,6 +113,15 @@ extension FeedChatViewController {
         }
     }
     
+    @IBAction func viewbgTabAction(_ sender: Any) {
+        view.endEditing(true)
+    }
+}
+
+
+
+//MARK: 버튼액션
+extension FeedChatViewController {
     func createMsgAction() {
         APIChatPost().createChat(accessToken: userToken.jwt!, content: textViewMsg.text, completion: { result in
             switch result {
@@ -138,6 +139,25 @@ extension FeedChatViewController {
     }
 }
 
+
+
+//MARK: 커스텀메소드
+extension FeedChatViewController {
+    func scrollToBottom(){
+        DispatchQueue.main.async {
+            self.chatTableView.reloadData()
+
+            if self.chatResult.count > 0 {
+               let ip = IndexPath(row: self.chatResult.count-1, section: 0)
+               self.chatTableView.scrollToRow(at: ip, at: .bottom, animated: false)
+            }
+        }
+    }
+}
+
+
+
+//MARK: 텍스트뷰 델리게이트
 extension FeedChatViewController: UITextViewDelegate {
     func textViewDidChange(_ textView: UITextView) {
         if textViewMsg.text?.count ?? 0 > 0 {
@@ -157,12 +177,23 @@ extension FeedChatViewController: UITextViewDelegate {
     }
 }
 
+extension UITextView {
+    func numberOfLine() -> Int {
+        
+        let size = CGSize(width: frame.width, height: .infinity)
+        let estimatedSize = sizeThatFits(size)
+        
+        return Int(estimatedSize.height / (self.font!.lineHeight))
+    }
+}
 
+
+
+//MARK: 태이블뷰 델리게이트
 extension FeedChatViewController : UITableViewDelegate, UITableViewDataSource {
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         let offset = scrollView.contentOffset.y
         if offset < 0 {
-            print("새로고침하는 중")
             pageIndex += 1
             getChatInfo(pageIdx: pageIndex)
         }
@@ -214,6 +245,27 @@ extension FeedChatViewController : UITableViewDelegate, UITableViewDataSource {
 }
 
 
+extension UITableView {
+    func scrollNotTop() {
+        setContentOffset(contentOffset, animated: false)
+        
+        let beforeSize = contentSize
+        reloadData()
+        layoutIfNeeded()
+        let afterSize = contentSize
+        
+        let offset = CGPoint(
+            x: contentOffset.x + (afterSize.width-beforeSize.width),
+            y: contentOffset.y + (afterSize.height-beforeSize.height)
+        )
+        
+        setContentOffset(offset, animated: false)
+    }
+}
+
+
+
+
 //MARK: 키보드옵저버
 extension FeedChatViewController {
     func keyboardObserver() {
@@ -256,31 +308,6 @@ extension FeedChatViewController {
 }
 
 
-extension UITextView {
-    func numberOfLine() -> Int {
-        
-        let size = CGSize(width: frame.width, height: .infinity)
-        let estimatedSize = sizeThatFits(size)
-        
-        return Int(estimatedSize.height / (self.font!.lineHeight))
-    }
-}
 
-extension UITableView {
-    func scrollNotTop() {
-        setContentOffset(contentOffset, animated: false)
-        
-        let beforeSize = contentSize
-        reloadData()
-        layoutIfNeeded()
-        let afterSize = contentSize
-        
-        let offset = CGPoint(
-            x: contentOffset.x + (afterSize.width-beforeSize.width),
-            y: contentOffset.y + (afterSize.height-beforeSize.height)
-        )
-        
-        setContentOffset(offset, animated: false)
 
-    }
-}
+

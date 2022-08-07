@@ -13,9 +13,11 @@ class MypageFeedCollectionViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-        imageViewWidth.constant = UIScreen.main.bounds.width / 3
-        
+        setUIMypageFeedCollectionViewCell()
     }
-
+    
+    //MARK: UI
+    func setUIMypageFeedCollectionViewCell() {
+        imageViewWidth.constant = UIScreen.main.bounds.width / 3
+    }
 }

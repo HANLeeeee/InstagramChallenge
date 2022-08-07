@@ -15,6 +15,7 @@ class MypageFeedViewController: UIViewController {
     var feedsResult = [FeedResponseResult]()
     var pageIdx = 0
     
+    //MARK: 생명주기
     override func viewDidLoad() {
         super.viewDidLoad()
         registerXib()
@@ -22,12 +23,13 @@ class MypageFeedViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        //피드초기화
+        
         pageIdx = 0
         feedsResult.removeAll()
         getFeedImage()
     }
     
+    //MARK: 컬렉션뷰셀 등록
     func registerXib() {
         let collectionCell = UINib(nibName: "MypageFeedCollectionViewCell", bundle: nil)
         collectionView.register(collectionCell, forCellWithReuseIdentifier: "MypageFeedCollectionViewCell")
@@ -36,28 +38,28 @@ class MypageFeedViewController: UIViewController {
         collectionView.dataSource = self
     }
     
+    //MARK: 피드정보가져오기
     func getFeedImage() {
         APIFeedGet().getFeedsUser(accessToken: userInfo.jwt!, pageIndex: pageIdx, size: 12, loginId: userInfo.loginId!, completion: { result in
             switch result {
             case .success(let result):
                 if self.pageIdx == 0 {
                     self.feedsResult = result
-
                 } else {
                     self.feedsResult += result
                 }
                 self.collectionView.reloadData()
-//                self.refreshControl.endRefreshing()
                 
             case .failure(let error):
                 print(error)
             }
-            
         })
     }
 }
 
-//MARK: 컬렉션뷰
+
+
+//MARK: 컬렉션뷰 데이터
 extension MypageFeedViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return feedsResult.count
@@ -79,21 +81,19 @@ extension MypageFeedViewController: UICollectionViewDelegate, UICollectionViewDa
             return CGSize(width: width , height: width )
     }
 
-    //2
     func collectionView(_ collectionView: UICollectionView,
         layout collectionViewLayout: UICollectionViewLayout,
         minimumLineSpacingForSectionAt section: Int) -> CGFloat {
             return 3
     }
 
-    //3
     func collectionView(_ collectionView: UICollectionView,
         layout collectionViewLayout: UICollectionViewLayout,
         minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
             return 3
     }
     
-    
+    //셀정보
     func setCellValue(cell: MypageFeedCollectionViewCell, indexPath: IndexPath) {
         guard let imageUrl = URL(string: self.feedsResult[indexPath.row].contentsList![0].contentsUrl!) else {
             cell.imageView.image = UIImage()

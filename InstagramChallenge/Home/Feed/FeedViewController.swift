@@ -53,7 +53,7 @@ class FeedViewController: UIViewController {
         self.navigationItem.backBarButtonItem = backBarButtonItem
     }
     
-    //MARK: UI정보가져오기
+    //MARK: 피드정보가져오기
     func getFeedInfo(pageIdx: Int) {
         APIFeedGet().getFeeds(accessToken: userToken.jwt!, pageIndex: pageIdx, size: 10) { result in
             switch result {
@@ -75,7 +75,7 @@ class FeedViewController: UIViewController {
         }
     }
     
-    //MARK: 테이블뷰 등록
+    //MARK: 테이블뷰셀 등록
     func registerTableView() {
         let storytableViewCellNib = UINib(nibName: "StoryTableViewCell", bundle: nil)
         self.feedTableView.register(storytableViewCellNib, forCellReuseIdentifier: "StoryTableViewCell")
@@ -142,7 +142,7 @@ extension FeedViewController {
 
 //MARK: 버튼액션
 extension FeedViewController {
-    //새 게시물등록을 위한 갤러리 열기 (YPImagePicker라이브러리)
+    //새 게시물등록을 위한 갤러리 열기 -YPImagePicker라이브러리
     func imagePicker() {
         var config = YPImagePickerConfiguration()
         config.screens = [.library]
@@ -231,7 +231,7 @@ extension FeedViewController: BtnDidTabdDelegate{
 
 
 
-//MARK: 테이블뷰 델리게이트
+//MARK: 테이블뷰 데이터
 extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         let offset = scrollView.contentOffset.y
@@ -299,6 +299,7 @@ extension FeedViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
     
+    //셀정보
     func setCellValue(cell: FeedTableViewCell, indexPath: IndexPath) {
         let likecount = Int.random(in: 0...30000)
         cell.labelLikeCount.text = "좋아요 \(numberFormatter(number: likecount))개"

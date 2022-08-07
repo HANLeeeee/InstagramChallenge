@@ -9,9 +9,7 @@ import UIKit
 
 class FeedCommentsViewController: UIViewController {
     let userToken = UserDefaultsData.shared.getToken()
-    var commentsResult = [CommentResponseResult]()
-    let refreshControl = UIRefreshControl()
-    
+ 
     @IBOutlet weak var viewCommentConstraint: NSLayoutConstraint!
     @IBOutlet weak var viewBgComment: UIView!
     @IBOutlet weak var viewComment: UIView!
@@ -19,12 +17,15 @@ class FeedCommentsViewController: UIViewController {
     @IBOutlet weak var tfComments: UITextField!
     @IBOutlet weak var btnCreateComments: UIButton!
     
+    var commentsResult = [CommentResponseResult]()
+    let refreshControl = UIRefreshControl()
     var pageIndex = 0
     var feedId = 0
     var userID = ""
     var commentsText = ""
     var commentsfeedDate = ""
     
+    //MARK: 생명주기
     override func viewDidLoad() {
         super.viewDidLoad()
         setUIFeedCommentsViewController()
@@ -34,7 +35,6 @@ class FeedCommentsViewController: UIViewController {
         super.viewWillAppear(animated)
         keyboardObserver()
         
-        //댓글초기화
         tfComments.text = ""
         pageIndex = 0
         commentsResult.removeAll()
@@ -46,6 +46,7 @@ class FeedCommentsViewController: UIViewController {
         keyboardObserverRemove()
     }
     
+    //MARK: UI
     func setUIFeedCommentsViewController() {
         viewBgComment.layer.cornerRadius = viewBgComment.frame.height / 2
         viewBgComment.layer.borderWidth = 1
@@ -54,6 +55,7 @@ class FeedCommentsViewController: UIViewController {
         btnCreateComments.isEnabled = false
     }
     
+    //MARK: 테이블뷰셀 등록
     func registerTableView() {
         let commentTableViewCellNib = UINib(nibName: "FeedCommentsTableViewCell", bundle: nil)
         self.tableViewComment.register(commentTableViewCellNib, forCellReuseIdentifier: "FeedCommentsTableViewCell")
@@ -67,6 +69,7 @@ class FeedCommentsViewController: UIViewController {
         tableViewComment.refreshControl = refreshControl
     }
     
+    //MARK: 댓글정보가져오기
     func setCommentsInfo(pageIdx: Int) {
         APIFeedGet().getComments(accessToken: userToken.jwt!, feedId: feedId, pageIndex: pageIdx, size: 10, completion: { result in
             switch result {
@@ -84,8 +87,23 @@ class FeedCommentsViewController: UIViewController {
             case .failure(let error):
                 print(error)
             }
-            
         })
+    }
+}
+
+
+
+
+//MARK: IBAction
+extension FeedCommentsViewController {
+    @IBAction func btnAction(_ btn: UIButton) {
+        switch btn {
+        case btnCreateComments:
+            createCommentsAction()
+            
+        default:
+            return
+        }
     }
     
     @IBAction func bgViewDidTab(_ sender: Any) {
@@ -100,17 +118,14 @@ class FeedCommentsViewController: UIViewController {
             btnCreateComments.isEnabled = true
         }
     }
-    
-    @IBAction func btnAction(_ btn: UIButton) {
-        switch btn {
-        case btnCreateComments:
-            createCommentsAction()
-            
-        default:
-            return
-        }
-    }
-    
+}
+
+
+
+
+
+//MARK: 버튼액션
+extension FeedCommentsViewController {
     func createCommentsAction() {
         APIFeedPost().createComment(accessToken: userToken.jwt!, feedId: self.feedId, commentText: tfComments.text!, completion: { result in
             switch result {
@@ -127,6 +142,11 @@ class FeedCommentsViewController: UIViewController {
     }
 }
 
+
+
+
+
+//MARK: 테이블뷰 델리게이트
 extension FeedCommentsViewController: UITableViewDelegate, UITableViewDataSource {
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         let offset = scrollView.contentOffset.y
@@ -190,6 +210,9 @@ extension FeedCommentsViewController: UITableViewDelegate, UITableViewDataSource
         return UITableView.automaticDimension
     }
 }
+
+
+
 
 
 //MARK: 키보드옵저버

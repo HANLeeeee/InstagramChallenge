@@ -101,7 +101,7 @@
                                                             <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </buttonConfiguration>
                                                         <connections>
-                                                            <action selector="btnLogoutAction:" destination="TIi-2C-UyE" eventType="touchUpInside" id="qha-uN-vpS"/>
+                                                            <action selector="btnAction:" destination="TIi-2C-UyE" eventType="touchUpInside" id="gU0-kr-HUc"/>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jw5-lB-zac">
@@ -269,6 +269,7 @@
                     <navigationItem key="navigationItem" id="BHV-HM-MBq"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="btnLogout" destination="Icx-sL-gvi" id="6eM-I2-yGc"/>
                         <outlet property="btnNewPost" destination="wbZ-Tk-5e7" id="A8f-dh-SDt"/>
                         <outlet property="labelFeedCount" destination="taH-eh-768" id="K8f-JR-mI4"/>
                         <outlet property="labelFollowerCount" destination="XiS-dP-5PJ" id="RAI-qr-4CK"/>

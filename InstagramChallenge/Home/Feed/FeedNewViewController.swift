@@ -12,14 +12,14 @@ import FirebaseCore
 class FeedNewViewController: UIViewController {
     let userInfo = UserDefaultsData.shared.getToken()
     @IBOutlet weak var barbtnNext: UIBarButtonItem!
-    
     @IBOutlet weak var textView: UITextView!
-    var pickImage = UIImage()
     @IBOutlet weak var imageViewPickImage: UIImageView!
     @IBOutlet weak var hiddenView: UIView!
     
+    var pickImage = UIImage()
     var uploadURL: String = ""
     
+    //MARK: 생명주기
     override func viewDidLoad() {
         super.viewDidLoad()
         setUIFeedNewViewController()
@@ -36,23 +36,23 @@ class FeedNewViewController: UIViewController {
         keyboardObserverRemove()
     }
     
+    //MARK: UI
     func setUIFeedNewViewController() {
         imageViewPickImage.image = pickImage
     }
 }
 
+
+
+
+//MARK: IBAction
 extension FeedNewViewController {
-    @IBAction func tabBackView(_ sender: Any) {
-        view.endEditing(true)
-    }
-    
     @IBAction func barbtnAction(_ barbtn: UIBarButtonItem) {
         switch barbtn {
         case barbtnNext:
             print("다음")
             switch barbtnNext.title{
             case "공유":
-                print("사진저장!!!")
                 if textView.text != "문구 입력...." {
                     uploadToFirebase()
                 } else {
@@ -66,16 +66,21 @@ extension FeedNewViewController {
             default:
                 return
             }
-
-
-            
         default:
             return
         }
     }
+    
+    @IBAction func tabBackView(_ sender: Any) {
+        view.endEditing(true)
+    }
 }
 
 
+
+
+
+//MARK: 피드 생성
 extension FeedNewViewController {
     func uploadToFirebase() {
         let filepath = Storage.storage().reference(withPath: "danbi/\(userInfo.loginId!)/danbi_\(getCurrentMilly()).jpg")
@@ -120,6 +125,8 @@ extension FeedNewViewController {
         return currentime
     }
 }
+
+
 
 
 //MARK: 키보드옵저버

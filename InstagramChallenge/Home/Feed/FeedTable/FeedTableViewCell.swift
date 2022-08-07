@@ -13,9 +13,6 @@ protocol BtnMoreDelegate {
 }
 
 class FeedTableViewCell: UITableViewCell {
-    var btnMoreDelegate: BtnMoreDelegate?
-    var cellIndex: Int = 0
-
     @IBOutlet weak var labelfeedLoginId: UILabel!
     @IBOutlet weak var labelfeedIdplusText: UILabel!
     @IBOutlet weak var labelfeedCreatedAt: UILabel!
@@ -23,10 +20,12 @@ class FeedTableViewCell: UITableViewCell {
     @IBOutlet weak var labelLikeCount: UILabel!
     @IBOutlet weak var imageViewFeed: UIImageView!
     @IBOutlet weak var btnMore: UIButton!
-    
     @IBOutlet var btnCommentS: [UIButton]!
     
+    var btnMoreDelegate: BtnMoreDelegate?
+    var cellIndex: Int = 0
     
+    //MARK: 생명주기
     override func awakeFromNib() {
         super.awakeFromNib()
     }
@@ -34,18 +33,23 @@ class FeedTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
-    
-    @IBAction func btnMoreAction(_ sender: Any) {
-        self.btnMoreDelegate?.btnMoreAction(index: cellIndex)
-    }
-    
+}
+
+
+
+//MARK: IBAction
+extension FeedTableViewCell {
     @IBAction func btnAction(_ btn: UIButton) {
         switch btn {
+        case btnMore:
+            self.btnMoreDelegate?.btnMoreAction(index: cellIndex)
+            
         case btnCommentS[0], btnCommentS[1], btnCommentS[2]:
             self.btnMoreDelegate?.btnCommentsAction(index: cellIndex)
             
         default:
             return
         }
+        
     }
 }

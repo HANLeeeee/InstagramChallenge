@@ -34,7 +34,7 @@ class PageViewController: UIPageViewController {
         registerPageController()
     }
     
-    //MARK: 페이지뷰 등록
+    //MARK: 페이지뷰셀 등록
     func registerPageController() {
         self.dataSource = self
         self.delegate = self
@@ -48,7 +48,7 @@ class PageViewController: UIPageViewController {
 
 
 
-//MARK: 페이지뷰 델리게이트
+//MARK: 페이지뷰 데이터
 extension PageViewController: UIPageViewControllerDataSource , UIPageViewControllerDelegate {
     func setViewControllersIndex(index: Int) {
         if index < 0 && index >= pageVCs.count {

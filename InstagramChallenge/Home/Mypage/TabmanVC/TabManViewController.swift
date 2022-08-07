@@ -9,11 +9,18 @@ import UIKit
 import Tabman
 import Pageboy
 
+//상단탭바 -Tabman라이브러리
 class TabManViewController: TabmanViewController {
     private var viewControllers: [UIViewController] = []
     
+    //MARK: 생명주기
     override func viewDidLoad() {
         super.viewDidLoad()
+        registerTabmanBar()
+    }
+    
+    //MARK: 탭맨바VC 등록
+    func registerTabmanBar() {
         let firstVC = UIStoryboard.init(name: "Mypage", bundle: nil).instantiateViewController(withIdentifier: "MypageFeedViewController") as! MypageFeedViewController
         let secondVC = UIStoryboard.init(name: "Mypage", bundle: nil).instantiateViewController(withIdentifier: "MypageTagViewController") as! MypageTagViewController
 
@@ -23,35 +30,21 @@ class TabManViewController: TabmanViewController {
         self.dataSource = self
                 
         let bar = TMBar.TabBar()
-                
-        //탭바 레이아웃 설정
         bar.layout.transitionStyle = .snap
         bar.layout.alignment = .centerDistributed
-//        bar.layout.contentMode = .intrinsic
-        //        .fit : indicator가 버튼크기로 설정됨
-//        bar.layout.interButtonSpacing = view.bounds.width / 8
-
+        bar.layout.contentInset = UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 10)
                 
-        //배경색
         bar.backgroundView.style = .clear
         bar.backgroundColor = .white
-        
-                
-        //간격설정
-        bar.layout.contentInset = UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 10)
              
-        //indicator
-//        bar.indicator.overscrollBehavior = .bounce
-        bar.indicator.tintColor = .blue
-        bar.indicator.isHidden = false
-        
-
         addBar(bar, dataSource: self, at: .top)
     }
 }
 
+
+
+//MARK: 탭맨 데이터
 extension TabManViewController: PageboyViewControllerDataSource, TMBarDataSource {
-    
     func barItem(for bar: TMBar, at index: Int) -> TMBarItemable {
         let item = TMBarItem(title: "")
         switch index {
@@ -68,7 +61,6 @@ extension TabManViewController: PageboyViewControllerDataSource, TMBarDataSource
         default:
             return item
         }
-
     }
 
     func numberOfViewControllers(in pageboyViewController: PageboyViewController) -> Int {

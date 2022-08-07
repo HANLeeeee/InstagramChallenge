@@ -12,15 +12,15 @@ class StoryTableViewCell: UITableViewCell {
     @IBOutlet weak var storyCollectionView: UICollectionView!
     override func awakeFromNib() {
         super.awakeFromNib()
-        
         registerXib()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
     }
     
+    
+    //MARK: UI
     func registerXib() {
         let collectionCell = UINib(nibName: "StoryCollectionViewCell", bundle: nil)
         storyCollectionView.register(collectionCell, forCellWithReuseIdentifier: "StoryCollectionViewCell")
@@ -30,9 +30,11 @@ class StoryTableViewCell: UITableViewCell {
                 
         storyCollectionView.contentInset = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
     }
-    
 }
 
+
+
+//MARK: 스토리 컬렉션뷰 데이터
 extension StoryTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 1
@@ -46,7 +48,5 @@ extension StoryTableViewCell: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
             return CGSize(width: 80, height: 100)
-        }
-    
-    
+    }
 }

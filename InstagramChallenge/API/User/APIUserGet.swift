@@ -38,17 +38,18 @@ class APIUserGet {
         }
     }
     
-    func searchMyPage(accessToken: String, loginId: String, mypageVC: MypageViewController) {
+    func searchMyPage(accessToken: String, loginId: String, completion: @escaping (Result<UserResponse, AFError>) -> Void) {
         AF.request(APIUserGetURL.searchMyPage(accessToken: accessToken, loginId: loginId))
             .validate()
             .responseDecodable(of: UserResponse.self) { response in
             switch response.result {
             case .success(let result):
-                if result.isSuccess {
-                    mypageVC.searchMyPagesuccessAPI(result.result!)
-                } else {
-                    print(result.code, result.message)
-                }
+                completion(.success(result))
+//                if result.isSuccess {
+//                    mypageVC.searchMyPagesuccessAPI(result.result!)
+//                } else {
+//                    print(result.code, result.message)
+//                }
             case .failure(let error):
                 print("에러에러리스폰스에러 \(error.localizedDescription)")
             }
