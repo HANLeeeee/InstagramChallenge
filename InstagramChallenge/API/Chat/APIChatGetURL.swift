@@ -12,7 +12,7 @@ enum APIChatGetURL: URLRequestConvertible {
     case searchChat(accessToken: String, pageIndex: Int, size: Int)
     
     var baseURL: URL {
-        return URL(string: "https://challenge-api.gridge.co.kr")!
+        return URL(string: BASE_URL as! String)!
     }
     
     var endPoint: String {

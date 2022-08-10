@@ -13,7 +13,7 @@ enum APIUserPostURL: URLRequestConvertible {
     case signIn(loginId: String, password: String)
     
     var baseURL: URL {
-        return URL(string: "https://challenge-api.gridge.co.kr")!
+        return URL(string: BASE_URL as! String)!
     }
     
     var endPoint: String {

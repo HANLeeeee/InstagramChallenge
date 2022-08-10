@@ -13,7 +13,7 @@ enum APIFeedPatchURL: URLRequestConvertible {
     case deleteFeed(accessToken: String, feedId: Int)
     
     var baseURL: URL {
-        return URL(string: "https://challenge-api.gridge.co.kr")!
+        return URL(string: BASE_URL as! String)!
     }
     
     var endPoint: String {

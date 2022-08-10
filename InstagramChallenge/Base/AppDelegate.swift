@@ -17,7 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UNUserNotificationCenter.current().delegate = self
 
-        KakaoSDK.initSDK(appKey: "6bf3b9bbc353619381411d68b9ac3a7d")
+        let kakaoNativeAppKey = Bundle.main.infoDictionary?["KAKAO_NATIVE_APP_KEY"] ?? ""
+        KakaoSDK.initSDK(appKey: kakaoNativeAppKey as! String)
         FirebaseApp.configure()
         
         return true

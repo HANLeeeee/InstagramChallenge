@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		934746EF284D8FDAE7E8D03E /* Pods_InstagramChallenge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 232C4B3E7C73C48E09956F98 /* Pods_InstagramChallenge.framework */; };
+		B127564A28A38DAC00508448 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B127564928A38DAC00508448 /* GoogleService-Info.plist */; };
+		B127564C28A3955900508448 /* Config.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = B127564B28A3955900508448 /* Config.xcconfig */; };
+		B127564E28A3E15200508448 /* BASE_URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = B127564D28A3E15200508448 /* BASE_URL.swift */; };
 		B15DAB4A2895ACE000BB313D /* Feed.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B15DAB492895ACE000BB313D /* Feed.storyboard */; };
 		B15DAB4C2895B73700BB313D /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15DAB4B2895B73700BB313D /* FeedViewController.swift */; };
 		B15DAB502895BAAA00BB313D /* FeedTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15DAB4F2895BAAA00BB313D /* FeedTabBarViewController.swift */; };
@@ -54,7 +57,6 @@
 		B19B0AC1289C3DD900996F4E /* MypageTagViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19B0AC0289C3DD900996F4E /* MypageTagViewController.swift */; };
 		B19B0AC3289C3EED00996F4E /* TabManViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19B0AC2289C3EED00996F4E /* TabManViewController.swift */; };
 		B1A89048289A3D8900AD6C35 /* FeedNewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A89047289A3D8900AD6C35 /* FeedNewViewController.swift */; };
-		B1A8904C289A4AC600AD6C35 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B1A8904B289A4AC600AD6C35 /* GoogleService-Info.plist */; };
 		B1A8904E289A4E1A00AD6C35 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1A8904D289A4E1A00AD6C35 /* MyPageViewController.swift */; };
 		B1B1FBE6289DB7E200E55EEC /* FeedModifyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B1FBE5289DB7E200E55EEC /* FeedModifyViewController.swift */; };
 		B1B1FBE8289DC85B00E55EEC /* APIFeedPatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B1FBE7289DC85B00E55EEC /* APIFeedPatch.swift */; };
@@ -87,6 +89,9 @@
 /* Begin PBXFileReference section */
 		232C4B3E7C73C48E09956F98 /* Pods_InstagramChallenge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InstagramChallenge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAE7366E71726112FA11D6AD /* Pods-InstagramChallenge.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramChallenge.debug.xcconfig"; path = "Target Support Files/Pods-InstagramChallenge/Pods-InstagramChallenge.debug.xcconfig"; sourceTree = "<group>"; };
+		B127564928A38DAC00508448 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B127564B28A3955900508448 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		B127564D28A3E15200508448 /* BASE_URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BASE_URL.swift; sourceTree = "<group>"; };
 		B15DAB492895ACE000BB313D /* Feed.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Feed.storyboard; sourceTree = "<group>"; };
 		B15DAB4B2895B73700BB313D /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		B15DAB4F2895BAAA00BB313D /* FeedTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTabBarViewController.swift; sourceTree = "<group>"; };
@@ -139,7 +144,6 @@
 		B19B0AC0289C3DD900996F4E /* MypageTagViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MypageTagViewController.swift; sourceTree = "<group>"; };
 		B19B0AC2289C3EED00996F4E /* TabManViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabManViewController.swift; sourceTree = "<group>"; };
 		B1A89047289A3D8900AD6C35 /* FeedNewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedNewViewController.swift; sourceTree = "<group>"; };
-		B1A8904B289A4AC600AD6C35 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B1A8904D289A4E1A00AD6C35 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		B1B1FBE5289DB7E200E55EEC /* FeedModifyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedModifyViewController.swift; sourceTree = "<group>"; };
 		B1B1FBE7289DC85B00E55EEC /* APIFeedPatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIFeedPatch.swift; sourceTree = "<group>"; };
@@ -250,6 +254,7 @@
 				F696340A28902C0D00548666 /* LaunchScreen.storyboard */,
 				F69633FF28902C0900548666 /* AppDelegate.swift */,
 				F696340128902C0900548666 /* SceneDelegate.swift */,
+				B127564B28A3955900508448 /* Config.xcconfig */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -399,6 +404,7 @@
 		B1B922D9289A6D29001440E9 /* API */ = {
 			isa = PBXGroup;
 			children = (
+				B127564D28A3E15200508448 /* BASE_URL.swift */,
 				B1F5694C289C55C2004E2CAB /* User */,
 				B1F5694D289C55CE004E2CAB /* Feed */,
 				B16588EB289EA12800B80B4F /* Chat */,
@@ -474,7 +480,7 @@
 		F69633FE28902C0900548666 /* InstagramChallenge */ = {
 			isa = PBXGroup;
 			children = (
-				B1A8904B289A4AC600AD6C35 /* GoogleService-Info.plist */,
+				B127564928A38DAC00508448 /* GoogleService-Info.plist */,
 				F696340828902C0D00548666 /* Assets.xcassets */,
 				B16B30B02891CEB300B978BD /* Base */,
 				B19722EA28927E47002B0B3B /* PublicFunc */,
@@ -550,7 +556,6 @@
 				F696340C28902C0D00548666 /* LaunchScreen.storyboard in Resources */,
 				B16588E2289E8FF400B80B4F /* YouChatTableViewCell.xib in Resources */,
 				B16588E8289E9A2800B80B4F /* MeChatTableViewCell.xib in Resources */,
-				B1A8904C289A4AC600AD6C35 /* GoogleService-Info.plist in Resources */,
 				B188C36E289D673B00363E0C /* MypageFeedCollectionViewCell.xib in Resources */,
 				B192283D28992F620059960C /* StoryTableViewCell.xib in Resources */,
 				F696340928902C0D00548666 /* Assets.xcassets in Resources */,
@@ -560,6 +565,8 @@
 				B192284728993AFA0059960C /* StoryCollectionViewCell.xib in Resources */,
 				F696340728902C0900548666 /* Login.storyboard in Resources */,
 				B192284C28993D7D0059960C /* FeedTableViewCell.xib in Resources */,
+				B127564C28A3955900508448 /* Config.xcconfig in Resources */,
+				B127564A28A38DAC00508448 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -660,6 +667,7 @@
 				B188C372289D95AA00363E0C /* BottomSheetViewController.swift in Sources */,
 				B19722EE28928DD9002B0B3B /* JoinViewController.swift in Sources */,
 				B19B0AB8289C071B00996F4E /* UserKakaoSignUpRequest.swift in Sources */,
+				B127564E28A3E15200508448 /* BASE_URL.swift in Sources */,
 				B1B1FBF0289DE8A300E55EEC /* FeedCommentsTableViewCell.swift in Sources */,
 				B1B1FBF3289DF8A500E55EEC /* DateSub.swift in Sources */,
 				B1B922F0289A9F25001440E9 /* UserPostRequest.swift in Sources */,
@@ -700,6 +708,7 @@
 /* Begin XCBuildConfiguration section */
 		F696340E28902C0D00548666 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B127564B28A3955900508448 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
@@ -761,6 +770,7 @@
 		};
 		F696340F28902C0D00548666 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B127564B28A3955900508448 /* Config.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;

@@ -13,7 +13,7 @@ enum APIKakaoPostURL: URLRequestConvertible {
     case kakaoSignIn(accessToken: String)
     
     var baseURL: URL {
-        return URL(string: "https://challenge-api.gridge.co.kr")!
+        return URL(string: BASE_URL as! String)!
     }
     
     var endPoint: String {

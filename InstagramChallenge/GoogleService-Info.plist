@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>512488347361-divbd6j0m4dlk7qn2ut1he5b4igp3ieo.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.512488347361-divbd6j0m4dlk7qn2ut1he5b4igp3ieo</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCMC8wWrAXaHEk-hQJeWm4_VJg-wPN-JbM</string>
+	<key>GCM_SENDER_ID</key>
+	<string>512488347361</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.softsquared.gridgeTest.ios.InstagraChallenge</string>
+	<key>PROJECT_ID</key>
+	<string>gride-test</string>
+	<key>STORAGE_BUCKET</key>
+	<string>gride-test.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:512488347361:ios:cc4a8bc7e0b6fa6bf109a0</string>
+	<key>DATABASE_URL</key>
+	<string>https://gride-test-default-rtdb.firebaseio.com</string>
+</dict>
+</plist>
