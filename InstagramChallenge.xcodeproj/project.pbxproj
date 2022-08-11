@@ -88,7 +88,6 @@
 		232C4B3E7C73C48E09956F98 /* Pods_InstagramChallenge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InstagramChallenge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AAE7366E71726112FA11D6AD /* Pods-InstagramChallenge.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramChallenge.debug.xcconfig"; path = "Target Support Files/Pods-InstagramChallenge/Pods-InstagramChallenge.debug.xcconfig"; sourceTree = "<group>"; };
 		B127564D28A3E15200508448 /* BASE_URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BASE_URL.swift; sourceTree = "<group>"; };
-		B127565028A3EBDC00508448 /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
 		B15DAB492895ACE000BB313D /* Feed.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Feed.storyboard; sourceTree = "<group>"; };
 		B15DAB4B2895B73700BB313D /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		B15DAB4F2895BAAA00BB313D /* FeedTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTabBarViewController.swift; sourceTree = "<group>"; };
@@ -251,7 +250,6 @@
 				F696340A28902C0D00548666 /* LaunchScreen.storyboard */,
 				F69633FF28902C0900548666 /* AppDelegate.swift */,
 				F696340128902C0900548666 /* SceneDelegate.swift */,
-				B127565028A3EBDC00508448 /* Config.xcconfig */,
 			);
 			path = Base;
 			sourceTree = "<group>";
