@@ -13,7 +13,7 @@ enum APIFeedPostURL: URLRequestConvertible {
     case createComment(accessToken: String, feedId: Int, commentText: String)
     
     var baseURL: URL {
-        return URL(string: BASE_URL as! String)!
+        return URL(string: BASE_URL)!
     }
     
     var endPoint: String {
