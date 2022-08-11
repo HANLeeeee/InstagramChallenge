@@ -14,7 +14,7 @@ enum APIUserGetURL: URLRequestConvertible {
     case searchMyPage(accessToken: String, loginId: String)
     
     var baseURL: URL {
-        return URL(string: BASE_URL as! String)!
+        return URL(string: "https://challenge-api.gridge.co.kr")!
     }
     
     var endPoint: String {

@@ -12,7 +12,7 @@ enum APIChatPostURL: URLRequestConvertible {
     case createChat(accessToken: String, content: String)
     
     var baseURL: URL {
-        return URL(string: BASE_URL as! String)!
+        return URL(string: BASE_URL)!
     }
     
     var endPoint: String {

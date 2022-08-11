@@ -14,7 +14,7 @@ enum APIFeedGetURL: URLRequestConvertible {
     case getComments(accessToken: String, feedId: Int, pageIndex: Int, size: Int)
     
     var baseURL: String {
-        return BASE_URL as! String
+        return BASE_URL
     }
     
     var endPoint: String {
